@@ -4,7 +4,7 @@
         <div class="page-wrap" :class="title.tabClass">
             <mt-tab-container class="page-tabbar-container" v-model="selected">
                 <mt-tab-container-item id="plan">
-                    <!-- <kjview></kjview> -->
+                    <kjview></kjview>
                     <plan></plan>
                 </mt-tab-container-item>
                 <mt-tab-container-item id="shujufenxi">
@@ -39,12 +39,12 @@
 
 
 <script>
-// import mHeader from '../components/hearder/Hearder';
+import mHeader from '../components/hearder/Hearder';
 import plan from './plan'
 import shujufenxi from './shujufenxi'
 import lishikaijiang from './lishikaijiang'
 import wo from './wo'
-// import kjview from '../components/kjview/kjview'
+import kjview from '../components/kjview/kjview'
 
 
 const titleList = [
@@ -141,10 +141,12 @@ export default {
     },
 
     components: {
+        mHeader,
         plan,
         shujufenxi,
         lishikaijiang,
         wo,
+        kjview,
     },
     watch: {
         selected(val, oldVal) {
@@ -203,8 +205,10 @@ export default {
     }
 }
 
-
+.mint-tabbar>.mint-tab-item {
+    color: gray;
+}
 .mint-tabbar>.mint-tab-item.is-selected {
-    color: rgb(229, 87, 77);
+    color: rgb(214, 49, 56);
 }
 </style>
