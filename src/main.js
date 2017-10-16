@@ -17,6 +17,14 @@ Vue.config.productionTip = false
 Vue.use(Mint);
 Vue.use(ElementUI);
 
+
+Vue.prototype.$post = post;
+Vue.prototype.$fetch = fetch;
+Vue.prototype.$patch = patch;
+Vue.prototype.$put = put;
+Vue.prototype.$http = axios;
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
