@@ -284,19 +284,19 @@ export default {
             }
 
 
-            let signStr = this.user.sid + this.user.name + '4YCW1.0' + sha256.sha256(this.user.pwd).toUpperCase();
+            let signStr = this.user.sid + this.user.name + '4ZYZJ1.0' + sha256.sha256(this.user.pwd).toUpperCase();
             console.log(signStr);
             let data = new FormData();
             data.append('Action', 'Login');
             data.append('SID', this.user.sid);
             data.append('Account', this.user.name);
             data.append('AppType', '4');
-            data.append('AppCode', 'YCW');
+            data.append('AppCode', 'ZYZJ');
             data.append('AppVersion', '1.0');
             data.append('Sign', sha256.sha256(signStr).toUpperCase());
 
             localStorage.pwd = sha256.sha256(this.user.pwd).toUpperCase();
-            this.$http.post('https://ycwidx.cpnet.com', data).then(res => {
+            this.$http.post('https://idx.camew.com', data).then(res => {
                 // console.log(res);
                 // this.setCookie('UID', res.data.Data.UID, 1000 * 60 * 60 * 24 * 15)
                 if (res) {

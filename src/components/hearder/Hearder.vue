@@ -3,7 +3,7 @@
         <div class="header">
             <div class="title-wrapper">
                 <span v-if="title.showBack" class="back" @click="back">
-                    <img src="../../../static/images/back.png" alt="返回" />
+                    <img style="width:15px;" src="../../../static/images/back.png" alt="返回" />
                 </span>
 
                 <span v-if="title.showQH" class="back" @click="qhCaizhong">
@@ -41,7 +41,7 @@
     z-index: 1;
     .header {
         height: 44px;
-        background-color: rgb(214, 49, 56);
+        background-color: rgb(214, 49, 70);
         line-height: 44px;
         text-align: center; // background-image: url('../../../static/images/topbg.png');
         // background-repeat: no-repeat;
