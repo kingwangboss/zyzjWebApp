@@ -4,18 +4,16 @@
         <div class="middleLine">
         </div>
 
-        <div v-show="AuthType != '1'" class="middlecontainer">
-            <!-- <span class="textbtn first" style="border-left-width: 1px;" @click="xzCaizhongClick">选择彩种</span> -->
-            
-            <span class="textbtn" @click="planShareClick">计划分享</span>
-            <span class="textbtn" @click="qhClick">切换公式</span>
-            <span class="textbtn" @click="changePlanClick">更改计划</span>
-            
+        <div class="middlecontainer">
+            <span class="textbtn" style="border-left: 1px solid gray;" @click="planShareClick">计划分享</span>
+            <span class="textbtn" style="border-left: 1px solid gray;" @click="qhClick">切换公式</span>
+            <span class="textbtn" style="border-left: 1px solid gray;" @click="changePlanClick">更改计划</span>
+            <span class="textbtn" style="display:none" @click="changePlanClick">近{{PlanData.CycleCount}}期计划
+
+            </span>
         </div>
 
-        <div class="middleLine">
-        </div>
-
+       
 
         <plancell :data="PlanData"></plancell>
 
@@ -41,7 +39,6 @@
         justify-content: flex-end;
         background: rgb(249, 249, 241);
         .textbtn {
-
             font-size: 13px;
             width: 20%;
             margin-top: 5px;
@@ -54,15 +51,7 @@
             text-align: center;
             color: #767676;
             
-            &.first {
-                border-top-left-radius: 7.5px;
-                border-bottom-left-radius: 7.5px;
-            }
-            &.last {
-                border-top-right-radius: 7.5px;
-                border-bottom-right-radius: 7.5px;
-                width: 28%;
-            }
+            
         }
         .icon {
             width: 10px;
@@ -80,6 +69,7 @@
         background: rebeccapurple;
     }
     .bottom-title {
+      margin-top: 10px;
         text-align: center;
         font-size: 12.5px;
         color: gray;
@@ -90,7 +80,7 @@
 
 <script>
 import plancell from '../components/plancell/plancell'
-
+let AllData = require('../../static/data/GetPlanData2')
 import sha256 from '../util/sha256'
 import { MessageBox } from 'mint-ui'
 export default {
@@ -104,7 +94,7 @@ export default {
         plancell,
     },
     created() {
-        // this.PlanData = AllData.Data
+        this.PlanData = AllData.Data
 
     },
     methods: {
@@ -131,6 +121,11 @@ export default {
             })
         },
         
+        // xzCaizhongClick() {
+        //     this.$router.push({
+        //         path: '/XZcaizhong'
+        //     })
+        // },
         planShareClick() {
             this.$router.push({
                 path: '/planShare'
