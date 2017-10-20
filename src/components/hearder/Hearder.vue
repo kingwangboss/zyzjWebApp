@@ -175,17 +175,17 @@ export default {
             localStorage.sid = localStorage.sid1;
             localStorage.czname = localStorage.czname1;
             if (localStorage.isLogin == 'true') {
-                let signStr = localStorage.sid + localStorage.Username + '4YCW1.0' + localStorage.pwd;
+                let signStr = localStorage.sid + localStorage.Username + '4ZYZJ1.0' + localStorage.pwd;
                 let data = new FormData();
                 data.append('Action', 'Login');
                 data.append('SID', localStorage.sid);
                 data.append('Account', localStorage.Username);
                 data.append('AppType', '4');
-                data.append('AppCode', 'YCW');
+                data.append('AppCode', 'ZYZJ');
                 data.append('AppVersion', '1.0');
                 data.append('Sign', sha256.sha256(signStr).toUpperCase());
 
-                this.$http.post('https://ycwidx.cpnet.com', data).then(res => {
+                this.$http.post('https://idx.camew.com', data).then(res => {
                     if (res) {
 
                         localStorage.uid = res.data.Data.UID;

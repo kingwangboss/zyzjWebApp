@@ -111,6 +111,7 @@
             width: 18px;
             height: 18px;
             line-height: 18px;
+            color: rgb(67, 133, 223);
             background-image: url('../../../static/images/quan.png');
             background-size: 100% 100%;
         }
