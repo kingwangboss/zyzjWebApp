@@ -48,10 +48,8 @@
     </div>
     <div class="line">
     </div>
-    
-    <div class="bottom-btndiv">
-      <el-button type="text" class="bottom-btn" @click="loginOut">退出登录</el-button>
-    </div>
+
+    <el-button type="text" class="bottom-btn" @click="loginOut">退出登录</el-button>
 
   </div>
 </template>
@@ -105,6 +103,19 @@
     text-align: center;
     font-size: 20px; // color: gray;
   }
+}
+
+.bottom-btn {
+  // background-image: url('../../static/images/me/User-12.png');
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  background: red;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 70%;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
 }
 </style>
 
