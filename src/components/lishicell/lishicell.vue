@@ -141,7 +141,6 @@ export default {
     justify-content: flex-start;
     text-align: center;
     margin-top: 2.5px;
-    margin-bottom: 5px;
 }
 
 .num {
