@@ -34,7 +34,7 @@
                 </form>
 
                 <div class="bottom">
-                    <router-link class="bottom-left" to="/lossPwd">忘记密码</router-link>
+                    <router-link class="bottom-left" to="/lossPwd1">忘记密码</router-link>
                     <router-link class="bottom-right" to="/regist">注册</router-link>
                 </div>
 
@@ -63,7 +63,7 @@
 }
 
 .maincontainer {
-    background-image: url('../../static/images/login/Loginbg.png');
+    background-image: url('../../static/images/login/Loginbg1.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;

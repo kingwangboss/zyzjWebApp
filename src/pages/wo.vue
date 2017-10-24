@@ -7,42 +7,42 @@
 
     <div class="line">
     </div>
-    <div class="cell">
+    <div class="cell" @click="buyClick">
       <img src="../../static/images/me/gm.png" alt="">
       <span>购买授权</span>
     </div>
     <div class="line">
     </div>
 
-    <div class="cell">
+    <div class="cell" @click="kefuClick">
       <img src="../../static/images/me/kf.png" alt="">
       <span>在线客服</span>
     </div>
     <div class="line">
     </div>
 
-    <div class="cell">
+    <div class="cell" @click="shouquanClick">
       <img src="../../static/images/me/sq.png" alt="">
       <span>我的授权</span>
     </div>
     <div class="line">
     </div>
 
-    <div class="cell">
+    <div class="cell" @click="XGpwdClick">
       <img src="../../static/images/me/mmgl.png" alt="">
       <span>密码管理</span>
     </div>
     <div class="line">
     </div>
 
-    <div class="cell">
+    <div class="cell" @click="feedbackClick">
       <img src="../../static/images/me/yjfk.png" alt="">
       <span>意见反馈</span>
     </div>
     <div class="line">
     </div>
 
-    <div class="cell">
+    <div class="cell" @click="aboutClick">
       <img src="../../static/images/me/gywm.png" alt="">
       <span>关于我们</span>
     </div>
@@ -85,7 +85,7 @@
 
 .cell {
   width: auto;
-  height: 64px; // border: 1px solid gray; 
+  height: 54px; // border: 1px solid gray; 
   // border-style: none solid solid none;
   flex-direction: row; // background: red;
   display: -webkit-flex;
@@ -109,7 +109,7 @@
   // background-image: url('../../static/images/me/User-12.png');
   // background-repeat: no-repeat;
   // background-size: 100% 100%;
-  background: red;
+  background: rgb(214, 49, 70);
   margin-top: 40px;
   margin-bottom: 20px;
   width: 70%;
@@ -126,6 +126,73 @@ export default {
     return {
       screenWidth: document.body.clientWidth,
       nickname: localStorage.Username
+    }
+  },
+
+  methods: {
+    loginOut() {
+      // localStorage.clear();
+      localStorage.isLogin = false;
+      // localStorage.removeItem('isLogin');
+      // localStorage.removeItem('sid');
+      localStorage.removeItem('uid');
+      localStorage.removeItem('AuthTypeName');
+      localStorage.removeItem('SiteUrl');
+      localStorage.removeItem('AuthType');
+      localStorage.removeItem('Username');
+      localStorage.removeItem('Token');
+      localStorage.removeItem('PayType');
+      localStorage.removeItem('QQUrl');
+      localStorage.removeItem('tokenCode');
+      localStorage.removeItem('OfficialUrl');
+      localStorage.removeItem('tab');
+      localStorage.removeItem('shujufenxi');
+      localStorage.removeItem('activeName2');
+      
+      this.$router.push({
+        path: '/',
+      })
+    },
+    kefuClick() {
+      window.location.href = localStorage.QQUrl;
+      // window.open();
+    },
+    shouquanClick() {
+      this.$router.push({
+        path: "/wo/shouquan"
+      })
+    },
+    XGpwdClick() {
+      this.$router.push({
+        path: "/wo/XGpwd"
+      })
+    },
+    feedbackClick() {
+      this.$router.push({
+        path: "/wo/feeback"
+      })
+    },
+    aboutClick() {
+      this.$router.push({
+        path: "/wo/about"
+      })
+    },
+    buyClick() {
+      this.$router.push({
+        path: "/buy"
+      })
+    }
+  },
+  watch: {
+    screenWidth(val) {
+      if (!this.timer) {
+        this.screenWidth = val
+        this.timer = true
+        let that = this
+        setTimeout(function() {
+          that.timer = false
+        }, 400)
+      }
     }
   },
 }
