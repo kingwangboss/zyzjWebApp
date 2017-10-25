@@ -10,7 +10,6 @@ import lossPwdVC1 from '@/pages/lossPwd1'
 import registVC from '@/pages/regist'
 import isNeedLogin from '@/pages/isNeedLogin'
 import error from '@/pages/error'
-import planShare from '@/pages/planShare'
 import setting1 from '@/pages/shujufenxi/setting1'
 import setting2 from '@/pages/shujufenxi/setting2'
 import setting3 from '@/pages/shujufenxi/setting3'
@@ -80,11 +79,6 @@ export default new Router({
       path: '/changePlan',
       name: 'changePlan',
       component: changePlan
-    },
-    {
-      path: '/planShare',
-      name: 'planShare',
-      component: planShare
     },
     {
       path: '/shujufenxi/setting1',
