@@ -5,15 +5,16 @@
         </div>
 
         <div class="middlecontainer">
-            <span class="textbtn" style="border-left: 1px solid gray;" @click="planShareClick">计划分享</span>
-            <span class="textbtn" style="border-left: 1px solid gray;" @click="qhClick">切换公式</span>
-            <span class="textbtn" style="border-left: 1px solid gray;" @click="changePlanClick">更改计划</span>
+            <span class="textbtn" style="border-left: 1px solid #ededed;" @click="planShareClick">计划分享</span>
+            <span class="textbtn" style="border-left: 1px solid #ededed;" @click="qhClick">切换公式</span>
+            <span class="textbtn" style="border-left: 1px solid #ededed;" @click="changePlanClick">更改计划</span>
             <span class="textbtn" style="display:none" @click="changePlanClick">近{{PlanData.CycleCount}}期计划
 
             </span>
         </div>
 
-       
+       <div class="middleLine">
+        </div>
 
         <plancell :data="PlanData"></plancell>
 
@@ -49,7 +50,7 @@
             background: rgba(0, 0, 0, 0);
             // border-left-width: 0px;
             text-align: center;
-            color: #767676;
+            color: black;
             
             
         }

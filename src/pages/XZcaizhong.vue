@@ -44,11 +44,12 @@
         align-items: center;
         padding: 0px 20px 0px 20px;
         font-size: 13px;
-        color: black;
+        color: rgb(80, 80, 80);
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
-        border-radius: 0px;
-        border: 1px solid rgb(222, 222, 222);
+        border-radius: 3px;
+        // border: 1px solid rgb(222, 222, 222);
+        border: 1px solid gray;
     }
     .btnSelect {
         height: 30px;
@@ -64,8 +65,8 @@
         color: #f82b56;
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')
-        border-radius: 0px;
-        border: 1px solid #f82b56;
+        border-radius: 3px;
+        border: 1px solid gray;
     }
 
 }

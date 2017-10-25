@@ -24,6 +24,10 @@
                     <span>确定</span>
                 </span>
 
+                <span v-if="title.changePlan" class="right" @click="changePlanClick">
+                    <span>确定</span>
+                </span>
+
                 <span v-if="title.changeOK" class="right" @click="changeOkClick">
                     <span>确定</span>
                 </span>
@@ -169,6 +173,24 @@ export default {
             } else {
 
             }
+        },
+
+        changePlanClick(){
+            let tokenCode = localStorage.tokenCode;
+            let signStr = 'Action=UpdatePlanList' + '&SID=' + localStorage.sid + '&Token=' + localStorage.Token + '&PlanList=' + localStorage.selectNameArr + tokenCode;
+            let data = new FormData();
+            data.append('Action', 'UpdatePlanList');
+            data.append('SID', localStorage.sid);
+            data.append('Token', localStorage.Token);
+            data.append('PlanList', localStorage.selectNameArr);
+            data.append('Sign', sha256.sha256(signStr).toUpperCase());
+            this.$http.post(localStorage.SiteUrl, data).then(res => {
+                // this.planNameData = res.data.Data;
+                this.$router.go(-1);
+
+            }).catch(error => {
+                console.log(error);
+            })
         },
 
         changeOkClick() {

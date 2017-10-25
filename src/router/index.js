@@ -3,12 +3,18 @@ import Router from 'vue-router'
 import PlanVC from '@/pages/planVC'
 import loginVC from '@/pages/login'
 import routerPush from '@/pages/routerPush'
+import changePlan from '@/pages/changePlan'
 import XZcaizhong from '@/pages/XZcaizhong'
 import lossPwdVC from '@/pages/lossPwd'
 import lossPwdVC1 from '@/pages/lossPwd1'
 import registVC from '@/pages/regist'
 import isNeedLogin from '@/pages/isNeedLogin'
 import error from '@/pages/error'
+import setting1 from '@/pages/shujufenxi/setting1'
+import setting2 from '@/pages/shujufenxi/setting2'
+import setting3 from '@/pages/shujufenxi/setting3'
+import setting4 from '@/pages/shujufenxi/setting4'
+
 Vue.use(Router)
 
 export default new Router({
@@ -64,6 +70,32 @@ export default new Router({
       path: '/XZcaizhong',
       name: 'XZcaizhong',
       component: XZcaizhong
+    },
+    {
+      path: '/changePlan',
+      name: 'changePlan',
+      component: changePlan
+    },
+
+    {
+      path: '/shujufenxi/setting1',
+      name: 'setting1',
+      component: setting1
+    },
+    {
+      path: '/shujufenxi/setting2',
+      name: 'setting2',
+      component: setting2
+    },
+    {
+      path: '/shujufenxi/setting3',
+      name: 'setting3',
+      component: setting3
+    },
+    {
+      path: '/shujufenxi/setting4',
+      name: 'setting4',
+      component: setting4
     },
 
   ]
