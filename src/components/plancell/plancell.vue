@@ -1,8 +1,10 @@
 <template>
     <div>
-        <div class="bottomcontainer" v-for="(cell,index) in data.Data" :key="cell.PlanArr" @click="pushDetail($event,index)">
+        <div class="bottomcontainer" v-for="(cell,index) in data.Data" :key="cell.PlanArr" @click="pushDetail($event,index)" >
 
-            <div class="cell-top">
+        
+            <div v-if="index%2 === 0" style="background:#fff;">
+                <div class="cell-top">
                 <div class="cell-top-left">
                     <img src="../../../static/images/plan17.png" alt="">
                     <span>{{cell.Name}}</span>
@@ -29,7 +31,41 @@
                 <img class="item3" v-else-if="cell.DSType === 1" src="../../../static/images/sha.png" alt="">
                 <span class="item4">{{cell.GuessValue}}</span>
             </div>
+            </div>
+
+            <div v-else style="background:rgb(250,250,250);">
+                <div class="cell-top">
+                <div class="cell-top-left">
+                    <img src="../../../static/images/plan17.png" alt="">
+                    <span>{{cell.Name}}</span>
+                </div>
+
+                <div class="cell-top-right">
+                    <div class="diandian">
+
+                        <div v-for="item in dian[index]" :key="item">
+                            <div v-if="item === '1'" class="dianMiddle" style="background:#30bb78;"></div>
+                            <div v-else-if="item === '0'" class="dianMiddle" style="background:#d82e4b;"></div>
+                            <div v-else class="dianMiddle" style="background:black;"></div>
+                        </div>
+                    </div>
+                    <span class="baifenbi">{{cell.GuessPercent}}</span>
+                </div>
+
+            </div>
+
+            <div class="cell-bottom">
+                <span class="item1">{{cell.PlanSection}}</span>
+                <div class="item2">{{cell.EndIndex ? cell.EndIndex : 1}}</div>
+                <img class="item3" v-if="cell.DSType === 0" src="../../../static/images/ding.png" alt="">
+                <img class="item3" v-else-if="cell.DSType === 1" src="../../../static/images/sha.png" alt="">
+                <span class="item4">{{cell.GuessValue}}</span>
+            </div>
+            </div>
         </div>
+
+        
+        
     </div>
 </template>
 
