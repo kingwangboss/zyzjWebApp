@@ -3,7 +3,7 @@
         <div class="header">
             <div class="title-wrapper">
                 <span v-if="title.showBack" class="back" @click="back">
-                    <img style="width:15px;" src="../../../static/images/back.png" alt="返回" />
+                    <img style="width:10px;" src="../../../static/images/back.png" alt="返回" />
                 </span>
 
                 <span v-if="title.showQH" class="back" @click="qhCaizhong">
@@ -61,8 +61,8 @@
                 font-weight: 500;
             }
             .back {
-                width: 12%;
-                margin-left: -40px;
+                width: 10%;
+                margin-left: -60px;
                 img {
                     width: 20px;
                     height: 20px;

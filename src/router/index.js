@@ -10,10 +10,15 @@ import lossPwdVC1 from '@/pages/lossPwd1'
 import registVC from '@/pages/regist'
 import isNeedLogin from '@/pages/isNeedLogin'
 import error from '@/pages/error'
+import planShare from '@/pages/planShare'
 import setting1 from '@/pages/shujufenxi/setting1'
 import setting2 from '@/pages/shujufenxi/setting2'
 import setting3 from '@/pages/shujufenxi/setting3'
 import setting4 from '@/pages/shujufenxi/setting4'
+import about from '@/pages/wo/about'
+import feeback from '@/pages/wo/feeback'
+import shouquan from '@/pages/wo/shouquan'
+import XGpwd from '@/pages/wo/XGpwd'
 
 Vue.use(Router)
 
@@ -76,7 +81,11 @@ export default new Router({
       name: 'changePlan',
       component: changePlan
     },
-
+    {
+      path: '/planShare',
+      name: 'planShare',
+      component: planShare
+    },
     {
       path: '/shujufenxi/setting1',
       name: 'setting1',
@@ -96,6 +105,26 @@ export default new Router({
       path: '/shujufenxi/setting4',
       name: 'setting4',
       component: setting4
+    },
+    {
+      path: '/wo/about',
+      name: 'about',
+      component: about
+    },
+    {
+      path: '/wo/feeback',
+      name: 'feeback',
+      component: feeback
+    },
+    {
+      path: '/wo/shouquan',
+      name: 'shouquan',
+      component: shouquan
+    },
+    {
+      path: '/wo/XGpwd',
+      name: 'XGpwd',
+      component: XGpwd
     },
 
   ]
