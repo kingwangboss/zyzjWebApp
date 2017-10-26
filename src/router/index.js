@@ -18,6 +18,7 @@ import about from '@/pages/wo/about'
 import feeback from '@/pages/wo/feeback'
 import shouquan from '@/pages/wo/shouquan'
 import XGpwd from '@/pages/wo/XGpwd'
+import PlanDetail from '@/pages/planDetail'
 
 Vue.use(Router)
 
@@ -74,6 +75,11 @@ export default new Router({
       path: '/XZcaizhong',
       name: 'XZcaizhong',
       component: XZcaizhong
+    },
+    {
+      path: '/planVC/planDetail',
+      name: 'PlanDetail',
+      component: PlanDetail
     },
     {
       path: '/changePlan',
