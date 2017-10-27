@@ -14,6 +14,7 @@ import setting1 from '@/pages/shujufenxi/setting1'
 import setting2 from '@/pages/shujufenxi/setting2'
 import setting3 from '@/pages/shujufenxi/setting3'
 import setting4 from '@/pages/shujufenxi/setting4'
+import buy from '@/pages/buy'
 import about from '@/pages/wo/about'
 import feeback from '@/pages/wo/feeback'
 import shouquan from '@/pages/wo/shouquan'
@@ -125,6 +126,11 @@ export default new Router({
       path: '/wo/XGpwd',
       name: 'XGpwd',
       component: XGpwd
+    },
+    {
+      path: '/buy',
+      name: 'buy',
+      component: buy
     },
 
   ]

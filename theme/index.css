@@ -2820,7 +2820,7 @@
     cursor: pointer;
     background: #fff;
     border: 1px solid rgb(217, 195, 191);
-    border-color: #c4c4c4;
+    border-color: #b7b7b7;
     color: rgb(61, 36, 31);
     -webkit-appearance: none;
     text-align: center;
@@ -2870,11 +2870,11 @@
 }
 .el-button.is-disabled {}
 .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
 }
 .el-button.is-disabled.el-button--text {
     background-color: transparent;
@@ -4771,11 +4771,11 @@
 }
 .el-radio-button__orig-radio:disabled {}
 .el-radio-button__orig-radio:disabled + .el-radio-button__inner {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
     box-shadow: none;
 }
 .el-radio-button--large {}
@@ -5023,11 +5023,11 @@
 }
 .el-checkbox-button.is-disabled {}
 .el-checkbox-button.is-disabled .el-checkbox-button__inner {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
     box-shadow: none;
 }
 .el-checkbox-button.is-focus {}
@@ -6567,7 +6567,7 @@
     cursor: pointer;
     background: #fff;
     border: 1px solid rgb(217, 195, 191);
-    border-color: #c4c4c4;
+    border-color: #b7b7b7;
     color: rgb(61, 36, 31);
     -webkit-appearance: none;
     text-align: center;
@@ -6617,11 +6617,11 @@
 }
 .el-button.is-disabled {}
 .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
 }
 .el-button.is-disabled.el-button--text {
     background-color: transparent;
@@ -7175,11 +7175,11 @@
 }
 .el-checkbox-button.is-disabled {}
 .el-checkbox-button.is-disabled .el-checkbox-button__inner {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
     box-shadow: none;
 }
 .el-checkbox-button.is-focus {}
@@ -8126,11 +8126,11 @@
 }
 .el-checkbox-button.is-disabled {}
 .el-checkbox-button.is-disabled .el-checkbox-button__inner {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
     box-shadow: none;
 }
 .el-checkbox-button.is-focus {}
@@ -13083,7 +13083,7 @@
     cursor: pointer;
     background: #fff;
     border: 1px solid rgb(217, 195, 191);
-    border-color: #c4c4c4;
+    border-color: #b7b7b7;
     color: rgb(61, 36, 31);
     -webkit-appearance: none;
     text-align: center;
@@ -13133,11 +13133,11 @@
 }
 .el-button.is-disabled {}
 .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
 }
 .el-button.is-disabled.el-button--text {
     background-color: transparent;
@@ -22172,7 +22172,7 @@
     cursor: pointer;
     background: #fff;
     border: 1px solid rgb(217, 195, 191);
-    border-color: #c4c4c4;
+    border-color: #b7b7b7;
     color: rgb(61, 36, 31);
     -webkit-appearance: none;
     text-align: center;
@@ -22222,11 +22222,11 @@
 }
 .el-button.is-disabled {}
 .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
 }
 .el-button.is-disabled.el-button--text {
     background-color: transparent;
@@ -22779,11 +22779,11 @@
 }
 .el-checkbox-button.is-disabled {}
 .el-checkbox-button.is-disabled .el-checkbox-button__inner {
-    color: rgb(217, 195, 191);
+    color: rgba(0,0,0,0.5);
     cursor: not-allowed;
     background-image: none;
-    background-color: rgb(246, 240, 238);
-    border-color: rgb(229, 213, 209);
+    background-color: rgba(255,255,255,0);
+    border-color: #b7b7b7;
     box-shadow: none;
 }
 .el-checkbox-button.is-focus {}

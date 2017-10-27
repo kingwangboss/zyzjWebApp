@@ -350,15 +350,15 @@
   
     --button-default-color: var(--color-base-black);
     --button-default-fill: var(--color-white);
-    --button-default-border: #c4c4c4;
+    --button-default-border: #b7b7b7;
   
-    --button-ghost-color: #666;
+    --button-ghost-color: rgb(145, 132, 132);
     --button-ghost-fill: transparent;
     --button-ghost-border: none;
   
-    --button-disabled-color: var(--color-extra-light-silver);
-    --button-disabled-fill: var(--color-extra-light-gray);
-    --button-disabled-border: var(--disabled-border-base);
+    --button-disabled-color: rgba(0,0,0,0.5);
+    --button-disabled-fill: rgba(255,255,255,0);
+    --button-disabled-border: #b7b7b7;
   
     --button-primary-border: var(--color-primary);
     --button-primary-color: var(--color-white);
