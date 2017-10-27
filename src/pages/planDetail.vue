@@ -66,7 +66,7 @@
                                 <span style="line-height:20px;margin-left:5px;font-size:13px;">{{itemCell.split('|')[3]}}</span>
                                 <span v-if="itemCell.split('|')[3]" style="font-size:13px;line-height:20px;">期</span>
                                 <span style="line-height:20px;font-size:13px;margin-left:5px; color:#007AFF">开</span>
-                                <span style="line-height:20px;font-size:13px;margin-left:5px; color:#007AFF">{{itemCell.split('|')[4]}}</span>
+                                <span style="line-height:20px;font-size:12px; color:#007AFF">{{itemCell.split('|')[4]}}</span>
 
                             </div>
 
