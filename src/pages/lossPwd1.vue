@@ -146,7 +146,7 @@ export default {
                 data.append('Action', 'QueryUserByAccount');
                 data.append('Account', this.user.username);
                 data.append('ImgCode', this.user.vcode + this.user.verify);
-
+                localStorage.Username = this.user.username;
                 this.$http.post('https://idx.camew.com', data).then(res => {
                     console.log(res);
                     if (res.data.Code == 'Suc') {

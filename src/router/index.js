@@ -10,6 +10,7 @@ import lossPwdVC1 from '@/pages/lossPwd1'
 import registVC from '@/pages/regist'
 import isNeedLogin from '@/pages/isNeedLogin'
 import error from '@/pages/error'
+import planShare from '@/pages/planShare'
 import setting1 from '@/pages/shujufenxi/setting1'
 import setting2 from '@/pages/shujufenxi/setting2'
 import setting3 from '@/pages/shujufenxi/setting3'
@@ -20,6 +21,7 @@ import feeback from '@/pages/wo/feeback'
 import shouquan from '@/pages/wo/shouquan'
 import XGpwd from '@/pages/wo/XGpwd'
 import PlanDetail from '@/pages/planDetail'
+import test from '@/pages/test'
 
 Vue.use(Router)
 
@@ -131,6 +133,16 @@ export default new Router({
       path: '/buy',
       name: 'buy',
       component: buy
+    },
+    {
+      path: '/planShare',
+      name: 'planShare',
+      component: planShare
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
     },
 
   ]
