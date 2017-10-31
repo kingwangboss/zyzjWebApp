@@ -48,10 +48,9 @@
       <el-dialog :visible.sync="dialogVisible" size="small" :before-close="handleClose">
             <span slot="title" class="dialog-header">更改联系方式</span>
             <div class="dialog-main">
-                <div>
-                    <el-radio  v-model="radio" label="1">QQ</el-radio>
-                <el-radio  v-model="radio" label="2">微信</el-radio>
-                    
+                <div style="display:flex;flex-direction: row;justify-content:space-around">
+                    <div @click="qhradio"><el-radio class="radio"  v-model="radio" label="1">QQ</el-radio></div>
+                    <div @click="qhradio1"><el-radio class="radio"  v-model="radio" label="2">微信</el-radio></div>
                 </div>
                 <div class="dialog-input">
                     <el-input v-model="input" placeholder="请输入联系方式..."></el-input>
@@ -68,7 +67,7 @@
 
 <style lang="less" scoped>
 .dialog-input {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .top {
   display: flex;
@@ -155,9 +154,9 @@ export default {
       },
       listData: "",
       dialogVisible: false,
-      radio: '1',
+      radio: "1",
       input: "",
-      AuthType: localStorage.AuthType,
+      AuthType: localStorage.AuthType
     };
   },
   components: {
@@ -165,9 +164,14 @@ export default {
   },
 
   methods: {
-      changeHandler(value) {
-            console.log('改变之后的值是:' + value)
-        },
+    qhradio() {
+
+        this.radio = '1';
+    },
+    qhradio1() {
+
+        this.radio = '2';
+    },
     shareClick() {
       let tokenCode = localStorage.tokenCode;
       let signStr =

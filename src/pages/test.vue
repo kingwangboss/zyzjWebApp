@@ -1,16 +1,30 @@
 <template>
   <div>
-      <el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
-  <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
-  </div>
+  <el-radio-group v-model="radioSex" @click="aaaa">
+    <el-radio class="radio" label="man">男</el-radio>
+    <el-radio class="radio" label="woman">女</el-radio> 
+    <el-button @click="aaa">aaa</el-button>
+  </el-radio-group>
+</div>
 </template>
 
+
 <script>
-  export default {
+export default {
+    name: 'Radio',
     data () {
       return {
-        radio: '1'
-      };
+        radioSex: 'man'
+      }
+    },
+    methods: {
+        aaaa(){
+            console.log('a')
+        },
+        aaa(){
+            this.radioSex = 'woman';
+        }
     }
   }
 </script>
+
