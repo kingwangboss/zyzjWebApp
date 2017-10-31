@@ -21,6 +21,7 @@ import feeback from '@/pages/wo/feeback'
 import shouquan from '@/pages/wo/shouquan'
 import XGpwd from '@/pages/wo/XGpwd'
 import PlanDetail from '@/pages/planDetail'
+import setParameter from '@/pages/setParameter'
 import test from '@/pages/test'
 
 Vue.use(Router)
@@ -138,6 +139,12 @@ export default new Router({
       path: '/planShare',
       name: 'planShare',
       component: planShare
+    },
+
+    {
+      path: '/planVC/planDetail/setParameter',
+      name: 'setParameter',
+      component: setParameter
     },
     {
       path: '/test',
