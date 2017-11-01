@@ -6,18 +6,19 @@
 
         <el-tabs v-model="activeName" @tab-click="handleClick" style="color:black;">
             <kjview1></kjview1>
+            
             <el-tab-pane :label="item.PlanName" :name="index.toString()" :index="index.toString()" v-for="(item,index) in listData" :key="index">
-                <div class="bottom-cell" style="margin-right:110px;margin-top:-72px;">
+                <div class="bottom-cell" style="margin-right:110px;margin-top:-73px;">
                     <div class="cell-top" style="height:30px;">
-                        <span style="margin-left:10px;margin-top:5px;font-size:13px;">{{item.PlanDetails[0].split('|')[0]}}</span>
+                        <span style="margin-left:10px;margin-top:5px;font-size:13px;color:#878787">{{item.PlanDetails[0].split('|')[0]}}</span>
                         <span style="margin-left:5px;margin-top:5px;font-size:13px; color:#CD0C16;">预</span>
                         <span style="margin-left:5px;margin-top:5px;font-size:13px;color:#CD0C16;">{{item.PlanDetails[0].split('|')[1]}}</span>
                     </div>
                     
                     <div class="cell-bottom" style="height:20px;">
                         <span v-if="item.PlanDetails[0].split('|')[2]" class="cell-bottom-itme1">{{item.PlanDetails[0].split('|')[2]}}</span>
-                        <span style="line-height:20px;margin-left:5px;">{{item.PlanDetails[0].split('|')[3]}}</span>
-                        <span v-if="item.PlanDetails[0].split('|')[3]" style="line-height:20px;">期</span>
+                        <span style="line-height:20px;margin-left:5px;color:#6e6e6e;">{{item.PlanDetails[0].split('|')[3]}}</span>
+                        <span v-if="item.PlanDetails[0].split('|')[3]" style="line-height:20px;color:#6e6e6e;">期</span>
                     </div>      
                 </div>
                 
@@ -63,17 +64,23 @@
 
                             <div class="cell-bottom">
                                 <span v-if="itemCell.split('|')[2]" class="cell-bottom-itme1">{{itemCell.split('|')[2]}}</span>
-                                <span style="line-height:20px;margin-left:5px;font-size:13px;">{{itemCell.split('|')[3]}}</span>
-                                <span v-if="itemCell.split('|')[3]" style="font-size:13px;line-height:20px;">期</span>
-                                <span style="line-height:20px;font-size:13px;margin-left:5px; color:#007AFF">开</span>
-                                <span style="line-height:20px;font-size:12px; color:#007AFF">{{itemCell.split('|')[4]}}</span>
+                                <span style="line-height:20px;margin-left:3px;font-size:12px;color: #6e6e6e;">{{itemCell.split('|')[3]}}</span>
+                                <span v-if="itemCell.split('|')[3]" style="font-size:12px;line-height:20px;color: #6e6e6e;">期</span>
+                                <span style="line-height:20px;font-size:12px;margin-left:3px; color:#007AFF">开</span>
+                                <div style="display:inline;text-align:left">
+                                  <span style="line-height:20px;font-size:12px; color:#007AFF">{{itemCell.split('|')[4]}}</span>
+
+                                  <span v-if="itemCell.split('|')[5] === '对'" style="line-height:20px;margin-left:5px;margin-right:5px;color:#16B482;font-size:12px;">{{itemCell.split('|')[5]}}</span>
+                                  <span v-else-if="itemCell.split('|')[5] === '错' " style="line-height:20px;margin-left:5px;margin-right:5px;color:#CD0C16;font-size:12px;">{{itemCell.split('|')[5]}}</span>
+                                  <span v-else style="line-height:20px;margin-left:5px;margin-right:5px;color:#16B482;font-size:10px;">{{itemCell.split('|')[5]}}</span>
+                                </div>
 
                             </div>
 
                             <div class="cell-bottom1">
-                                <span v-if="itemCell.split('|')[5] === '对'" style="line-height:20px;margin-left:5px;margin-right:5px;color:#16B482;">{{itemCell.split('|')[5]}}</span>
+                                <!-- <span v-if="itemCell.split('|')[5] === '对'" style="line-height:20px;margin-left:5px;margin-right:5px;color:#16B482;">{{itemCell.split('|')[5]}}</span>
                                 <span v-else-if="itemCell.split('|')[5] === '错' " style="line-height:20px;margin-left:5px;margin-right:5px;color:#CD0C16;">{{itemCell.split('|')[5]}}</span>
-                                <span v-else style="line-height:20px;margin-left:5px;margin-right:5px;color:#16B482;">{{itemCell.split('|')[5]}}</span>
+                                <span v-else style="line-height:20px;margin-left:5px;margin-right:5px;color:#16B482;">{{itemCell.split('|')[5]}}</span> -->
                             </div>
                             
                         </div>
@@ -97,6 +104,7 @@
   flex-wrap: wrap;
   justify-content: space-start;
   border-bottom: 1px solid #d8d8d8;
+  border-top: 1px solid #d8d8d8;
   background: #f8ffb6;
 }
 
@@ -113,7 +121,7 @@
 }
 
 .psview {
-  color: black;
+  color: #878787;
   font-size: 12px;
 }
 
@@ -125,7 +133,6 @@
 
 .detail-bottom {
   background: #fff;
-  height: 1000rpx;
 }
 
 .bottom-cell {
@@ -175,6 +182,7 @@
   flex-direction: row;
   word-wrap: break-word;
   justify-content: flex-start;
+  color:#878787;
 }
 
 .cell-bottom {
@@ -189,10 +197,11 @@
     background-image: url("../../static/images/quan.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     color: #007aff;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 18px;
   }
   
 }
@@ -200,7 +209,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    border-bottom: 1px solid #d8d8d8
+    border-bottom: 1px solid #efefef
 }
 </style>
 

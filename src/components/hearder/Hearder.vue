@@ -65,8 +65,8 @@
         font-weight: 500;
       }
       .back {
-        width: 10%;
-        margin-left: -60px;
+        width: 50px;
+        margin-left: -50px;
         img {
           width: 20px;
           height: 20px;

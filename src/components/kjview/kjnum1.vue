@@ -12,7 +12,6 @@
     margin-top: 20px;
     flex-wrap: wrap;
     .kjnum {
-        border: 1px solid #dc736e;
         font-size: 14px;
         background: rgb(219, 60, 62);
         line-height: 30px;
@@ -24,7 +23,6 @@
         font-weight: 600;
     }
     .kjnum1 {
-        border: 1px solid #dc736e;
        font-size: 14px;
         background: rgb(63, 123, 244);
         line-height: 30px;
@@ -104,7 +102,7 @@ export default {
                 var colnum = 10;//列
                 colnum = this.numArr.length > colnum ? colnum : this.numArr.length;
                 var rownum = this.numArr.length / colnum;//行
-                margin = this.numArr.length >= 10 ? 5 : 20;//间距
+                margin = this.numArr.length >= 10 ? 4 : 20;//间距
                 ojwidth = (this.screenWidth - (2 * (margin+1) * colnum)) / colnum;//格子的宽
                 if(this.numArr.length < 10){
                     ojwidth = 30;

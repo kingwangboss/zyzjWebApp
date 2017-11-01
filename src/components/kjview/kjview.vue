@@ -187,8 +187,9 @@ export default {
     flex-direction: row;
     align-items: center;
     padding-top: 15px;
+    margin-left: 5px;
     .qishu1 {
-      font-weight: 900;
+      // font-weight: 900;
       font-size: 12px; // padding: 6px 10px 6px 5px;
       color: yellow; // background-image: url('../../../static/images/qishubg.png');
     }
@@ -203,10 +204,11 @@ export default {
     flex-direction: row;
     height: 25px;
     margin-bottom: 10px;
+    margin-left: 5px;
     .label1 {
       padding-top: 1px;
       color: yellow;
-      font-weight: 900;
+      // font-weight: 900;
       font-size: 12px;
       line-height: 25px;
       height: 25px;

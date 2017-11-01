@@ -4,7 +4,7 @@
       <span class="qishu1">第{{KJData.NewLottery.CurrentPeriod}}期开奖</span>
     </div>
 
-    <kjnum class="top-middle" :data="kjnum"></kjnum>
+    <kjnum1 class="top-middle" :data="kjnum"></kjnum1>
 
     <div class="top-bottom" v-if="time===0">
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/clock.png" alt="">
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import kjnum from "./kjnum";
+import kjnum1 from "./kjnum1";
 // var data = require('../../../static/data/clock')
 import axios from "axios";
 import http from "../../util/http";
@@ -33,7 +33,7 @@ var tiemInterval;
 var run;
 export default {
   components: {
-    kjnum
+    kjnum1
   },
 
   created() {},
@@ -187,20 +187,20 @@ export default {
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
+
   .top-top {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 15px;
     .qishu1 {
       margin-left: 10px;
       font-size: 12px; // padding: 6px 10px 6px 5px;
-      color: black; // background-image: url('../../../static/images/qishubg.png');
+      color: #6e6e6e; // background-image: url('../../../static/images/qishubg.png');
     }
   }
 
   .top-middle {
-    margin: 10px 5px 50px 5px;
+    margin: 5px 5px 40px 5px;
   }
 
   .top-bottom {

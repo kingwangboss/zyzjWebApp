@@ -96,6 +96,7 @@
         .cell-top-left {
             display: flex;
             flex-direction: row;
+            margin-left: 5px;
             img {
                 width: 17px;
                 height: 17px;
@@ -103,7 +104,7 @@
             }
             span {
                 line-height: 26px;
-                font-size: 15px;
+                font-size: 12px;
                 font-weight: 500;
             }
         }
@@ -140,27 +141,32 @@
         flex-direction: flex-start;
         margin-top: 3px;
         margin-bottom: 10px;
+        margin-left: 5px;
         .item1 {
             margin: 4px;
+            font-size: 12px;
         }
         .item2 {
+            font-size: 12px;
             margin-top: 4px;
             margin-right: 4px;
-            width: 18px;
-            height: 18px;
-            line-height: 18px;
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
             color: rgb(67, 133, 223);
             background-image: url('../../../static/images/quan.png');
             background-size: 100% 100%;
         }
         .item3 {
+
             margin-top: 4px;
             margin-right: 4px;
-            width: 18px;
-            height: 18px;
-            line-height: 18px;
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
         }
         .item4 {
+            font-size: 12px;
             margin-top: 4px;
             margin-left: 4px;
             width: 60%;
