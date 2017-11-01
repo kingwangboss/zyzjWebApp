@@ -49,7 +49,7 @@
   z-index: 1;
   .header {
     height: 44px;
-    background-color: rgb(214, 49, 70);
+    background-color: rgb(219, 60, 62);
     line-height: 44px;
     text-align: center; // background-image: url('../../../static/images/topbg.png');
     // background-repeat: no-repeat;

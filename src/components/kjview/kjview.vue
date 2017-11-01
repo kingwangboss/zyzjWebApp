@@ -1,23 +1,23 @@
 <template>
   <div class="kjview">
     <div class="top-top">
-      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;" src="../../../static/images/sj11.png" alt="">
+      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;" src="../../../static/images/sj1.png" alt="">
       <span class="qishu1">第{{KJData.NewLottery.CurrentPeriod}}期开奖</span>
     </div>
 
     <kjnum class="top-middle" :data="kjnum"></kjnum>
 
     <div class="top-bottom" v-if="time===0">
-      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj22.png" alt="">
+      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj2.png" alt="">
       <span class="label1">第{{KJData.NewLottery.NextPeriod}}期正在开奖...</span>
     </div>
     <div class="top-bottom" v-else>
-      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj22.png" alt="">
+      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj2.png" alt="">
       <span class="label1">第{{KJData.NewLottery.NextPeriod}}期开奖倒计时</span>
       <div class="img"> </div>
       <span class="sj">{{shijianArr[0]}}</span>
       <span class="sj">{{shijianArr[1]}}</span>
-      <span style="color:#FF0000;margin-top:5px;">:</span>
+      <span style="color:yellow;margin-top:5px;">:</span>
       <span class="sj">{{shijianArr[2]}}</span>
       <span class="sj">{{shijianArr[3]}}</span>
     </div>
@@ -177,7 +177,7 @@ export default {
 .kjview {
   height: auto;
   width: 100%; // background-color: red; 
-  background-color: rgb(249, 249, 241); // background: url(../../../static/images/shouyebg.png);
+  background-color: rgb(219, 60, 62); // background: url(../../../static/images/shouyebg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -190,7 +190,7 @@ export default {
     .qishu1 {
       font-weight: 900;
       font-size: 12px; // padding: 6px 10px 6px 5px;
-      color: black; // background-image: url('../../../static/images/qishubg.png');
+      color: yellow; // background-image: url('../../../static/images/qishubg.png');
     }
   }
 
@@ -205,7 +205,7 @@ export default {
     margin-bottom: 10px;
     .label1 {
       padding-top: 1px;
-      color: black;
+      color: yellow;
       font-weight: 900;
       font-size: 12px;
       line-height: 25px;

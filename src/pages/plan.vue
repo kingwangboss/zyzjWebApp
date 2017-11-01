@@ -38,7 +38,7 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        background: rgb(249, 249, 241);
+        background: #FAFAFA;
         .textbtn {
             font-size: 13px;
             width: 20%;
