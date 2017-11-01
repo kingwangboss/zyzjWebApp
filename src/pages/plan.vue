@@ -44,8 +44,8 @@
             width: 20%;
             margin-top: 5px;
             margin-bottom: 5px;
-            line-height: 20px;
-            height: 20px;
+            line-height: 25px;
+            height: 25px;
             // background: #f6f6f6;
             background: rgba(0, 0, 0, 0);
             // border-left-width: 0px;

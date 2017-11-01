@@ -33,7 +33,7 @@
             </div>
             </div>
 
-            <div v-else style="background:rgb(250,250,250);">
+            <div v-else style="background:#FAFAFA;">
                 <div class="cell-top">
                 <div class="cell-top-left">
                     <img src="../../../static/images/plan17.png" alt="">
@@ -85,14 +85,14 @@
 
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #efefef;
     word-wrap: break-word;
     justify-content: space-between;
     .cell-top {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
+        margin-top: 10px;
         .cell-top-left {
             display: flex;
             flex-direction: row;
@@ -138,6 +138,8 @@
     .cell-bottom {
         display: flex;
         flex-direction: flex-start;
+        margin-top: 3px;
+        margin-bottom: 10px;
         .item1 {
             margin: 4px;
         }
