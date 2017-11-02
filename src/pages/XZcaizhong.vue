@@ -35,38 +35,39 @@
     margin-bottom: 20px;
     // height: 50px;
     .btn {
-        height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
         color: rgb(80, 80, 80);
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
         border-radius: 3px;
         // border: 1px solid rgb(222, 222, 222);
-        border: 1px solid gray;
+        border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 30px;
-        line-height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: #f82b56;
+        color: #d63138;
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')
         border-radius: 3px;
-        border: 1px solid gray;
+        border: 1px solid #c4c4c4;
     }
 
 }
@@ -75,7 +76,7 @@
 
 .line {
     height: 1px;
-    background: #D8D8D8;
+    background: #efefef;
 }
 </style>
 

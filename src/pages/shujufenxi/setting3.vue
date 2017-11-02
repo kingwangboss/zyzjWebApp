@@ -16,7 +16,6 @@
                     <!-- <el-button v-show="isSelect(item1)" type="text" class="btnSelect" v-for="item1 in item.NormList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}</el-button>
                     <el-button v-show="!isSelect(item1)" type="text" class="btn" v-for="item1 in item.NormList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}</el-button> -->
                     <el-button :class="{'btnSelect':selectKeyNumberName3 == item1}" type="text" class="btn" v-for="item1 in item.NormList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}
-                        <img src="" v-if="selectKeyNumberName3 == item1" class="you_image_select" alt="">
                         <!-- <img src="" v-else class="you_image" alt=""> -->
                     </el-button>
                 </div>
@@ -49,49 +48,39 @@
     flex-direction: column;
 
     .btn {
-        height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: rgb(80, 80, 80); // background-size: 100% 100%;
+        color: rgb(80, 80, 80);
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
-        border-radius: 3px; // border: 1px solid rgb(222, 222, 222);
-        border: 1px solid gray;
+        border-radius: 3px;
+        // border: 1px solid rgb(222, 222, 222);
+        border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 30px;
-        line-height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: #f82b56; // background-size: 100% 100%;
+        color: #d63138;
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')
         border-radius: 3px;
-        border: 1px solid gray;
-    }
-    .you_image_select {
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
-    }
-    .you_image{
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
+        border: 1px solid #c4c4c4;
     }
 }
 </style>

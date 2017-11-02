@@ -2,13 +2,15 @@
   <div class="kjview">
     <div class="top-top">
       <span class="qishu1">第{{KJData.NewLottery.CurrentPeriod}}期开奖</span>
+      <kjnum1 class="top-middle" v-if="count" :data="kjnum"></kjnum1>
     </div>
 
-    <kjnum1 class="top-middle" :data="kjnum"></kjnum1>
+    <!-- <kjnum1 class="top-middle" :data="kjnum"></kjnum1> -->
+    <kjnum1 class="top-middle1" v-if="!count" :data="kjnum"></kjnum1>
 
     <div class="top-bottom" v-if="time===0">
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/clock.png" alt="">
-      <span class="label1" style="color:#CD0C16;margin-right:40px;">开奖中...</span>
+      <span class="label1" style="color:#CD0C16;margin-right:30px;">开奖中...</span>
     </div>
     <div class="top-bottom" v-else>
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/clock.png" alt="">
@@ -148,6 +150,17 @@ export default {
         return this.KJData.NewLottery.LotteryResult.split(",");
       }
     },
+    count:{
+      get() {
+        if(this.KJData.NewLottery.LotteryResult.split(',').length <= 5)
+        {
+          return true;
+        }else{
+          return false;
+        }
+        
+      }
+    },
     shijianArr: {
       get() {
         time = parseInt(this.nextTime);
@@ -192,15 +205,20 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+    
     .qishu1 {
       margin-left: 10px;
       font-size: 12px; // padding: 6px 10px 6px 5px;
       color: #6e6e6e; // background-image: url('../../../static/images/qishubg.png');
+      padding-bottom:20px;
     }
   }
 
   .top-middle {
-    margin: 5px 5px 40px 5px;
+    margin: 0px 5px 20px 5px;
+  }
+  .top-middle1 {
+    margin: -15px 5px 20px 5px;
   }
 
   .top-bottom {
@@ -209,6 +227,7 @@ export default {
     justify-content: flex-end;
     height: 25px;
     margin-bottom: 10px;
+    margin-right: 10px;
     .label1 {
       padding-top: 1px;
       color: black;

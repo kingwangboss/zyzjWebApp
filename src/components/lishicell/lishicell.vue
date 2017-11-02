@@ -105,7 +105,7 @@ export default {
 
 <style lang="less" scoped>
 .contentCell {
-    margin-top: 0px;
+    margin-top: 5px;
     margin-bottom: 5px;
     display: flex;
     justify-content: space-between;
@@ -135,12 +135,11 @@ export default {
 }
 
 .KJnum {
-    margin: 0px 0px;
+    margin: 5px 0px 5px 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     text-align: center;
-    margin-top: 2.5px;
 }
 
 .num {

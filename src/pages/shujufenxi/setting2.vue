@@ -14,7 +14,6 @@
                             <el-button v-show="!isSelect1(item)" type="text" class="btn" v-for="(item,index) in KeyCountData1" :key="item" @click="addBtn1(item)">{{item}}
                             </el-button> -->
                 <el-button :class="{'btnSelect':selectKeyCount1 == item}" type="text" class="btn" v-for="(item,index) in KeyCountData1" :key="item" @click="addBtn1(item)">{{item}}
-                    <img src="" v-if="selectKeyCount1 == item" class="you_image_select" alt="">
                     <!-- <img src="" v-else class="you_image" alt=""> -->
                 </el-button>
             </div>
@@ -30,7 +29,7 @@
                     <!-- <el-button v-show="isSelect(item)" type="text" class="btnSelect" v-for="item in KeyNumbers" :key="item.toString()" @click="addBtn(item)">{{item}}</el-button>
                                 <el-button v-show="!isSelect(item)" type="text" class="btn" v-for="item in KeyNumbers" :key="item.toString()" @click="addBtn(item)">{{item}}</el-button> -->
                     <el-button :class="{'btnSelect':selectKeyNumberName2.indexOf(item) > -1}"  class="btn" v-for="item in KeyNumbers" :key="item.toString()" @click="addBtn(item)">{{item}}
-                        <img src="" v-if="selectKeyNumberName2.indexOf(item) > -1" class="you_image_select" alt="">
+
                         <!-- <img src="" v-else class="you_image" alt=""> -->
                     </el-button>
                 </div>
@@ -62,49 +61,39 @@
 .top {
     margin-bottom: 10px;
     .btn {
-        height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: rgb(80, 80, 80); // background-size: 100% 100%;
+        color: rgb(80, 80, 80);
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
-        border-radius: 3px; // border: 1px solid rgb(222, 222, 222);
-        border: 1px solid gray;
+        border-radius: 3px;
+        // border: 1px solid rgb(222, 222, 222);
+        border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 30px;
-        line-height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: #f82b56; // background-size: 100% 100%;
+        color: #d63138;
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')
         border-radius: 3px;
-        border: 1px solid gray;
-    }
-    .you_image_select {
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
-    }
-    .you_image{
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
+        border: 1px solid #c4c4c4;
     }
 }
 
@@ -120,49 +109,39 @@
     display: flex;
     flex-direction: column;
     .btn {
-        height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: rgb(80, 80, 80); // background-size: 100% 100%;
+        color: rgb(80, 80, 80);
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
-        border-radius: 3px; // border: 1px solid rgb(222, 222, 222);
-        border: 1px solid gray;
+        border-radius: 3px;
+        // border: 1px solid rgb(222, 222, 222);
+        border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 30px;
-        line-height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 10px 0px 10px;
         font-size: 13px;
-        color: #f82b56; // background-size: 100% 100%;
+        color: #d63138;
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')
         border-radius: 3px;
-        border: 1px solid gray;
-    }
-    .you_image_select {
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
-    }
-    .you_image{
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
+        border: 1px solid #c4c4c4;
     }
 }
 

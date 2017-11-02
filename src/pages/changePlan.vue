@@ -5,7 +5,7 @@
         <div class="maincontainer">
 
             <div class="head">
-                <span class="lab" style="font-size:15px; margin:20px 10px 10px;font-weight:900">已选计划</span>
+                <span class="lab" style="font-size:12px; margin-top:20px;padding:5px 10px;height:13px;">已选计划</span>
                 <img src="../../static/images/bin.png" style="margin:20px 10px 10px 20px;width:20px;height:25px" alt="" @click="cancel">
             </div>
 
@@ -18,16 +18,15 @@
             <div class="middle"></div>
 
             <div class="head">
-                <span class="lab" style="font-size:15px; margin:10px;font-weight:900">所有计划</span>
+                <span class="lab" style="font-size:12px; margin-top:10px;padding:5px 10px;">所有计划</span>
             </div>
 
             <div class="planItemCell" v-for="item in planNameData" :key="item.toString()">
-                <label class="lab" style="font-size:14px; margin-top:10px;margin-left:20px; font-weight:900;text-align: left;">{{item.Group}}</label>
+                <label class="lab" style="font-size:14px; margin-top:20px;margin-left:20px;text-align: left;">{{item.Group}}</label>
                 <div>
                     <!-- <el-button v-show="isSelect(item1)" type="text" class="btnSelect" v-for="item1 in item.PlanList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}</el-button>
                                 <el-button v-show="!isSelect(item1)" type="text" class="btn" v-for="item1 in item.PlanList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}</el-button> -->
                     <el-button :class="{'btnSelect':selectNameArr.indexOf(item1) >  -1}" type="text" class="btn" v-for="item1 in item.PlanList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}
-                        <img src="" v-if="selectNameArr.indexOf(item1) >  -1" class="you_image_select" alt="">
                         <!-- <img src="" v-else class="you_image" alt=""> -->
                     </el-button>
                 </div>
@@ -47,7 +46,7 @@
     .lab {
         text-align: left;
         background: #CD0C16; 
-        padding: 8px;
+        // padding: 8px;
         color: white;
     }
 }
@@ -64,24 +63,29 @@
 .top {
     margin-bottom: 10px;
     .btn {
-        height: 30px;
+        height: 25px;
+        line-height: 25px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 5px 0px 5px;
         font-size: 13px;
         color: rgb(80, 80, 80);
+        // background-size: 100% 100%;
+        // background-image: url('../../../static/images/Select-05.png')
         border-radius: 3px;
-        border: 1px solid gray;
+        // border: 1px solid rgb(222, 222, 222);
+        border: 1px solid #c4c4c4;
     }
+    
 }
 
 .middle {
-    height: 20px;
-    background: #fbf9fe;
+    height: 1px;
+    background: #efefef;
 }
 
 
@@ -92,50 +96,41 @@
     flex-direction: column;
 
     .btn {
-        height: 30px;
+        height: 24px;
+        line-height: 22px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 5px 0px 5px;
         font-size: 13px;
-        color: rgb(80, 80, 80); // background-size: 100% 100%;
+        color: rgb(80, 80, 80);
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
-        border-radius: 3px; // border: 1px solid rgb(222, 222, 222);
-        border: 1px solid gray;
+        border-radius: 3px;
+        // border: 1px solid rgb(222, 222, 222);
+        border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 30px;
-        line-height: 30px;
+        height: 24px;
+        line-height: 22px;
         align-content: center;
         float: left;
         margin-left: 10px;
         margin-top: 10px;
         display: flex;
         align-items: center;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 5px 0px 5px;
         font-size: 13px;
-        color: #f82b56; // background-size: 100% 100%;
+        color: #d63138;
+        // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')
         border-radius: 3px;
-        border: 1px solid gray;
+        border: 1px solid #c4c4c4;
     }
-    .you_image_select {
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
-    }
-    .you_image {
-        // width: 20px;
-        height: 20px;
-        position: relative;
-        right: 0px;
-        bottom: -8px;
-    }
+    
 }
 
 

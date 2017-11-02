@@ -3,9 +3,11 @@
     <div class="top-top">
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;" src="../../../static/images/sj1.png" alt="">
       <span class="qishu1">第{{KJData.NewLottery.CurrentPeriod}}期开奖</span>
+      <kjnum class="top-middle" v-if="count" :data="kjnum"></kjnum>
     </div>
 
-    <kjnum class="top-middle" :data="kjnum"></kjnum>
+    <!-- <kjnum class="top-middle" :data="kjnum"></kjnum> -->
+    <kjnum class="top-middle" v-if="!count" :data="kjnum"></kjnum>
 
     <div class="top-bottom" v-if="time===0">
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj2.png" alt="">
@@ -136,6 +138,16 @@ export default {
     kjnum: {
       get() {
         return this.KJData.NewLottery.LotteryResult.split(',');
+      }
+    },
+    count:{
+      get() {
+        if(this.KJData.NewLottery.LotteryResult.split(',').length <= 5)
+        {
+          return true;
+        }else{
+          return false;
+        }
       }
     },
     shijianArr: {

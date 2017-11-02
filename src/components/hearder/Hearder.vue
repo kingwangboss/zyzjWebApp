@@ -299,9 +299,9 @@ export default {
         "&DMSMCount=" +
         localStorage.input1 +
         "&Accuracy=" +
-        parseFloat(localStorage.value1.split(',')[0]) +
+        parseFloat(localStorage.value1.split(',')[0])/100 +
         ":" +
-        parseFloat(localStorage.value1.split(',')[1]) +
+        parseFloat(localStorage.value1.split(',')[1])/100 +
         "&CurrentLianDui=" +
         parseInt(localStorage.value4.split(',')[0]) +
         ":" +
@@ -326,7 +326,7 @@ export default {
       data.append("DMSMCount", localStorage.input1);
       data.append(
         "Accuracy",
-        parseFloat(localStorage.value1.split(',')[0]) + ":" + parseFloat(localStorage.value1.split(',')[1])
+        parseFloat(localStorage.value1.split(',')[0])/100 + ":" + parseFloat(localStorage.value1.split(',')[1])/100
       );
       data.append(
         "CurrentLianDui",
