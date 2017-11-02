@@ -77,7 +77,7 @@
       }
       .right {
         width: 12%;
-        margin-right: -50px;
+        margin-right: -35px;
         img {
           width: 20px;
           height: 20px;

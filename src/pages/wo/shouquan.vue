@@ -25,11 +25,11 @@
 .weui_cell {
     position: relative;
     display: flex;
-    padding: 18px;
+    padding: 25px 18px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    border-bottom: 1px solid #dadada;
+    border-bottom: 1px solid #efefef;
     background-color: white;
 }
 
@@ -56,6 +56,7 @@
     height: 8px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    margin-top: -2px;
 }
 </style>
 

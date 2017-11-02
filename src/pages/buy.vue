@@ -4,14 +4,14 @@
 
       <div class="maincontainer">
         <div class="top" v-for="(PriceList,index) in listData.PriceList" :key="PriceList.toString()" @click="btnClick($event,PriceList.ID)">
-            <div class="top-cell">
+            <div class="top-cell" :class="{'top-cell1':pid === PriceList.ID}">
                 <div class="top-cell-item">
                     <div class="default" :class="{'select':pid === PriceList.ID}"></div>
-                    <span class="item1">{{PriceList.AuthTitle}}</span>
+                    <span class="item1" :class="{'item1select':pid === PriceList.ID}">{{PriceList.AuthTitle}}</span>
                     <span class="item2">￥{{PriceList.SourcePrice.toFixed(2)}}</span>
                 </div>
                 <div class="top-cell-item">
-                    <span class="item1">{{PriceList.PurchaseType}}</span>
+                    <span class="item4">{{PriceList.PurchaseType}}</span>
                     <span class="item3">￥{{PriceList.Price.toFixed(2)}}</span>
                 </div>
             </div>
@@ -19,18 +19,18 @@
         
         <div class="bottom" v-for="(DesceList,index1) in listData.DesceList" :key="DesceList.toString()">
             <div class="bottom-cell">
-                <img style="width:20px;height:20px;margin-left:10px;margin-right:10px;" src="../../static/images/jihua.png" alt="">
-                <span style="text-align:left;color:#B7B7B7;">{{DesceList.Desc}}</span>
+                <img style="height:12px;margin-left:10px;margin-right:10px;font-size:12px;margin-top:2px;" src="../../static/images/jihua.png" alt="">
+                <span style="text-align:left;color:#878787;font-size:12px;line-height:16px;">{{DesceList.Desc}}</span>
             </div>
         </div>
 
         <div class="btn">
-            <el-button :disabled="isselect" style="margin:60px 0px 0px 20px;" @click="weiClick()">
+            <el-button :disabled="isselect" style="margin:60px 0px 0px 20px;min-width:130px;" @click="weiClick()">
                 <img style="width:15px;height:15px;" src="../../static/images/wei.png" alt="">
                 <span style="font-size:15px;padding-top:10px;">微信支付</span>
             </el-button>
 
-            <el-button :disabled="isselect" style="margin:60px 20px 0px 0px;" @click="zhiClick()">
+            <el-button :disabled="isselect" style="margin:60px 20px 0px 0px;min-width:130px;" @click="zhiClick()">
                 <img style="width:15px;height:15px;" src="../../static/images/zhi.png" alt="">
                 <span style="font-size:15px;">支付宝支付</span>
             </el-button>
@@ -44,40 +44,61 @@
 .maincontainer {
   display: flex;
   flex-direction: column;
+  .top-cell1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 1px solid #efefef;
+    background: #efefef;
+  }
   .top-cell {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: 44px;
     line-height: 44px;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #efefef;
     .top-cell-item {
       display: flex;
       flex-direction: row;
       .item1 {
-        font-weight: 900;
-        font-size: 14px;
+        // font-weight: 900;
+        color:#878787;
+        font-size: 12px;
+      }
+      .item1select{
+        font-size: 12px;
+        color: #d63138;
       }
       .item2 {
         margin-left: 5px;
-        color: #b7b7b7;
+        color: #cdcdcd;
         text-decoration: line-through;
+        font-size: 12px;
       }
       .item3 {
         color: #d63138;
         width: 80px;
         text-align: left;
         margin-left: 5px;
+        font-size: 12px;
+      }
+      .item4 {
+        // font-weight: 900;
+        color: #d63138;
+        font-size: 12px;
       }
     }
     .default {
       background: RGB(255, 255, 255);
-      width: 5px;
+      width: 3px;
       margin: 5px 5px;
     }
     .select {
       background: RGB(214, 49, 56);
-      width: 5px;
+      width: 3px;
       margin: 5px 5px;
     }
   }

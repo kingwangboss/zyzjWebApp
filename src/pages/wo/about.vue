@@ -5,10 +5,6 @@
             <div class="top">
 
                 <img class="top-img" src="../../../static/images/me/camew.png" alt="">
-
-                <p class="title">
-                关于我们
-                </p>
                 
                 <p class="content">
                 深圳市君耀优彩科技有限公司创建于2014年，旗下彩盟网拥有掌赢专家系列彩票分析软件及App，支持IOS平台；是互联网彩票分析领域的创新者，领导者。 掌赢专家系列软件拥有超级丰富的计划库，提供超强计划追号、云端计划管理、多平台一致的使用体验等前瞻性功能。 我们将以先进的技术和完善的服务为中国福利彩票事业贡献自己的力量！
@@ -50,8 +46,8 @@
 
     font-size: 15px;
     margin-top: 10%;
-    margin-left: 10%;
-    margin-right: 10%; // margin-bottom: 5%;
+    margin-left: 2%;
+    margin-right: 2%; // margin-bottom: 5%;
     .title{
         text-align:center;
         font-size:20px; 
@@ -60,20 +56,22 @@
     }
     .content{
         text-align: left;
-        text-indent: 2em;
+        // text-indent: 2em;
         padding-bottom: 10px;
     }
     .top-img{
         width: 80px;
         height: 80px;
+        margin-bottom: 20px;
     }
 }
 
 .bottom {
     font-size: 13px;
-    margin-top: 25%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-top: 10%;
+    // float: left;
+    margin-left: 2%;
+    text-align: left;
 }
 
 </style>

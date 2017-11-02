@@ -3,15 +3,18 @@
         <m-header :title="title"></m-header>
         <div class="top">
             <div class="cell">
-                <span>原始密码:</span>
+                <!-- <span>原始密码:</span> -->
+                <img src="../../../static/images/mima.png" alt="">
                 <input v-model="pwd.oldpwd" placeholder="请输入原始密码" type="text" maxlength="20" @input="inputFuction">
             </div>
             <div class="cell">
-                <span>重设密码:</span>
+                <!-- <span>重设密码:</span> -->
+                <img src="../../../static/images/mima.png" alt="">
                 <input v-model="pwd.newpwd" placeholder="请输入6-20位数字或字母" type="password" maxlength="20" @input="inputFuction">
             </div>
-            <div class="cell">
-                <span>确认密码:</span>
+            <div class="cell" style="border-bottom: 1px solid #efefef;">
+                <!-- <span>确认密码:</span> -->
+                <img src="../../../static/images/mima.png" alt="">
                 <input v-model="pwd.newpwd1" placeholder="请在此输入新密码" type="password" maxlength="20" @input="inputFuction">
             </div>
             <div>
@@ -34,10 +37,12 @@
   flex-direction: column;
   width: 100%;
   height: auto;
+  margin-top:60px;
 
   .cell {
     display: flex;
     flex-direction: row;
+    border-top: 1px solid #efefef;
     span {
       font-size: 14px;
       font-weight: 320;
@@ -46,8 +51,13 @@
       margin: 3% 1%;
       text-align: right;
     }
+    img{
+      width: 26px;
+      margin: 3% 1%;
+    }
     input {
       width: 70%;
+      outline: none;
     }
   }
 }

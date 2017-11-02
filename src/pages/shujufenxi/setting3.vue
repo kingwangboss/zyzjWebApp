@@ -5,12 +5,12 @@
         <div class="maincontainer">
 
             <div class="head">
-                <span class="lab" style="font-size:15px; margin:20px 10px 10px;font-weight:900">已选计划</span>
+                <span class="lab" style="font-size:12px; margin-top:20px;padding:5px 10px;height:13px;">选择指标</span>
             </div>
 
 
             <div class="planItemCell" v-for="item in listData.Norms" :key="item.toString()">
-                <label class="lab" style="font-size:14px; margin-top:10px;margin-left:20px; font-weight:900;text-align: left;">{{item.Group}}</label>
+                <label class="lab" style="font-size:12px; margin-top:20px;margin-left:20px;text-align: left;color:#b0b0b0;">{{item.Group}}</label>
                 <div>
                     <!-- <el-button type="text" class="btn" v-for="item1 in item.NormList" :key="item1.toString()" @click="addBtn(item)">{{item1}}</el-button> -->
                     <!-- <el-button v-show="isSelect(item1)" type="text" class="btnSelect" v-for="item1 in item.NormList" :key="item1.toString()" @click="addBtn(item1)">{{item1}}</el-button>
@@ -48,8 +48,8 @@
     flex-direction: column;
 
     .btn {
-        height: 25px;
-        line-height: 25px;
+        height: 24px;
+        line-height: 23px;
         align-content: center;
         float: left;
         margin-left: 10px;
@@ -57,7 +57,7 @@
         display: flex;
         align-items: center;
         padding: 0px 10px 0px 10px;
-        font-size: 13px;
+        font-size: 12px;
         color: rgb(80, 80, 80);
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
@@ -66,8 +66,8 @@
         border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 25px;
-        line-height: 25px;
+        height: 24px;
+        line-height: 23px;
         align-content: center;
         float: left;
         margin-left: 10px;
@@ -75,7 +75,7 @@
         display: flex;
         align-items: center;
         padding: 0px 10px 0px 10px;
-        font-size: 13px;
+        font-size: 12px;
         color: #d63138;
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')

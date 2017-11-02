@@ -5,9 +5,8 @@
         <div class="maincontainer">
 
             <div class="head">
-                <span class="lab" style="font-size:15px; margin:20px 10px 10px;font-weight:900">已选计划</span>
+                <span class="lab" style="font-size:12px; margin-top:20px;padding:5px 10px;height:13px;">选择位置</span>
             </div>
-            <label class="lab" style="font-size:14px; margin-top:10px;margin-left:20px; font-weight:900;text-align: left;">数据遗漏</label>
             <div class="planItemCell">
                 <div>
                     <!-- <el-button v-show="isSelect(item)" type="text" class="btnSelect" v-for="item in KeyNumbers" :key="item.toString()" @click="addBtn(item)">{{item}}</el-button>
@@ -29,7 +28,7 @@
     .lab {
         text-align: left;
         background: #CD0C16; 
-        padding: 8px;
+        // padding: 8px;
         color: white;
     }
 }
@@ -45,8 +44,8 @@
     flex-direction: column;
 
     .btn {
-        height: 25px;
-        line-height: 25px;
+        height: 24px;
+        line-height: 23px;
         align-content: center;
         float: left;
         margin-left: 10px;
@@ -54,7 +53,7 @@
         display: flex;
         align-items: center;
         padding: 0px 10px 0px 10px;
-        font-size: 13px;
+        font-size: 12px;
         color: rgb(80, 80, 80);
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-05.png')
@@ -63,8 +62,8 @@
         border: 1px solid #c4c4c4;
     }
     .btnSelect {
-        height: 25px;
-        line-height: 25px;
+        height: 24px;
+        line-height: 23px;
         align-content: center;
         float: left;
         margin-left: 10px;
@@ -72,7 +71,7 @@
         display: flex;
         align-items: center;
         padding: 0px 10px 0px 10px;
-        font-size: 13px;
+        font-size: 12px;
         color: #d63138;
         // background-size: 100% 100%;
         // background-image: url('../../../static/images/Select-06.png')

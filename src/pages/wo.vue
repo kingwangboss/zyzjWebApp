@@ -142,8 +142,8 @@
   }
 
   .right-img {
-    width: 12px;
-    height: 25px;
+    width: 8px;
+    height: 16px;
   }
 }
 

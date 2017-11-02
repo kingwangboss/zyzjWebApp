@@ -36,7 +36,7 @@
     // height: 50px;
     .btn {
         height: 25px;
-        line-height: 25px;
+        line-height: 23px;
         align-content: center;
         float: left;
         margin-left: 10px;
@@ -54,7 +54,7 @@
     }
     .btnSelect {
         height: 25px;
-        line-height: 25px;
+        line-height: 23px;
         align-content: center;
         float: left;
         margin-left: 10px;
