@@ -1,7 +1,7 @@
 <template>
   <div class="kjview">
     <div class="top-top">
-      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;" src="../../../static/images/sj1.png" alt="">
+      <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-bottom:10px" src="../../../static/images/sj1.png" alt="">
       <span class="qishu1">第{{KJData.NewLottery.CurrentPeriod}}期开奖</span>
       <kjnum class="top-middle" v-if="count" :data="kjnum"></kjnum>
     </div>
@@ -198,17 +198,18 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 15px;
+    padding-top: 10px;
     margin-left: 5px;
     .qishu1 {
       // font-weight: 900;
+      padding-bottom: 10px;
       font-size: 12px; // padding: 6px 10px 6px 5px;
       color: yellow; // background-image: url('../../../static/images/qishubg.png');
     }
   }
 
   .top-middle {
-    margin: 10px 5px;
+    margin: 0px 5px 10px 5px;
   }
 
   .top-bottom {

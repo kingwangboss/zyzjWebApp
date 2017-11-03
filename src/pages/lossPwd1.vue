@@ -147,6 +147,7 @@ export default {
     },
 
     submit: function(event) {
+      this.getData();
       // 请求数据
       let data = new FormData();
       data.append("Action", "QueryUserByAccount");

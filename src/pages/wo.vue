@@ -14,7 +14,8 @@
          <span>购买授权</span>
       </div>
      
-      <img class="right-img" src="../../static/images/jt.png" alt="">
+      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
+      <div class="iv-arrow"></div>
     </div>
     <div class="line">
     </div>
@@ -26,7 +27,8 @@
          <span>在线客服</span>
       </div>
       
-      <img class="right-img" src="../../static/images/jt.png" alt="">
+      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
+      <div class="iv-arrow"></div>
     </div>
     <div class="line">
     </div>
@@ -37,7 +39,8 @@
          <span>我的授权</span>
       </div>
       
-      <img class="right-img" src="../../static/images/jt.png" alt="">
+      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
+      <div class="iv-arrow"></div>
     </div>
     <div class="line">
     </div>
@@ -48,7 +51,8 @@
         <span>密码管理</span>
       </div>
       
-      <img class="right-img" src="../../static/images/jt.png" alt="">
+      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
+      <div class="iv-arrow"></div>
     </div>
     <div class="line">
     </div>
@@ -59,7 +63,8 @@
         <span>意见反馈</span>
       </div>
       
-      <img class="right-img" src="../../static/images/jt.png" alt="">
+      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
+      <div class="iv-arrow"></div>
     </div>
     <div class="line">
     </div>
@@ -70,7 +75,8 @@
         <span>关于我们</span>
       </div>
       
-      <img class="right-img" src="../../static/images/jt.png" alt="">
+      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
+      <div class="iv-arrow"></div>
     </div>
     <div class="line">
     </div>
@@ -82,6 +88,17 @@
 
 
 <style lang="less" scoped>
+.iv-arrow {
+    position: absolute;
+    right: 15px;
+    border-top: 1px solid #c7c7c7;
+    border-right: 1px solid #c7c7c7;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-top: -2px;
+}
 .userinfo {
   display: flex;
   flex-direction: column;

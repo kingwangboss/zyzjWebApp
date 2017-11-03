@@ -43,7 +43,7 @@
 
         <div class="cell" style="border-top:0px;">
           <img src="../../static/images/mima.png" alt="">
-          <input class="input" v-model="user.newpwd2" type="password" maxlength="18" placeholder="确认输入" @input="inputFuction">
+          <input class="input" v-model="user.newpwd2" type="password" maxlength="18" placeholder="确认密码" @input="inputFuction">
         </div>
 
 
