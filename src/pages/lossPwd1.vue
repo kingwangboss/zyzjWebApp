@@ -31,8 +31,8 @@
                 </div>
         
                 <div>
-                    <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="primary" native-type="submit">下一步</el-button>
-                    <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">下一步</el-button>
+                    <el-button v-if="disabled" class="btnEnable" type="text" native-type="submit">下一步</el-button>
+                    <el-button v-else class="btnDefault" type="text" native-type="submit">下一步</el-button>
                 </div>
             </form>
         </div>
