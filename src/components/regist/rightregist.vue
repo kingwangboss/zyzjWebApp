@@ -1,5 +1,5 @@
 <template>
-  <div class="maincontainer" @touchmove.prevent>
+  <!-- <div class="maincontainer" >
     <div class="content">
       <form @submit.prevent="submit">
         <div>
@@ -17,73 +17,110 @@
         <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">注册</el-button>
       </form>
     </div>
+  </div> -->
+  <div class="top">
+    <form @submit.prevent="submit">
+        <div class="line1"></div>
+        <div class="cell">
+          <img src="../../../static/images/yonghu.png" alt="">
+          <input class="input" v-model="user.name" type="text" maxlength="20" placeholder="请输入用户名" @input="inputFuction">
+        </div>
+
+        <div class="cell" style="border-top:0px;">
+          <img src="../../../static/images/shouji.png" alt="">
+          <input class="input" v-model="user.num" type="number" maxlength="11" placeholder="请输入安全手机" @input="inputFuction">
+        </div>
+
+        <div class="cell" style="border-top:0px;">
+          <img src="../../../static/images/mima.png" alt="">
+          <input class="input" v-model="user.newpwd1" type="password" maxlength="18" placeholder="请输入密码" @input="inputFuction">
+        </div>
+
+        <div class="cell" style="border-top:0px;">
+          <img src="../../../static/images/mima.png" alt="">
+          <input class="input" v-model="user.newpwd2" type="password" maxlength="18" placeholder="确认密码" @input="inputFuction">
+        </div>
+
+        <div class="cell" style="border-top:0px;">
+          <img src="../../../static/images/yanzhengma.png" alt="">
+          <input style="width:40%,margin-top:0px;border-top:0px;" class="input" v-model="user.yanzhengma" type="text" maxlength="4" placeholder="请输入验证码" @input="inputFuction">
+          <img style="margin-top:0px;margin-bottom:0px;height:50px;" :src="user.imgurl" alt="" @click="getData()">
+        </div>
+
+
+        
+        <div>
+          <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="primary" native-type="submit">注册</el-button>
+          <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">注册</el-button>
+        </div>
+    </form>
   </div>
 </template>
 
 <style lang="less" scoped>
-#bundle {
-  .juzhong {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: middle;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
-}
-
-::-webkit-input-placeholder {
-  /* WebKit browsers */
-  color: RGB(229, 164, 153);
-  font-size: 13px;
-}
-
-.maincontainer {
-  background-image: url('../../../static/images/login/Loginbg1.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+.top {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
-  position: fixed;
-  #bundle>.juzhong;
-  .content {
-    width: 70%;
-    margin-top: 10%;
-    flex-direction: column;
-    .input {
-      margin-top: 10%;
-      background-color: transparent;
-      background-image: url('../../../static/images/login/a2.png');
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      height: 44px;
-      line-height: 44px;
-      width: 100%;
-      padding-left: 10px;
-      font-size: 12px;
-      color: white;
+  height: auto;
+  // margin-top: 60px;
+
+  .cell {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #efefef;
+    height: 50px;
+    span {
+      font-size: 14px;
+      font-weight: 320;
+      color: black;
+      width: 20%;
+      margin: 3% 1%;
+      text-align: right;
     }
-    .btnDefault {
-      margin-top: 30px;
-      height: 40px;
-      width: 100%;
-      border-radius: 40px;
-      background-color: RGB(251, 230, 231);
-      border: 0;
-      color: red;
-      font-size: 18px;
+    img {
+      height: 20px;
+      margin: 15px;
     }
-    .btnEnable {
-      margin-top: 30px;
-      height: 40px;
-      width: 100%;
-      border-radius: 40px;
-      background-color: RGB(240, 144, 156);
-      border: 0;
-      color: #fff;
-      font-size: 18px;
+    input {
+      width: 70%;
+      outline: none;
     }
   }
+}
+
+.line{
+  margin:2px 0px 2px 0px;
+  background:#61d571;
+  width: 2px;
+}
+.line1{
+  height: 15px;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  background: #fafafa;
+}
+
+.btnDefault {
+  background: rgb(214, 49, 70);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 70%;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  border: 0px;
+}
+
+.btnEnable {
+  background: rgba(214, 49, 70, 0.5);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 70%;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  border: 0px;
 }
 </style>
 
@@ -148,7 +185,7 @@ export default {
         data1.append('ImgCode', that.user.vcode + that.user.yanzhengma)
         data1.append('SafeMobile', that.user.num)
         data1.append('AppType', "4");
-        data1.append('AppCode', 'YCW')
+        data1.append('AppCode', 'ZYZJ')
         that.$http.post('https://idx.camew.com', data1).then(res => {
           console.log(res)
           if (res) {

@@ -144,12 +144,12 @@ export default {
 
 .num {
     margin: 0px 5px;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
+    line-height: 27px;
+    height: 27px;
+    width: 27px;
     background-repeat: no-repeat;
 
-    background-size: 30px;
+    background-size: 27px;
     color: white;
     font-size: 15px;
     background-image: url('../../../static/images/quan2.png');
@@ -157,12 +157,12 @@ export default {
 
 .num1 {
     margin: 0px 5px;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
+    line-height: 27px;
+    height: 27px;
+    width: 27px;
     background-repeat: no-repeat;
 
-    background-size: 30px;
+    background-size: 27px;
     color: white;
     font-size: 15px;
     background-image: url('../../../static/images/quan2-1.png');

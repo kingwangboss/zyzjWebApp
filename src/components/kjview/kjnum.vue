@@ -109,10 +109,10 @@ export default {
         var rownum = this.numArr.length / colnum; //行
         margin = this.numArr.length >= 10 ? 5 : 20; //间距
         ojwidth = (this.screenWidth  - 2 * (margin + 1) * colnum) / colnum; //格子的宽
-        // if (this.numArr.length < 10) {
-        //   ojwidth = 30;
-        // } else {
-        // }
+        if (this.numArr.length < 10) {
+          ojwidth = 23;
+        } else {
+        }
         return ojwidth;
       },
       // setter
@@ -129,7 +129,7 @@ export default {
         margin = this.numArr.length >= 10 ? 5 : 20; //间距
         ojwidth = (this.screenWidth - 2 * (margin + 1) * colnum) / colnum; //格子的宽
         if (this.numArr.length < 10) {
-          ojwidth = 30;
+          ojwidth = 28;
         } else {
         }
         return ojwidth;

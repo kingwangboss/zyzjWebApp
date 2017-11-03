@@ -52,8 +52,8 @@
       text-align: right;
     }
     img{
-      width: 26px;
-      margin: 3% 1%;
+      height: 18px;
+      margin: 3% 2%;
     }
     input {
       width: 70%;

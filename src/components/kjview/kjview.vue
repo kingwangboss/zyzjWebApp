@@ -236,13 +236,12 @@ export default {
       background-size: 100% 100%;
     }
     .sj {
-      
-      margin: 2.5px 2.5px;
+      margin: 2px 2px;
       background-color: #F7D90F;
-      border-radius: 2.5px;
+      border-radius: 2px;
       line-height: 22px;
       height: 20px;
-      width: 14px;
+      padding: 0 3px;
       text-align: center;
       font-size: 15px;
       font-weight: bold;

@@ -6,7 +6,7 @@
             </div> -->
             <span>标题</span>
             <div style="border:1px solid #ededed; margin:0px 10px;">
-              <input class="input1" v-model="msg.title" placeholder="请输入标题" type="text" @input="inputFuction">
+              <input class="input1" v-model="msg.title" placeholder="" type="text" @input="inputFuction">
             </div>
             <!-- <div class="line">
             </div> -->
@@ -14,7 +14,7 @@
             <span>内容</span>
 
             <div style="border:1px solid #ededed; margin:0px 10px;">
-              <textarea class="input2" name="" id="" cols="30" rows="6" v-model="msg.content" placeholder="请输入反馈内容" @input="inputFuction"></textarea>
+              <textarea class="input2" name="" id="" cols="30" rows="6" v-model="msg.content" placeholder="" @input="inputFuction"></textarea>
             </div>
             <div>
                 <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" @click="btnClick">提交</el-button>
@@ -50,7 +50,7 @@
     // width: 90%;
     // border: none;
     outline:none;
-    width: 100%;
+    width: 98%;
   }
   .btnDefault {
     background: rgb(214, 49, 70);
