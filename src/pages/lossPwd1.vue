@@ -24,10 +24,10 @@
                     <img src="../../static/images/yonghu.png" alt="">
                     <input v-model="user.username" type="text" maxlength="20" placeholder="请输入账号" @input="inputFuction">
                 </div>
-                    <div class="cell">
+                <div class="cell" style="border-top:0px;">
                     <img src="../../static/images/mima.png" alt="">
                     <input style="width:40%,margin-top:0px;border-top:0px;" class="input" v-model="user.verify" type="text" maxlength="4" placeholder="验证码" @input="inputFuction">
-                    <img style="margin-top:0px;margin-bottom:0px;height:50px;" :src="user.imgurl" alt="" @click="getData()">
+                    <img style="margin-top:0px;margin-bottom:0px;height:50px;margin-right:0px;" :src="user.imgurl" alt="" @click="getData()">
                 </div>
         
                 <div>
