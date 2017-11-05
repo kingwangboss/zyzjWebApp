@@ -181,11 +181,12 @@ export default {
         data1.append('AppVersion', '1.0');
         data1.append('SID', localStorage.sid);
         data1.append('UserName', that.user.name);
-        data1.append('Pwd', that.user.newpwd2);
+        data1.append('Pwd', sha256.sha256(that.user.newpwd2).toUpperCase());
         data1.append('ImgCode', that.user.vcode + that.user.yanzhengma)
         data1.append('SafeMobile', that.user.num)
         data1.append('AppType', "4");
         data1.append('AppCode', 'ZYZJ')
+        localStorage.pwd = sha256.sha256(that.user.newpwd2).toUpperCase();
         that.$http.post('https://idx.camew.com', data1).then(res => {
           console.log(res)
           if (res) {
@@ -198,7 +199,7 @@ export default {
             localStorage.Username = res.data.Data.NickName;
             localStorage.Token = res.data.Data.Token;
             localStorage.PayType = res.data.Data.PayType;
-            localStorage.tokenCode = sha256.sha256(res.data.Data.Token + that.user.newpwd2).toUpperCase()
+            localStorage.tokenCode = sha256.sha256(res.data.Data.Token + sha256.sha256(that.user.newpwd2).toUpperCase()).toUpperCase()
 
             localStorage.user_name = this.user.name;
             localStorage.user_pwd = this.user.newpwd1;

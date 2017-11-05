@@ -166,7 +166,7 @@ export default {
       data.append('Pwd',  sha256.sha256(this.mobile.newpwd2).toUpperCase());
       data.append('SMSCode', this.mobile.verify)
       data.append('AppCode', 'ZYZJ');
-
+      localStorage.pwd = sha256.sha256(this.mobile.newpwd2).toUpperCase();
       this.$http.post('https://idx.camew.com', data).then(res => {
 
         if (res) {
