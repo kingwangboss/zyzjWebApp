@@ -5,7 +5,7 @@
             <!-- <div class="line">
             </div> -->
             <span>标题</span>
-            <div style="border:1px solid #ededed; margin:0px 10px;">
+            <div class="input-contant">
               <input class="input1" v-model="msg.title" placeholder="" type="text" @input="inputFuction">
             </div>
             <!-- <div class="line">
@@ -13,23 +13,23 @@
             <!-- <el-input class="input2" :rows="6" v-model="msg.content" placeholder="请输入反馈内容" type="textarea" @input="inputFuction"></el-input> -->
             <span>内容</span>
 
-            <div style="border:1px solid #ededed; margin:0px 10px;">
+            <div class="input-contant">
               <textarea class="input2" name="" id="" cols="30" rows="6" v-model="msg.content" placeholder="" @input="inputFuction"></textarea>
             </div>
             <div>
-                <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" @click="btnClick">提交</el-button>
-                <el-button v-else :disabled="disabled" class="btnDefault" type="text" @click="btnClick">提交</el-button>
-            </div>
+                <el-button v-if="disabled" class="btnEnable" type="text" @click="btnClick">提交</el-button>
+                <el-button v-else class="btnDefault" type="text" @click="btnClick">提交</el-button>
+            </div>  
         </div>
     </div>
 </template>
 
 <style lang="less" scoped>
-
 .main {
   display: flex;
   flex-direction: column;
-  span{
+
+  span {
     text-align: left;
     margin: 10px;
     color: #cdcdcd;
@@ -38,19 +38,29 @@
     background: #ededed;
     height: 10px;
   }
+  .input-contant {
+    border: 1px solid #ededed;
+    margin: 0px 10px;
+    padding: 0;
+    background: #fff;
+    position: relative;
+  }
   .input1 {
-    width: 100%;
+    background: transparent;
+    width:99%;
     // margin: 10px 10px;
     height: 30px;
     border: none;
-    outline:none;
+    outline: none;
   }
   .input2 {
-    // margin: 0px 10px 0px 10px;
+    margin: 0 ;
+    background: transparent;
     // width: 90%;
-    // border: none;
-    outline:none;
-    width: 98%;
+    border: none;
+    outline: none;
+    width: 99%;
+
   }
   .btnDefault {
     background: rgb(214, 49, 70);
@@ -63,13 +73,13 @@
   }
 
   .btnEnable {
-   background: rgba(214, 49, 70, 0.5);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
+    background: rgba(214, 49, 70, 0.5);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
   }
 }
 </style>
@@ -127,6 +137,7 @@ export default {
         .post(localStorage.SiteUrl, data)
         .then(res => {
           // this.$router.go(-1);
+          console.log('-----------------')
         })
         .catch(error => {
           console.log(error);

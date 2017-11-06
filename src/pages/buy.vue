@@ -13,15 +13,18 @@
                 <div class="top-cell-item">
                     <span class="item4">{{PriceList.PurchaseType}}</span>
                     <span class="item3">￥{{PriceList.Price.toFixed(2)}}</span>
+                    <div class="iv-arrow"></div>
                 </div>
             </div>
         </div>
         
-        <div class="bottom" v-for="(DesceList,index1) in listData.DesceList" :key="DesceList.toString()">
+        <div style="margin-top:20px;">
+          <div class="bottom" v-for="(DesceList,index1) in listData.DesceList" :key="DesceList.toString()">
             <div class="bottom-cell">
                 <img style="height:12px;margin-left:10px;margin-right:10px;font-size:12px;margin-top:2px;" src="../../static/images/jihua.png" alt="">
                 <span style="text-align:left;color:#878787;font-size:12px;line-height:16px;">{{DesceList.Desc}}</span>
             </div>
+          </div>
         </div>
 
         <div class="btn">
@@ -41,10 +44,22 @@
 
 
 <style lang="less" scoped>
+.iv-arrow {
+  // vertical-align: center;
+  // position: absolute;
+  margin-right: 15px;
+  border-top: 1px solid #c7c7c7;
+  border-right: 1px solid #c7c7c7;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-top: 18px;
+}
 .maincontainer {
   display: flex;
   flex-direction: column;
-  .top-cell1{
+  .top-cell1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -64,13 +79,14 @@
       display: flex;
       flex-direction: row;
       .item1 {
-        // font-weight: 900;
-        color:#878787;
+        font-weight: 400;
+        color: #878787;
         font-size: 12px;
       }
-      .item1select{
+      .item1select {
         font-size: 12px;
         color: #d63138;
+        font-weight: 400;
       }
       .item2 {
         margin-left: 5px;
@@ -80,7 +96,7 @@
       }
       .item3 {
         color: #d63138;
-        width: 80px;
+        width: 60px;
         text-align: left;
         margin-left: 5px;
         font-size: 12px;
@@ -108,9 +124,9 @@
   }
 
   .bottom {
-      margin-top: 10px;
+    margin-top: 5px;
   }
-  .btn{
+  .btn {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -131,8 +147,8 @@ export default {
       },
       listData: "",
       descStr: [],
-      pid:"",
-      isselect:true,
+      pid: "",
+      isselect: true
     };
   },
   components: {
@@ -168,10 +184,10 @@ export default {
         });
     },
 
-    btnClick(btn,pid){
-        localStorage.pid = pid;
-        this.pid = pid;
-        this.isselect = false;
+    btnClick(btn, pid) {
+      localStorage.pid = pid;
+      this.pid = pid;
+      this.isselect = false;
     },
 
     pushPay(index) {
@@ -182,14 +198,22 @@ export default {
       });
     },
 
-    weiClick(){
-        var url = 'http://wz.camew.com/wechat/purchase/#/wxservicePrice/' + this.pid + '?uid=' + localStorage.uid;
-        window.location.href = url;
+    weiClick() {
+      var url =
+        "http://wz.camew.com/wechat/purchase/#/wxservicePrice/" +
+        this.pid +
+        "?uid=" +
+        localStorage.uid;
+      window.location.href = url;
     },
-    zhiClick(){
-        var url = 'http://wz.camew.com/wechat/purchase/#/servicePrice/' + this.pid + '?uid=' + localStorage.uid;
-        window.location.href = url;
-    },
+    zhiClick() {
+      var url =
+        "http://wz.camew.com/wechat/purchase/#/servicePrice/" +
+        this.pid +
+        "?uid=" +
+        localStorage.uid;
+      window.location.href = url;
+    }
   },
   computed: {
     isAuthtype: {
@@ -199,7 +223,7 @@ export default {
     }
   },
   mounted() {
-      localStorage.removeItem('pid');
+    localStorage.removeItem("pid");
     // 调用请求数据的方法
     this.getData();
   }

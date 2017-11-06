@@ -47,6 +47,7 @@
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #efefef;
+    background: white;
     height: 50px;
     span {
       font-size: 14px;

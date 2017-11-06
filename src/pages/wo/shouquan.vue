@@ -2,12 +2,12 @@
     <div>
         <m-header :title="title"></m-header>
         <div class="maincontainer">
-            <div class="weui_cell" style="margin-top:20rpx;">
+            <div class="weui_cell">
                 <span class="tv_cell_left">版本</span>
                 <span class="tv_cell_right">{{listData.AuthTitle}}</span>
                 <div class="iv-arrow"></div>
             </div>
-            <div class="weui_cell" style="margin-top:20rpx;">
+            <div class="weui_cell">
                 <span class="tv_cell_left">有效时间</span>
                 <span class="tv_cell_right">{{listData.AuthExpiration === null ? "" :listData.AuthExpiration }}</span>
                 <div class="iv-arrow"></div>
@@ -23,9 +23,12 @@
 }
 
 .weui_cell {
-    position: relative;
+    // position: relative;
     display: flex;
-    padding: 25px 18px;
+    flex-direction: row;
+    // padding: 25px 18px;
+    height: 44px;
+    line-height: 46px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -56,7 +59,7 @@
     height: 8px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    margin-top: -2px;
+    margin-top: 18px;
 }
 </style>
 

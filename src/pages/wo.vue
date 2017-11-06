@@ -89,15 +89,16 @@
 
 <style lang="less" scoped>
 .iv-arrow {
-    position: absolute;
-    right: 15px;
+    // vertical-align: center;
+    // position: absolute;
+    margin-right: 15px;
     border-top: 1px solid #c7c7c7;
     border-right: 1px solid #c7c7c7;
     width: 8px;
     height: 8px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    margin-top: -2px;
+    // margin-top: -2px;
 }
 .userinfo {
   display: flex;

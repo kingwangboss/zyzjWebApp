@@ -43,10 +43,12 @@
                     </div>
 
                     <!-- id控制 计划切换 -->
-                    <div class="detail-top-content" v-for="(item1,index1) in item.RightTimes ? item.RightTimes.split(',') : 0" :key="item1" v-show="item.RightTimes">
+                    <div class="detail-top" style="width:100%;border-top:0px;padding:0;">
+                      <div  v-show="item.RightTimes" class="detail-top-content" v-for="(item1,index1) in item.RightTimes ? item.RightTimes.split(',') : 0" :key="item1" >
                         <div class="psview">第{{index1+1}}期中:</div>
                         <div class="psvalue">{{item1}}</div>
                         <div class="psview">次</div>
+                      </div>
                     </div>
 
                     

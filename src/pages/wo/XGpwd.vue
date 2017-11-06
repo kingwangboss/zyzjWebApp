@@ -5,7 +5,7 @@
             <div class="cell">
                 <!-- <span>原始密码:</span> -->
                 <img src="../../../static/images/mima.png" alt="">
-                <input v-model="pwd.oldpwd" placeholder="请输入原始密码" type="text" maxlength="20" @input="inputFuction">
+                <input v-model="pwd.oldpwd" placeholder="请输入原始密码" type="password" maxlength="20" @input="inputFuction">
             </div>
             <div class="cell">
                 <!-- <span>重设密码:</span> -->
@@ -43,6 +43,7 @@
     display: flex;
     flex-direction: row;
     border-top: 1px solid #efefef;
+    background: white;
     span {
       font-size: 14px;
       font-weight: 320;

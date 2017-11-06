@@ -94,6 +94,7 @@
 
 <script>
 import sha256 from "../../util/sha256";
+import { Toast, MessageBox } from 'mint-ui'
 export default {
   props: {
     title: {
@@ -207,15 +208,27 @@ export default {
       data.append("Token", localStorage.Token);
       data.append("PlanList", localStorage.selectNameArr);
       data.append("Sign", sha256.sha256(signStr).toUpperCase());
-      this.$http
+      if(localStorage.selectNameArr){
+        this.$http
         .post(localStorage.SiteUrl, data)
         .then(res => {
-          // this.planNameData = res.data.Data;
-          this.$router.go(-1);
+          if (res.data.Code == 'Suc') {
+            this.$router.go(-1);
+          }else {
+            
+          }
         })
         .catch(error => {
           console.log(error);
         });
+      }else{
+        MessageBox({
+        title: '提示',
+        message: '请选择彩种',
+        showCancelButton: false,
+      })
+      }
+      
     },
 
     changeOkClick() {

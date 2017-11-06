@@ -58,6 +58,7 @@
     flex-direction: row;
     border: 1px solid #efefef;
     height: 50px;
+    background: white;
     span {
       font-size: 14px;
       font-weight: 320;

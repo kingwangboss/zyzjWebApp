@@ -235,7 +235,11 @@ export default {
             data.append('Sign', sha256.sha256(signStr).toUpperCase());
             this.$http.post(localStorage.SiteUrl, data).then(res => {
                 // this.planNameData = res.data.Data;
-                this.$router.go(-1);
+                // this.$router.go(-1);
+                alert(1);
+                // if(res.Code == 'Suc'){
+                //     this.$router.go(-1);
+                // }
 
             }).catch(error => {
                 console.log(error);
@@ -244,6 +248,7 @@ export default {
         cancel() {
             // this.$router.go(-1);
             this.selectNameArr = [];
+            localStorage.selectNameArr = this.selectNameArr;
         }
     },
     mounted() {
