@@ -94,7 +94,7 @@
 
 <script>
 import sha256 from "../../util/sha256";
-import { Toast, MessageBox } from 'mint-ui'
+import { Toast, MessageBox } from "mint-ui";
 export default {
   props: {
     title: {
@@ -208,27 +208,25 @@ export default {
       data.append("Token", localStorage.Token);
       data.append("PlanList", localStorage.selectNameArr);
       data.append("Sign", sha256.sha256(signStr).toUpperCase());
-      if(localStorage.selectNameArr){
+      if (localStorage.selectNameArr) {
         this.$http
-        .post(localStorage.SiteUrl, data)
-        .then(res => {
-          if (res.data.Code == 'Suc') {
-            this.$router.go(-1);
-          }else {
-            
-          }
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      }else{
+          .post(localStorage.SiteUrl, data)
+          .then(res => {
+            if (res.data.Code == "Suc") {
+              this.$router.go(-1);
+            } else {
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      } else {
         MessageBox({
-        title: '提示',
-        message: '请选择彩种',
-        showCancelButton: false,
-      })
+          title: "提示",
+          message: "请选择彩种",
+          showCancelButton: false
+        });
       }
-      
     },
 
     changeOkClick() {
@@ -289,14 +287,14 @@ export default {
     },
     setok() {
       console.log("提交");
-      console.log(localStorage.selectNameArr.split(',')[localStorage.detailID]);
+      console.log(localStorage.selectNameArr.split(",")[localStorage.detailID]);
       console.log(localStorage.input1);
       console.log(localStorage.input2);
       console.log(localStorage.value1);
       console.log(localStorage.value2);
       console.log(localStorage.value3);
       console.log(localStorage.value4);
-      console.log(localStorage.selectNameArrs.split(',').sort());
+      console.log(localStorage.selectNameArrs.split(",").sort());
 
       let tokenCode = localStorage.tokenCode;
       let signStr =
@@ -306,64 +304,95 @@ export default {
         "&Token=" +
         localStorage.Token +
         "&PlanName=" +
-        localStorage.selectNameArr.split(',')[localStorage.detailID] +
+        localStorage.selectNameArr.split(",")[localStorage.detailID] +
         "&PlanCycle=" +
         localStorage.input2 +
         "&DMSMCount=" +
         localStorage.input1 +
         "&Accuracy=" +
-        parseFloat(localStorage.value1.split(',')[0])/100 +
+        parseFloat(localStorage.value1.split(",")[0]) / 100 +
         ":" +
-        parseFloat(localStorage.value1.split(',')[1])/100 +
+        parseFloat(localStorage.value1.split(",")[1]) / 100 +
         "&CurrentLianDui=" +
-        parseInt(localStorage.value4.split(',')[0]) +
+        parseInt(localStorage.value4.split(",")[0]) +
         ":" +
-        parseInt(localStorage.value4.split(',')[1]) +
+        parseInt(localStorage.value4.split(",")[1]) +
         "&MaxLianDui=" +
-        parseInt(localStorage.value2.split(',')[0]) +
+        parseInt(localStorage.value2.split(",")[0]) +
         ":" +
-        parseInt(localStorage.value2.split(',')[1]) +
+        parseInt(localStorage.value2.split(",")[1]) +
         "&MaxLianCuo=" +
-        parseInt(localStorage.value3.split(',')[0]) +
+        parseInt(localStorage.value3.split(",")[0]) +
         ":" +
-        parseInt(localStorage.value3.split(',')[1]) +
+        parseInt(localStorage.value3.split(",")[1]) +
         "&DataDuring=" +
-        localStorage.selectNameArrs.split(',').sort().toString() +
+        localStorage.selectNameArrs
+          .split(",")
+          .sort()
+          .toString() +
         tokenCode;
       let data = new FormData();
       data.append("Action", "OptimizePlan");
       data.append("SID", localStorage.sid);
       data.append("Token", localStorage.Token);
-      data.append("PlanName", localStorage.selectNameArr.split(',')[localStorage.detailID]);
+      data.append(
+        "PlanName",
+        localStorage.selectNameArr.split(",")[localStorage.detailID]
+      );
       data.append("PlanCycle", localStorage.input2);
       data.append("DMSMCount", localStorage.input1);
       data.append(
         "Accuracy",
-        parseFloat(localStorage.value1.split(',')[0])/100 + ":" + parseFloat(localStorage.value1.split(',')[1])/100
+        parseFloat(localStorage.value1.split(",")[0]) / 100 +
+          ":" +
+          parseFloat(localStorage.value1.split(",")[1]) / 100
       );
       data.append(
         "CurrentLianDui",
-        parseInt(localStorage.value4.split(',')[0]) + ":" + parseInt(localStorage.value4.split(',')[1])
+        parseInt(localStorage.value4.split(",")[0]) +
+          ":" +
+          parseInt(localStorage.value4.split(",")[1])
       );
       data.append(
         "MaxLianDui",
-        parseInt(localStorage.value2.split(',')[0]) + ":" + parseInt(localStorage.value2.split(',')[1])
+        parseInt(localStorage.value2.split(",")[0]) +
+          ":" +
+          parseInt(localStorage.value2.split(",")[1])
       );
       data.append(
         "MaxLianCuo",
-        parseInt(localStorage.value3.split(',')[0]) + ":" + parseInt(localStorage.value3.split(',')[1])
+        parseInt(localStorage.value3.split(",")[0]) +
+          ":" +
+          parseInt(localStorage.value3.split(",")[1])
       );
-      data.append("DataDuring", localStorage.selectNameArrs.split(',').sort().toString());
+      data.append(
+        "DataDuring",
+        localStorage.selectNameArrs
+          .split(",")
+          .sort()
+          .toString()
+      );
       data.append("Sign", sha256.sha256(signStr).toUpperCase());
-      this.$http
-        .post(localStorage.SiteUrl, data)
-        .then(res => {
-          // this.planNameData = res.data.Data;
-          this.$router.go(-1);
-        })
-        .catch(error => {
-          console.log(error);
+
+      if (localStorage.selectNameArrs.split(",").toString() != "") {
+        this.$http
+          .post(localStorage.SiteUrl, data)
+          .then(res => {
+            // this.planNameData = res.data.Data;
+            if (res.data.Code == "Suc") {
+              this.$router.go(-1);
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      } else {
+        Toast({
+          message: "数据筛选不能为空。",
+          position: "bottom",
+          duration: 2000
         });
+      }
     }
   }
 };
