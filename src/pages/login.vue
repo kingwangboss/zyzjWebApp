@@ -192,7 +192,7 @@
         .btnDefault {
             margin-top: 30px;
             height: 40px;
-            width: 100%;
+            width: 103%;
             border-radius: 5px;
             background-color: RGB(248, 213, 70);
             border: 0;
@@ -202,7 +202,7 @@
         .btnEnable {
             margin-top: 30px;
             height: 40px;
-            width: 100%;
+            width: 103%;
             border-radius: 5px;
             background-color: RGB(233, 228, 162);
             border: 0;
