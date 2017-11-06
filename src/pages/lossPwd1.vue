@@ -31,8 +31,8 @@
                 </div>
         
                 <div>
-                    <el-button v-if="disabled" class="btnEnable" type="text" native-type="submit">下一步</el-button>
-                    <el-button v-else class="btnDefault" type="text" native-type="submit">下一步</el-button>
+                    <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="primary" native-type="submit">下一步</el-button>
+                    <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">下一步</el-button>
                 </div>
             </form>
         </div>
@@ -76,28 +76,27 @@
       outline: none;
     }
   }
-}
+  .btnDefault {
+    background: rgb(214, 49, 70);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
 
-.btnDefault {
-  background: rgb(214, 49, 70);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  border: 0px;
-}
-
-.btnEnable {
-  background: rgba(214, 49, 70, 0.5);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  border: 0px;
+  .btnEnable {
+    background: rgba(214, 49, 70, 0.5);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
 }
 </style>
 
@@ -149,7 +148,7 @@ export default {
 
     submit: function(event) {
       this.getData();
-      this.user.verify = null;
+      
       // 请求数据
       let data = new FormData();
       data.append("Action", "QueryUserByAccount");
@@ -168,6 +167,7 @@ export default {
           } else {
             localStorage.removeItem("phoneNum");
           }
+          this.user.verify = null;
         })
         .catch(error => {
           console.log(error);

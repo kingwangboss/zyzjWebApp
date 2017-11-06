@@ -50,8 +50,8 @@
 
         
         <div>
-          <el-button v-if="disabled" class="btnEnable" type="text" native-type="submit">注册</el-button>
-          <el-button v-else class="btnDefault" type="text" native-type="submit">注册</el-button>
+          <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" native-type="primary">注册</el-button>
+          <el-button v-else :disabled="disabled" class="btnDefault" type="text" native-type="primary">注册</el-button>
         </div>
     </form>
   </div>
@@ -88,60 +88,59 @@
       outline: none;
     }
   }
+  .btnDefault {
+    background: rgb(214, 49, 70);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
+
+  .btnEnable {
+    background: rgba(214, 49, 70, 0.5);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
 }
 
-.line{
-  margin:2px 0px 2px 0px;
-  background:#61d571;
+.line {
+  margin: 2px 0px 2px 0px;
+  background: #61d571;
   width: 2px;
 }
-.line1{
+.line1 {
   height: 15px;
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
   background: #fafafa;
 }
-
-.btnDefault {
-  background: rgb(214, 49, 70);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  border: 0px;
-}
-
-.btnEnable {
-  background: rgba(214, 49, 70, 0.5);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  border: 0px;
-}
 </style>
 
 
 <script>
-import sha256 from '../../util/sha256'
-import { Toast, MessageBox } from 'mint-ui'
+import sha256 from "../../util/sha256";
+import { Toast, MessageBox } from "mint-ui";
 export default {
   data() {
     return {
       user: {
-        name: '',
-        num: '',
-        newpwd1: '',
-        newpwd2: '',
-        vcode: '',
-        imgurl: '',
-        yanzhengma: '',
+        name: "",
+        num: "",
+        newpwd1: "",
+        newpwd2: "",
+        vcode: "",
+        imgurl: "",
+        yanzhengma: ""
       },
-      disabled: true,
+      disabled: true
     };
   },
   mounted() {
@@ -151,18 +150,27 @@ export default {
   methods: {
     getData() {
       let data = new FormData();
-      data.append('Action', 'GetImgVCode');
-      this.$http.post("https://idx.camew.com", data).then(res => {
-        console.log(res);
-        this.user.vcode = res.data.Data.token;
-        this.user.imgurl = "https://idx.camew.com" + res.data.Data.imgpath;
-      }).catch(error => {
-        console.log(error);
-      });
+      data.append("Action", "GetImgVCode");
+      this.$http
+        .post("https://idx.camew.com", data)
+        .then(res => {
+          console.log(res);
+          this.user.vcode = res.data.Data.token;
+          this.user.imgurl = "https://idx.camew.com" + res.data.Data.imgpath;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
 
     inputFuction() {
-      if (this.user.name.length > 0 && this.user.newpwd1.length > 0 && this.user.newpwd2.length > 0 && this.user.num.length > 0 && this.user.yanzhengma.length > 0) {
+      if (
+        this.user.name.length > 0 &&
+        this.user.newpwd1.length > 0 &&
+        this.user.newpwd2.length > 0 &&
+        this.user.num.length > 0 &&
+        this.user.yanzhengma.length > 0
+      ) {
         this.disabled = false;
       } else {
         this.disabled = true;
@@ -179,48 +187,55 @@ export default {
         var that = this;
 
         let data1 = new FormData();
-        data1.append('Action', 'UserNameReg2');
-        data1.append('AppVersion', '1.0');
-        data1.append('SID', localStorage.sid);
-        data1.append('UserName', that.user.name);
-        data1.append('Pwd', sha256.sha256(that.user.newpwd2).toUpperCase());
-        data1.append('ImgCode', that.user.vcode + that.user.yanzhengma)
-        data1.append('SafeMobile', that.user.num)
-        data1.append('AppType', "4");
-        data1.append('AppCode', 'ZYZJ')
+        data1.append("Action", "UserNameReg2");
+        data1.append("AppVersion", "1.0");
+        data1.append("SID", localStorage.sid);
+        data1.append("UserName", that.user.name);
+        data1.append("Pwd", sha256.sha256(that.user.newpwd2).toUpperCase());
+        data1.append("ImgCode", that.user.vcode + that.user.yanzhengma);
+        data1.append("SafeMobile", that.user.num);
+        data1.append("AppType", "4");
+        data1.append("AppCode", "ZYZJ");
         localStorage.pwd = sha256.sha256(that.user.newpwd2).toUpperCase();
-        that.$http.post('https://idx.camew.com', data1).then(res => {
-          console.log(res)
-          if (res) {
-            localStorage.isLogin = true;
+        that.$http
+          .post("https://idx.camew.com", data1)
+          .then(res => {
+            console.log(res);
+            if (res) {
+              localStorage.isLogin = true;
 
-            localStorage.uid = res.data.Data.UID;
-            localStorage.AuthTypeName = res.data.Data.AuthTypeName;
-            localStorage.SiteUrl = res.data.Data.SiteUrl;
-            localStorage.AuthType = res.data.Data.AuthType;
-            localStorage.Username = res.data.Data.NickName;
-            localStorage.Token = res.data.Data.Token;
-            localStorage.PayType = res.data.Data.PayType;
-            localStorage.tokenCode = sha256.sha256(res.data.Data.Token + sha256.sha256(that.user.newpwd2).toUpperCase()).toUpperCase()
+              localStorage.uid = res.data.Data.UID;
+              localStorage.AuthTypeName = res.data.Data.AuthTypeName;
+              localStorage.SiteUrl = res.data.Data.SiteUrl;
+              localStorage.AuthType = res.data.Data.AuthType;
+              localStorage.Username = res.data.Data.NickName;
+              localStorage.Token = res.data.Data.Token;
+              localStorage.PayType = res.data.Data.PayType;
+              localStorage.tokenCode = sha256
+                .sha256(
+                  res.data.Data.Token +
+                    sha256.sha256(that.user.newpwd2).toUpperCase()
+                )
+                .toUpperCase();
 
-            localStorage.user_name = this.user.name;
-            localStorage.user_pwd = this.user.newpwd1;
-            that.$router.push({
-              path: "/"
-            })
-          }
-        }).catch(error => {
-          console.log(error);
-        });
+              localStorage.user_name = this.user.name;
+              localStorage.user_pwd = this.user.newpwd1;
+              that.$router.push({
+                path: "/"
+              });
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
       } else {
         MessageBox({
-          title: '提示',
-          message: '两次输入密码不同，请重新输入',
-          showCancelButton: false,
-        })
+          title: "提示",
+          message: "两次输入密码不同，请重新输入",
+          showCancelButton: false
+        });
       }
-
     }
-  },
-}
+  }
+};
 </script>

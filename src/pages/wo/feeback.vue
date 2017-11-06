@@ -17,8 +17,8 @@
               <textarea class="input2" name="" id="" cols="30" rows="6" v-model="msg.content" placeholder="" @input="inputFuction"></textarea>
             </div>
             <div>
-                <el-button v-if="disabled" class="btnEnable" type="text" @click="btnClick">提交</el-button>
-                <el-button v-else class="btnDefault" type="text" @click="btnClick">提交</el-button>
+                <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" native-type="primary" @click="btnClick">提交</el-button>
+                <el-button v-else :disabled="disabled" class="btnDefault" type="text" native-type="primary" @click="btnClick">提交</el-button>
             </div>  
         </div>
     </div>
@@ -47,20 +47,19 @@
   }
   .input1 {
     background: transparent;
-    width:99%;
+    width: 99%;
     // margin: 10px 10px;
     height: 30px;
     border: none;
     outline: none;
   }
   .input2 {
-    margin: 0 ;
+    margin: 0;
     background: transparent;
     // width: 90%;
     border: none;
     outline: none;
     width: 99%;
-
   }
   .btnDefault {
     background: rgb(214, 49, 70);
@@ -137,11 +136,15 @@ export default {
         .post(localStorage.SiteUrl, data)
         .then(res => {
           // this.$router.go(-1);
-          console.log('-----------------')
+          console.log("-----------------");
         })
         .catch(error => {
           console.log(error);
         });
+
+      this.msg.title = null;
+      this.msg.content = null;
+      this.disabled = true;
     }
   }
 };

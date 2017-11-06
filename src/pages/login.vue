@@ -63,7 +63,7 @@
 }
 
 .maincontainer {
-    background-image: url('../../static/images/login/Loginbg1.png');
+    background: url('../../static/images/login/Loginbg2.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;
@@ -346,7 +346,6 @@ export default {
 
     created() {
         this.user.sid = localStorage.sid;
-
         // let u = navigator.userAgent;
         // alert(u)
         // this.$store.dispatch('fetchOrderList')

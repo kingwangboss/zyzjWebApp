@@ -237,13 +237,13 @@ export default {
       if (localStorage.isLogin == "true") {
         let signStr =
           localStorage.sid +
-          localStorage.Username +
+          localStorage.user_name +
           "4ZYZJ1.0" +
           localStorage.pwd;
         let data = new FormData();
         data.append("Action", "Login");
         data.append("SID", localStorage.sid);
-        data.append("Account", localStorage.Username);
+        data.append("Account", localStorage.user_name);
         data.append("AppType", "4");
         data.append("AppCode", "ZYZJ");
         data.append("AppVersion", "1.0");

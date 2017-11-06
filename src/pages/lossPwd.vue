@@ -49,8 +49,8 @@
 
         
         <div>
-          <el-button v-if="disabled" class="btnEnable" type="text" native-type="submit">确认修改</el-button>
-          <el-button v-else class="btnDefault" type="text" native-type="submit">确认修改</el-button>
+          <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="primary" native-type="submit">确认修改</el-button>
+          <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">确认修改</el-button>
         </div>
       </form>
     </div>
@@ -89,43 +89,41 @@
       outline: none;
     }
   }
+  .btnDefault {
+    background: rgb(214, 49, 70);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
+
+  .btnEnable {
+    background: rgba(214, 49, 70, 0.5);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
 }
 
-.line{
-  margin:2px 0px 2px 0px;
-  background:#61d571;
+.line {
+  margin: 2px 0px 2px 0px;
+  background: #61d571;
   width: 2px;
 }
-
-.btnDefault {
-  background: rgb(214, 49, 70);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  border: 0px;
-}
-
-.btnEnable {
-  background: rgba(214, 49, 70, 0.5);
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 70%;
-  height: 40px;
-  font-size: 16px;
-  color: #fff;
-  border: 0px;
-}
-
-
 </style>
 
 
 <script>
 import mHeader from "../components/hearder/Hearder";
-import sha256 from '../util/sha256'
+import sha256 from "../util/sha256";
+import { Toast, MessageBox } from 'mint-ui'
 export default {
   name: "lossPwdVC",
   data() {
@@ -208,7 +206,8 @@ export default {
       // var formData = JSON.stringify(this.user); // 这里才是你的表单数据
       // console.log(formData);
       if (this.user.newpwd1 == this.user.newpwd2) {
-        this.user.newpwd1 = sha256.sha256(this.user.newpwd1).toUpperCase();
+        var pwd;
+        pwd = sha256.sha256(this.user.newpwd1).toUpperCase();
         // 请求数据
         let data = new FormData();
         data.append("Action", "ResetPwd2");
@@ -216,7 +215,7 @@ export default {
         data.append("SID", localStorage.sid);
         data.append("Mobile", this.user.num);
         data.append("SMSCode", this.user.verify);
-        data.append("Pwd", this.user.newpwd1);
+        data.append("Pwd", pwd);
         data.append("AppType", "4");
         this.$http
           .post("https://idx.camew.com", data)
@@ -227,6 +226,7 @@ export default {
                 path: "/login"
               });
             }
+            this.user.verify = null;
           })
           .catch(error => {
             console.log(error);
