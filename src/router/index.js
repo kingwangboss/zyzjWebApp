@@ -16,6 +16,7 @@ import setting2 from '@/pages/shujufenxi/setting2'
 import setting3 from '@/pages/shujufenxi/setting3'
 import setting4 from '@/pages/shujufenxi/setting4'
 import buy from '@/pages/buy'
+import pay from '@/pages/pay'
 import about from '@/pages/wo/about'
 import feeback from '@/pages/wo/feeback'
 import shouquan from '@/pages/wo/shouquan'
@@ -134,6 +135,11 @@ export default new Router({
       path: '/buy',
       name: 'buy',
       component: buy
+    },
+    {
+      path: '/pay',
+      name: 'pay',
+      component: pay
     },
     {
       path: '/planShare',

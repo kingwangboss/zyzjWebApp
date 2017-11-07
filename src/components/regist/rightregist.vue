@@ -49,9 +49,9 @@
 
 
         
-        <div>
-          <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" native-type="primary">注册</el-button>
-          <el-button v-else :disabled="disabled" class="btnDefault" type="text" native-type="primary">注册</el-button>
+        <div style="display:flex; justify-content: center;">
+          <div v-if="disabled" class="btnEnable" >注册</div>
+          <div v-else class="btnDefault" @click="submit">注册</div>
         </div>
     </form>
   </div>
@@ -94,6 +94,7 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
     border: 0px;
@@ -105,6 +106,7 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
     border: 0px;

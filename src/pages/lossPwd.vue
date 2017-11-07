@@ -23,17 +23,17 @@
     </div> -->
 
     <div class="top">
-      <form @submit.prevent="submit">
+      <!-- <form @submit.prevent="submit"> -->
         <div class="cell">
           <img src="../../static/images/shouji.png" alt="">
-          <input type="text" disabled="disabled" style="color:#ccc;" class="input1" v-model="user.num1" maxlength="11" placeholder="请输入正确的手机号码" @input="inputFuction">
+          <input type="text" readonly="true" style="color:red;background:#fff;" class="input1" v-model="user.num1" maxlength="11" placeholder="请输入正确的手机号码" @input="inputFuction">
         </div>
 
         <div class="cell" style="border-top:0px;">
           <img src="../../static/images/yanzhengma.png" alt="">
           <input class="input" v-model="user.verify" type="text" maxlength="20" placeholder="请输入验证码" @input="inputFuction">
           <div class="line"></div>
-          <el-button type="text" style="color:#61d571;margin-left:10px;margin-right:10px;" @click="ResetPwdSMS">获取验证码</el-button>
+          <el-button type="text" style="color:#61d571;margin-left:10px;margin-right:10px;width:90px;" @click="ResetPwdSMS">获取验证码</el-button>
         </div>
 
         <div class="cell" style="border-top:0px;">
@@ -47,12 +47,12 @@
         </div>
 
 
-        
-        <div>
-          <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="primary" native-type="submit">确认修改</el-button>
-          <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">确认修改</el-button>
+      
+        <div style="display:flex; justify-content: center;">
+          <div v-if="disabled" class="btnEnable" >确认修改</div>
+          <div v-else class="btnDefault" @click="submit">确认修改</div>
         </div>
-      </form>
+      <!-- </form> -->
     </div>
 
 
@@ -66,7 +66,7 @@
   width: 100%;
   height: auto;
   margin-top: 60px;
-
+  background: white;
   .cell {
     display: flex;
     flex-direction: row;
@@ -95,6 +95,7 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
     border: 0px;
@@ -106,6 +107,7 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
     border: 0px;
@@ -123,7 +125,7 @@
 <script>
 import mHeader from "../components/hearder/Hearder";
 import sha256 from "../util/sha256";
-import { Toast, MessageBox } from 'mint-ui'
+import { Toast, MessageBox } from "mint-ui";
 export default {
   name: "lossPwdVC",
   data() {
@@ -226,11 +228,11 @@ export default {
                 path: "/login"
               });
             }
-            this.user.verify = null;
           })
           .catch(error => {
             console.log(error);
           });
+        this.user.verify = null;
       } else {
         MessageBox({
           title: "提示",

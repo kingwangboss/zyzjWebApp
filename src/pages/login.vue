@@ -63,7 +63,7 @@
 }
 
 .maincontainer {
-    background: url('../../static/images/login/Loginbg2.jpg');
+    background-image: url('../../static/images/login/Loginbg2.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100%;

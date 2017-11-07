@@ -1,7 +1,7 @@
 <template>
   
   <div class="top">
-    <form @submit.prevent="submit">
+    <!-- <form @submit.prevent="submit"> -->
         <div class="line1"></div>
         <div class="cell">
           <img src="../../../static/images/shouji.png" alt="">
@@ -27,11 +27,11 @@
 
 
         
-        <div>
-          <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" native-type="primary">注册</el-button>
-          <el-button v-else :disabled="disabled" class="btnDefault" type="text" native-type="primary">注册</el-button>
+        <div style="display:flex; justify-content: center;">
+          <div v-if="disabled" class="btnEnable" >注册</div>
+          <div v-else class="btnDefault" @click="submit">注册</div>
         </div>
-    </form>
+    <!-- </form> -->
   </div>
 </template>
 
@@ -66,27 +66,6 @@
       outline: none;
     }
   }
-  .btnDefault {
-    background: rgb(214, 49, 70);
-    margin-top: 40px;
-    margin-bottom: 20px;
-    width: 70%;
-    height: 40px;
-    font-size: 16px;
-    color: #fff;
-    border: 0px;
-  }
-
-  .btnEnable {
-    background: rgba(214, 49, 70, 0.5);
-    margin-top: 40px;
-    margin-bottom: 20px;
-    width: 70%;
-    height: 40px;
-    font-size: 16px;
-    color: #fff;
-    border: 0px;
-  }
 }
 
 .line {
@@ -100,6 +79,30 @@
   border-bottom: 1px solid #efefef;
   background: #fafafa;
 }
+
+.btnDefault {
+    background: rgb(214, 49, 70);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
+
+  .btnEnable {
+    background: rgba(214, 49, 70, 0.5);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
 </style>
 
 
@@ -198,7 +201,6 @@ export default {
               path: "/"
             });
           }
-          this.mobile.verify = null;
         })
         .catch(error => {
           console.log(error);

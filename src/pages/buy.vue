@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div class="btn">
+        <!-- <div class="btn">
             <el-button :disabled="isselect" style="margin:60px 0px 0px 20px;min-width:130px;" @click="weiClick()">
                 <img style="width:15px;height:15px;" src="../../static/images/wei.png" alt="">
                 <span style="font-size:15px;padding-top:10px;">微信支付</span>
@@ -37,6 +37,11 @@
                 <img style="width:15px;height:15px;" src="../../static/images/zhi.png" alt="">
                 <span style="font-size:15px;">支付宝支付</span>
             </el-button>
+        </div> -->
+
+        <div style="display:flex; justify-content: center;">
+          <div v-if="isselect" class="btnEnable" >下一步</div>
+          <div v-else class="btnDefault" @click="nextClick">下一步</div>
         </div>
       </div>
   </div>
@@ -131,6 +136,29 @@
     flex-direction: row;
     justify-content: space-between;
   }
+  .btnDefault {
+    background: rgb(214, 49, 70);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
+
+  .btnEnable {
+    background: rgba(214, 49, 70, 0.5);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    border: 0px;
+  }
 }
 </style>
 
@@ -193,6 +221,12 @@ export default {
     pushPay(index) {
       localStorage.pid = this.listData.PriceList[index].ID;
       pid = this.listData.PriceList[index].ID;
+      this.$router.push({
+        path: "/pay"
+      });
+    },
+
+    nextClick() {
       this.$router.push({
         path: "/pay"
       });

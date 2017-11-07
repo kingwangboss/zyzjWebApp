@@ -17,9 +17,10 @@
                 <img src="../../../static/images/mima.png" alt="">
                 <input v-model="pwd.newpwd1" placeholder="请在此输入新密码" type="password" maxlength="20" @input="inputFuction">
             </div>
-            <div>
-                <el-button v-if="disabled" class="btnEnable" type="text" @click="btnClick">修改密码</el-button>
-                <el-button v-else class="btnDefault" type="text" @click="btnClick">修改密码</el-button>
+          
+            <div style="display:flex; justify-content: center;">
+              <div v-if="disabled" class="btnEnable" >修改密码</div>
+              <div v-else class="btnDefault" @click="btnClick">修改密码</div>
             </div>
         </div>
     </div>
@@ -37,7 +38,7 @@
   flex-direction: column;
   width: 100%;
   height: auto;
-  margin-top:60px;
+  margin-top: 60px;
 
   .cell {
     display: flex;
@@ -52,7 +53,7 @@
       margin: 3% 1%;
       text-align: right;
     }
-    img{
+    img {
       height: 18px;
       margin: 3% 2%;
     }
@@ -69,8 +70,10 @@
   margin-bottom: 20px;
   width: 70%;
   height: 40px;
+  line-height: 40px;
   font-size: 16px;
   color: #fff;
+  border: 0px;
 }
 
 .btnEnable {
@@ -79,8 +82,10 @@
   margin-bottom: 20px;
   width: 70%;
   height: 40px;
+  line-height: 40px;
   font-size: 16px;
   color: #fff;
+  border: 0px;
 }
 </style>
 
@@ -147,8 +152,15 @@ export default {
           this.$http
             .post(localStorage.SiteUrl, data)
             .then(res => {
-              localStorage.user_pwd = this.pwd.newpwd1;
-              this.$router.go(-1);
+              
+              if (res.data.Code == "Suc") {
+                localStorage.user_pwd = this.pwd.newpwd1;
+                this.$router.go(-1);
+              } else {
+                this.pwd.oldpwd = null;
+                this.pwd.newpwd = null;
+                this.pwd.newpwd1 = null;
+              }
             })
             .catch(error => {
               console.log(error);

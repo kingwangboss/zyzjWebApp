@@ -16,10 +16,13 @@
             <div class="input-contant">
               <textarea class="input2" name="" id="" cols="30" rows="6" v-model="msg.content" placeholder="" @input="inputFuction"></textarea>
             </div>
-            <div>
-                <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="text" native-type="primary" @click="btnClick">提交</el-button>
-                <el-button v-else :disabled="disabled" class="btnDefault" type="text" native-type="primary" @click="btnClick">提交</el-button>
-            </div>  
+            
+
+            <div style="display:flex; justify-content: center;">
+              <div v-if="disabled" class="btnEnable" >提交</div>
+              <div v-else class="btnDefault" @click="btnClick">提交</div>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -67,8 +70,10 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
+    border: 0px;
   }
 
   .btnEnable {
@@ -77,8 +82,10 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
+    border: 0px;
   }
 }
 </style>

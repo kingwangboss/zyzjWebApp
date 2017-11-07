@@ -19,7 +19,7 @@
         </div> -->
 
         <div class="top">
-            <form @submit.prevent="submit">
+            <!-- <form @submit.prevent="submit"> -->
                 <div class="cell">
                     <img src="../../static/images/yonghu.png" alt="">
                     <input v-model="user.username" type="text" maxlength="20" placeholder="请输入账号" @input="inputFuction">
@@ -30,11 +30,11 @@
                     <img style="margin-top:0px;margin-bottom:0px;height:50px;margin-right:0px;" :src="user.imgurl" alt="" @click="getData()">
                 </div>
         
-                <div>
-                    <el-button v-if="disabled" :disabled="disabled" class="btnEnable" type="primary" native-type="submit">下一步</el-button>
-                    <el-button v-else :disabled="disabled" class="btnDefault" type="primary" native-type="submit">下一步</el-button>
+                <div style="display:flex; justify-content: center;">
+                    <div v-if="disabled" class="btnEnable" >下一步</div>
+                    <div v-else class="btnDefault" @click="submit">下一步</div>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
 </template>
@@ -82,6 +82,7 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
     border: 0px;
@@ -93,6 +94,7 @@
     margin-bottom: 20px;
     width: 70%;
     height: 40px;
+    line-height: 40px;
     font-size: 16px;
     color: #fff;
     border: 0px;
