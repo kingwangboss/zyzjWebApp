@@ -54,6 +54,7 @@ export default {
     console.log("mounted");
     console.log(document.documentElement.clientHeight)
     console.log(window.location.host)
+     localStorage.vcname = "shujufenxi";
     
     if (localStorage.activeName2 == 'first') {
       this.item0();

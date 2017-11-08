@@ -12,7 +12,7 @@
           <img src="../../../static/images/yanzhengma.png" alt="">
           <input type="text" class="input1" v-model="mobile.verify" maxlength="6" placeholder="请输入验证码" @input="inputFuction">
           <div class="line"></div>
-          <el-button type="text" style="color:#61d571;margin-left:10px;margin-right:10px;" @click="getVcode">获取验证码</el-button>
+          <el-button type="text" style="color:#61d571;margin-left:10px;margin-right:10px;width:100px;" @click="getVcode">获取验证码</el-button>
         </div>
 
         <div class="cell" style="border-top:0px;">

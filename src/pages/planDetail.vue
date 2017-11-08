@@ -300,6 +300,7 @@ export default {
   mounted() {
     // 调用请求数据的方法
     this.getData();
+     localStorage.vcname = "planDetail";
   },
   computed: {},
   components: {

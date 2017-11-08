@@ -433,6 +433,7 @@ export default {
       
       console.log(value);
       localStorage.input2 = value;
+       localStorage.vcname = "setParameter";
     },
    
   }

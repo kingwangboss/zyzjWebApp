@@ -260,6 +260,7 @@ export default {
     localStorage.removeItem("pid");
     // 调用请求数据的方法
     this.getData();
+    localStorage.vcname = "buy";
   }
 };
 </script>

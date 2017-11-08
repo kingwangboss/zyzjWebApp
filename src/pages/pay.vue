@@ -186,6 +186,7 @@ export default {
         // 调用请求数据的方法
         this.getData()
         this.cellClick(0);
+         localStorage.vcname = "pay";
     }
 }
 </script>

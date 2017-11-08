@@ -254,6 +254,9 @@ export default {
         }, 400);
       }
     }
+  },
+  mounted(){
+     localStorage.vcname = "wo";
   }
 };
 </script>

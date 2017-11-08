@@ -129,6 +129,7 @@ export default {
     mounted() {
         this.getData();
         this.ind = localStorage.sid;
+         localStorage.vcname = "XZcaizhong";
     }
 }
 </script>
