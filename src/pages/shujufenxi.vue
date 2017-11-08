@@ -53,6 +53,7 @@ export default {
   mounted() {
     console.log("mounted");
     console.log(document.documentElement.clientHeight)
+    console.log(window.location.host)
     
     if (localStorage.activeName2 == 'first') {
       this.item0();

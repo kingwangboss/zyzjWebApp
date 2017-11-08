@@ -53,7 +53,8 @@
                     <div @click="qhradio1"><el-radio class="radio"  v-model="radio" label="2">微信</el-radio></div>
                 </div>
                 <div class="dialog-input">
-                    <el-input v-model="input" placeholder="请输入联系方式..."></el-input>
+                    <input v-if="radio == 1" style="border: 1px solid #ccc;" v-model="input" placeholder="请输入联系方式..." onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="15"></input>
+                    <input v-else style="border: 1px solid #ccc;" v-model="input" placeholder="请输入联系方式..." onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" maxlength="15"></input>
                 </div>
             </div>
             <span slot="footer" class="dialog-footer">
@@ -234,11 +235,44 @@ export default {
         });
     },
     changePwd() {
-      MessageBox.prompt(" ", "设置密码", {
-        inputPlaceholder: "请输入密码...",
-        inputType: "text"
-      }).then(({ value, action }) => {
-        let tokenCode = localStorage.tokenCode;
+      // MessageBox.prompt(" ", "设置密码", {
+      //   inputPlaceholder: "请输入密码...",
+      //   inputType: "text",
+      // }).then(({ value, action }) => {
+      //   let tokenCode = localStorage.tokenCode;
+      //   let signStr =
+      //     "Action=UpdatePlanShareVCode" +
+      //     "&SID=" +
+      //     localStorage.sid +
+      //     "&VCode=" +
+      //     value +
+      //     "&Token=" +
+      //     localStorage.Token +
+      //     tokenCode;
+      //   let data = new FormData();
+      //   data.append("Action", "UpdatePlanShareVCode");
+      //   data.append("SID", localStorage.sid);
+      //   data.append("VCode", value);
+      //   data.append("Token", localStorage.Token);
+      //   data.append("Sign", sha256.sha256(signStr).toUpperCase());
+      //   this.$http
+      //     .post(localStorage.SiteUrl, data)
+      //     .then(res => {
+      //       this.listData.VCode = value;
+      //       console.log(this.listData.VCode);
+      //     })
+      //     .catch(error => {
+      //       console.log(error);
+      //     });
+      // });
+      this.$prompt('请输入密码...', '设置密码', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /^\w{0,16}$/,
+          inputErrorMessage: '密码只能输入4-16位字符',
+          center: true
+        }).then(({ value }) => {
+          let tokenCode = localStorage.tokenCode;
         let signStr =
           "Action=UpdatePlanShareVCode" +
           "&SID=" +
@@ -263,14 +297,53 @@ export default {
           .catch(error => {
             console.log(error);
           });
-      });
+        }).catch(() => {
+          // this.$message({
+          //   type: 'info',
+          //   message: '取消输入'
+          // });       
+        });
     },
     changTeam() {
-      MessageBox.prompt(" ", "设置团队名称", {
-        inputPlaceholder: "请输入团队名称...",
-        inputType: "text"
-      }).then(({ value, action }) => {
-        let tokenCode = localStorage.tokenCode;
+      // MessageBox.prompt(" ", "设置团队名称", {
+      //   inputPlaceholder: "请输入团队名称...",
+      //   inputType: "text"
+      // }).then(({ value, action }) => {
+      //   let tokenCode = localStorage.tokenCode;
+      //   let signStr =
+      //     "Action=UpdatePlanShareTeamName" +
+      //     "&SID=" +
+      //     localStorage.sid +
+      //     "&TeamName=" +
+      //     value +
+      //     "&Token=" +
+      //     localStorage.Token +
+      //     tokenCode;
+      //   let data = new FormData();
+      //   data.append("Action", "UpdatePlanShareTeamName");
+      //   data.append("SID", localStorage.sid);
+      //   data.append("TeamName", value);
+      //   data.append("Token", localStorage.Token);
+      //   data.append("Sign", sha256.sha256(signStr).toUpperCase());
+      //   this.$http
+      //     .post(localStorage.SiteUrl, data)
+      //     .then(res => {
+      //       this.listData.TeamName = value;
+      //       console.log(this.listData.TeamName);
+      //     })
+      //     .catch(error => {
+      //       console.log(error);
+      //     });
+      // });
+
+      this.$prompt('请输入团队名称...', '设置团队名称', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /^([\u4e00-\u9fa5\w]){0,10}$/,
+          inputErrorMessage: '团队名称不能大于10个字符',
+          center: true
+        }).then(({ value }) => {
+          let tokenCode = localStorage.tokenCode;
         let signStr =
           "Action=UpdatePlanShareTeamName" +
           "&SID=" +
@@ -295,7 +368,13 @@ export default {
           .catch(error => {
             console.log(error);
           });
-      });
+        }).catch(() => {
+          // this.$message({
+          //   type: 'info',
+          //   message: '取消输入'
+          // });       
+        });
+
     },
     qhTupian() {
       if (this.radio == "1") {

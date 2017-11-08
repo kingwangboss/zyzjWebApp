@@ -28,7 +28,7 @@
 
         <div class="cell" style="border-top:0px;">
           <img src="../../../static/images/shouji.png" alt="">
-          <input class="input" v-model="user.num" type="number" maxlength="11" placeholder="请输入安全手机" @input="inputFuction">
+          <input class="input" v-model="user.num" type="number" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="请输入安全手机" @input="inputFuction">
         </div>
 
         <div class="cell" style="border-top:0px;">

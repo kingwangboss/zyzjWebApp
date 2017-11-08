@@ -13,7 +13,7 @@
 
                         <div class="div-bor">
                             <i class="icon-user"></i>
-                            <input type="text" class="user" v-model="user.name" maxlength="20" placeholder="请输入手机号/昵称" @input="inputFuction">
+                            <input type="text" class="user" v-model="user.name" onKeyUp="value=value.replace(/[^\w\/]/ig,'')" maxlength="20" placeholder="请输入手机号/昵称" @input="inputFuction">
                         </div>
 
                         <div class="div-bor">
@@ -68,8 +68,12 @@
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0px;
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index:-1;
     .content {
         #bundle>.juzhong;
         flex-direction: column;

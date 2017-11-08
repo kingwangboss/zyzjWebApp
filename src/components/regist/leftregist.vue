@@ -5,12 +5,12 @@
         <div class="line1"></div>
         <div class="cell">
           <img src="../../../static/images/shouji.png" alt="">
-          <input class="input" v-model="mobile.num" type="text" maxlength="20" placeholder="请输入手机号码" @input="inputFuction">
+          <input class="input" v-model="mobile.num" type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="请输入手机号码" @input="inputFuction">
         </div>
 
         <div class="cell" style="border-top:0px;">
           <img src="../../../static/images/yanzhengma.png" alt="">
-          <input type="number" class="input1" v-model="mobile.verify" maxlength="11" placeholder="请输入验证码" @input="inputFuction">
+          <input type="text" class="input1" v-model="mobile.verify" maxlength="6" placeholder="请输入验证码" @input="inputFuction">
           <div class="line"></div>
           <el-button type="text" style="color:#61d571;margin-left:10px;margin-right:10px;" @click="getVcode">获取验证码</el-button>
         </div>
