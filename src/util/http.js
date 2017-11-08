@@ -56,30 +56,9 @@ axios.interceptors.response.use(
         showCancelButton: false,
       })
     } else if (response.data.MsgType === 2 && response.data.Msg != null) {
-      // if (localStorage.tab == 'shujufenxi') {
+      if (localStorage.tab == 'shujufenxi') {
 
-      // } else {
-      //   MessageBox({
-      //     title: '提示',
-      //     message: response.data.Msg,
-      //     showCancelButton: true,
-      //     confirmButtonText: '去购买',
-      //     cancelButtonText: '知道了',
-      //     callback: (action, instance, done) => {
-      //       if (action === 'confirm') {
-      //         router.push({
-      //           path: '/buy'
-      //         })
-      //       } else {
-
-      //       }
-      //     },
-      //   }).then(action => {
-
-      //   })
-      // }
-
-      if(localStorage.tab == 'plan' ||  localStorage.vcname == "planDetail"){
+      } else {
         MessageBox({
           title: '提示',
           message: response.data.Msg,
@@ -98,8 +77,6 @@ axios.interceptors.response.use(
         }).then(action => {
 
         })
-      }else{
-
       }
     } else if (response.data.MsgType === 3 && response.data.Msg != null) {
       MessageBox({
