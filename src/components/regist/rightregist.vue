@@ -97,7 +97,8 @@
     line-height: 40px;
     font-size: 16px;
     color: #fff;
-    border: 0px;
+    // border: 0px;
+    border-radius: 5px;
   }
 
   .btnEnable {
@@ -109,7 +110,8 @@
     line-height: 40px;
     font-size: 16px;
     color: #fff;
-    border: 0px;
+    // border: 0px;
+    border-radius: 5px;
   }
 }
 

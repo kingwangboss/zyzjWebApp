@@ -7,14 +7,13 @@
 
     <div class="line">
     </div>
-    <div class="cell" @click="buyClick">
+    <div v-if="paytype" class="cell" @click="buyClick">
 
       <div class="cell-left">
          <img src="../../static/images/me/gm.png" alt="">
          <span>购买授权</span>
       </div>
      
-      <!-- <img class="right-img" src="../../static/images/jt.png" alt=""> -->
       <div class="iv-arrow"></div>
     </div>
     <div class="line">
@@ -185,7 +184,8 @@ export default {
   data() {
     return {
       screenWidth: document.body.clientWidth,
-      nickname: localStorage.Username
+      nickname: localStorage.Username,
+      paytype:localStorage.PayType
     };
   },
 
