@@ -117,6 +117,7 @@ export default {
                 }
                 console.log(nameArr);
                 localStorage.selectNameArr = nameArr.join(',');
+                localStorage.cycleCount = this.PlanData.CycleCount;
             }).catch(error => {
                 console.log(error);
             })
