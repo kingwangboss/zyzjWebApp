@@ -54,7 +54,7 @@
           </button>
 
           <div class="bottom">
-            <el-button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}" :style="{width:ojwidth+'px',height:ojwidth+'px',}" @click="addBtn(item)" type="text" v-for="item in dataDuringValue" :key="item" class="bottom-btn">
+            <el-button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}" :style="{width:ojwidth+'px',height:ojwidth+'px',}" @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
                     {{item}}
                 </el-button>
           </div>
@@ -178,6 +178,7 @@ export default {
       dataDuringIndex: [],
       planName: "",
       selectNameArr: [],
+      selectIndexArr:[],
       screenWidth: document.body.clientWidth, // 这里是给到了一个默认值 （这个很重要）
       tooltipDir: ["bottom", "bottom"],
       sliderStyle: [
@@ -305,6 +306,8 @@ export default {
           localStorage.input2 = this.input2;
           this.selectNameArr = this.dataDuringValue;
           localStorage.selectNameArrs = this.selectNameArr;
+          this.selectIndexArr = this.dataDuringIndex;
+          localStorage.selectIndexArrs = this.selectIndexArr;
           // this.dataDuringValue = dataDuringValue;
           // this.dataDuringIndex = dataDuringIndex;
         })
@@ -328,17 +331,20 @@ export default {
       }
       return result;
     },
-    addBtn(item) {
+    addBtn(index,item) {
       // console.log(item);
       console.log(this.selectNameArr.indexOf(item));
       if (this.selectNameArr.indexOf(item) >= 0) {
         this.selectNameArr = this.remove(this.selectNameArr, item);
+        this.selectIndexArr = this.remove(this.selectIndexArr,index);
       } else {
         this.selectNameArr.push(item);
+        this.selectIndexArr.push(index);
       }
       console.log(this.selectNameArr.indexOf(item));
       console.log(this.selectNameArr);
       localStorage.selectNameArrs = this.selectNameArr;
+      localStorage.selectIndexArrs = this.selectIndexArr;
     },
 
     ok() {
