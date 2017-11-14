@@ -21,6 +21,7 @@
                         <span v-if="item.PlanDetails[0].split('|')[3]" style="line-height:20px;color:#6e6e6e;margin-right:5px;font-size:13px;">期</span>
                     </div>      
                 </div>
+
                 
                  
                 <!-- id控制 计划切换 -->
@@ -247,7 +248,7 @@ export default {
       },
       activeName: localStorage.detailID,
       listData: "",
-      zjnum: []
+      zjnum: [],
     };
   },
   created() {},

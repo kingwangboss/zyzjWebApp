@@ -17,11 +17,14 @@
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj2.png" alt="">
       <span class="label1">第{{KJData.NewLottery.NextPeriod}}期开奖倒计时</span>
       <div class="img"> </div>
-      <span class="sj">{{shijianArr[0]}}</span>
-      <span class="sj">{{shijianArr[1]}}</span>
-      <span style="color:yellow;margin-top:5px;">:</span>
+      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" class="sj">{{shijianArr[0]}}</span>
+      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" class="sj">{{shijianArr[1]}}</span>
+      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" style="color:#FFFDE4">:</span>
       <span class="sj">{{shijianArr[2]}}</span>
       <span class="sj">{{shijianArr[3]}}</span>
+      <span style="color:yellow;margin-top:5px;">:</span>
+      <span class="sj">{{shijianArr[4]}}</span>
+      <span class="sj">{{shijianArr[5]}}</span>
     </div>
   </div>
 </template>
@@ -155,15 +158,20 @@ export default {
         time = parseInt(this.nextTime);
         // console.log('time')
         // console.log(time);
-        var minu = parseInt(time / 60);
+        var hour = parseInt(time / 3600);
+        var minu = parseInt((time - hour * 3600) / 60);
         var second = time % 60;
 
+        var num00 = parseInt(hour / 10) > 0 ? parseInt(hour / 10) : 0;
+        var num01 = hour % 10;
         var num1 = parseInt(minu / 10) > 0 ? parseInt(minu / 10) : 0;
         var num2 = minu % 10;
         var num3 = parseInt(second / 10) > 0 ? parseInt(second / 10) : 0;
         var num4 = second % 10;
 
         var arr = [];
+        arr.push(num00);
+        arr.push(num01);
         arr.push(num1);
         arr.push(num2);
         arr.push(num3);
