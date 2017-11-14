@@ -45,8 +45,8 @@
           </div>
 
           <div style="dispaly:flex;flex-direction:row;width:100px;margin-top:15px;">
-              <img style="height:15px;width:15px;" src="../../static/images/sjsx.png" ></img>
-                <span style="font-size:15px;font-weight:900;color:#007AFF">数据筛选</span>
+              <img style="height:12px;width:15px;" src="../../static/images/sjsx.png" ></img>
+              <span style="font-size:15px;font-weight:900;color:#007AFF">数据筛选</span>
           </div>
 
           <button >
@@ -54,9 +54,9 @@
           </button>
 
           <div class="bottom">
-            <el-button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}" :style="{width:ojwidth+'px',height:ojwidth+'px',}" @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
+            <button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}" :style="{width:ojwidth+'px',height:ojwidth+'px',}" @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
                     {{item}}
-                </el-button>
+                </button>
           </div>
 
       </div>
@@ -120,6 +120,7 @@
     flex-wrap: wrap;
     margin-bottom: 40px;
     .bottom-btn {
+        outline: none;
         font-size: 13px;
         line-height: 25px; // margin: 10px 5px;
         margin-left: 4px;
@@ -135,6 +136,7 @@
     .bottom-btn-select {
         // width: 20px;
         // height: 20px;
+        outline: none;
         font-size: 13px;
         line-height: 25px; // margin: 10px 5px;
         margin-left: 4px;

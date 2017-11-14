@@ -258,7 +258,7 @@
     --input-height: 36px;
     --input-border: var(--border-base);
     --input-border-color: var(--border-color-base);
-    --input-border-radius: var(--border-radius-base);
+    --input-border-radius: 0px;
     --input-border-color-hover: var(--border-color-hover);
     --input-fill: var(--color-white);
     --input-fill-disabled: var(--disabled-fill-base);
