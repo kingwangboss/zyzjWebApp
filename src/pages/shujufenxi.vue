@@ -37,6 +37,8 @@ export default {
   name: 'shujufenxi',
   data() {
     return {
+      url1:"//zyzjapp.camew.com/static/JYYC1/txt.html",
+      url2:"//zyzjapp.camew.com/static/JYYC1/bxt.html",
       activeName2: localStorage.activeName2,
       screenHeight: document.documentElement.clientHeight - 88 - 68,
       // screenWidth:  document.documentElement.screenWidth
@@ -75,7 +77,10 @@ export default {
   created() {
     console.log("created");
     console.log(localStorage.Norm1)
-
+    this.url1 = window.location.protocol + this.url1;
+    this.url2 = window.location.protocol + this.url2;
+    console.log(this.url1);
+    console.log(this.url2);
   },
   methods: {
     item0() {
