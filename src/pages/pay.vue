@@ -6,26 +6,26 @@
             <div v-for="(item,index) in paytype" :key="item">
                 <div v-if="item == 2">
                     <div class="cell" @click="cellClick(index)">
-                        <img src="../../static/images/zflog.png" alt="">
+                        <img class="img1" src="../../static/images/zflog.png" alt="">
                         <div class="title">
                             <span class="title-span1">{{listData.PriceList[index].PayTypeTitle}}</span>
                             <span class="title-span2">{{listData.PriceList[index].PayTypeDesc}}</span>
                         </div>
-                        <img v-show="isSelect != 2" src="../../static/images/quan111.png" alt="">
-                        <img v-show="isSelect == 2" src="../../static/images/quan222.png" alt="">
+                        <img class="img2" v-show="isSelect != 2" src="../../static/images/quan111.png" alt="">
+                        <img class="img2" v-show="isSelect == 2" src="../../static/images/quan222.png" alt="">
                     </div>
                     <div class="line">
                     </div>
                 </div>
                 <div v-else-if="item == 1">
                     <div class="cell" @click="cellClick(index)">
-                        <img src="../../static/images/wxlog.png" alt="">
+                        <img class="img1" src="../../static/images/wxlog.png" alt="">
                         <div class="title">
                             <span class="title-span1">{{listData.PriceList[index].PayTypeTitle}}</span>
                             <span class="title-span2">{{listData.PriceList[index].PayTypeDesc}}</span>
                         </div>
-                        <img v-show="isSelect != 1" src="../../static/images/quan111.png" alt="">
-                        <img v-show="isSelect == 1" src="../../static/images/quan222.png" alt="">
+                        <img class="img2" v-show="isSelect != 1" src="../../static/images/quan111.png" alt="">
+                        <img class="img2" v-show="isSelect == 1" src="../../static/images/quan222.png" alt="">
                     </div>
                     <div class="line">
                     </div>
@@ -54,10 +54,15 @@
     display: flex;
     flex-direction: row;
     height: 60px;
-    img {
+    .img1 {
         margin: 15px 15px;
         height: 30px;
         widows: 30px;
+    }
+    .img2 {
+        margin: 20px 20px;
+        height: 20px;
+        widows: 20px;
     }
     .title {
         margin: 10px 0px;
@@ -97,6 +102,8 @@
     line-height: 40px;
     font-size: 16px;
     color: #fff;
+    font-size: 16px;
+    font-weight: 900;
     border: 0px;
 }
 </style>
