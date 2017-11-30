@@ -46,7 +46,7 @@
     flex-direction: column;
     .line {
         height: 1px;
-        background: #c7c7c7;
+        background: #efefef;
     }
 }
 
