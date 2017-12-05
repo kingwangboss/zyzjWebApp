@@ -7,7 +7,7 @@
                 <div class="cell-top">
                 <div class="cell-top-left">
                     <img src="../../../static/images/plan17.png" alt="">
-                    <span>{{cell.Name}}</span>
+                    <span>{{cell.Name.replace("定码","")}}</span>
                 </div>
 
                 <div class="cell-top-right">
@@ -42,16 +42,21 @@
                 <div class="cell-top">
                 <div class="cell-top-left">
                     <img src="../../../static/images/plan17.png" alt="">
-                    <span>{{cell.Name}}</span>
+                    <span>{{cell.Name.replace("定码","")}}</span>
                 </div>
 
                 <div class="cell-top-right">
                     <div class="diandian">
 
-                        <div v-for="item in dian[index]" :key="item">
+                        <!-- <div v-for="item in dian[index]" :key="item">
                             <div v-if="item === '1'" class="dianMiddle" style="background:#30bb78;"></div>
                             <div v-else-if="item === '0'" class="dianMiddle" style="background:#d82e4b;"></div>
                             <div v-else class="dianMiddle" style="background:black;"></div>
+                        </div> -->
+                        <div v-for="(item,i) in analysis(cell.GuessResultList)" :key="i">
+                          <div v-if="item === '1'" class="dianMiddle" style="background:#30bb78;"></div>
+                          <div v-else-if="item === '0'" class="dianMiddle" style="background:#d82e4b;"></div>
+                          <div v-else class="dianMiddle" style="background:black;"></div>
                         </div>
                     </div>
                     <span class="baifenbi">{{cell.GuessPercent}}</span>
