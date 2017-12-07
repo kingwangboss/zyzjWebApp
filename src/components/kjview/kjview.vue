@@ -17,9 +17,9 @@
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/sj2.png" alt="">
       <span class="label1">第{{KJData.NewLottery.NextPeriod}}期开奖倒计时</span>
       <div class="img"> </div>
-      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" class="sj">{{shijianArr[0]}}</span>
-      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" class="sj">{{shijianArr[1]}}</span>
-      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" style="color:#FFFDE4">:</span>
+      <span v-show="shijianArr[1] > 0" class="sj">{{shijianArr[0]}}</span>
+      <span v-show="shijianArr[1] > 0" class="sj">{{shijianArr[1]}}</span>
+      <span v-show="shijianArr[1] > 0" style="color:yellow;margin-top:5px;">:</span>
       <span class="sj">{{shijianArr[2]}}</span>
       <span class="sj">{{shijianArr[3]}}</span>
       <span style="color:yellow;margin-top:5px;">:</span>

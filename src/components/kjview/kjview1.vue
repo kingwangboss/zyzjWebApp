@@ -14,9 +14,9 @@
     </div>
     <div class="top-bottom" v-else>
       <img style="width:15px;height:15px;padding-left:5px;padding-right:5px;padding-top:5px;" src="../../../static/images/clock.png" alt="">
-      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" class="sj">{{shijianArr[0]}}</span>
-      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" class="sj">{{shijianArr[1]}}</span>
-      <span v-show="shijianArr[0] > 0 && shijianArr[1] > 0" style="color:#FF0000;margin-top:5px;">:</span>
+      <span v-show="shijianArr[1] > 0" class="sj">{{shijianArr[0]}}</span>
+      <span v-show="shijianArr[1] > 0" class="sj">{{shijianArr[1]}}</span>
+      <span v-show="shijianArr[1] > 0" style="color:#FF0000;margin-top:5px;">:</span>
       <span class="sj">{{shijianArr[2]}}</span>
       <span class="sj">{{shijianArr[3]}}</span>
       <span style="color:#FF0000;margin-top:5px;">:</span>
