@@ -7,7 +7,7 @@
           <div class="top">
               <div class="cell">
                   <span class="txt">
-                      定码个数：
+                      定杀个数：
                   </span>
                   <el-input-number class="elinput" v-model="input1" @change="change1" :min="1" :max="dataDuringValue.length - 1" label="描述文字"></el-input-number>
               </div>
