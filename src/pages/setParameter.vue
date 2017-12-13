@@ -9,44 +9,52 @@
                   <span class="txt">
                       定杀个数：
                   </span>
-                  <el-input-number class="elinput" v-model="input1" @change="change1" :min="1" :max="dataDuringValue.length - 1" label="描述文字"></el-input-number>
+                  <el-input-number size="small" class="elinput" v-model="input1" @change="change1" :min="1" :max="dataDuringValue.length - 1" label="描述文字"></el-input-number>
               </div>
 
               <div class="cell">
                   <span class="txt">
                       计划周期：
                   </span>
-                  <el-input-number class="elinput" v-model="input2" @change="change2" :min="1" :max="9" label="描述文字"></el-input-number>
+                  <el-input-number size="small" class="elinput" v-model="input2" @change="change2" :min="1" :max="9" label="描述文字"></el-input-number>
               </div>
 
               <div class="cell1">
                   <span class="txt1">成绩</span>
-                  <vue-slider class="slider" :piecewise="true" :min="0" :max="100" formatter="{value}%" :interval='10' :lazy="true" v-model="value1" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle"></vue-slider>
+                  <vue-slider class="slider" :piecewise="true" :min="0" :max="100" formatter="{value}%" :interval='10' :lazy="true" v-model="value1" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle" :tooltipStyle="tooltipStyle"></vue-slider>
                     
               </div>
 
               <div class="cell1">
                   <span class="txt1">最大连对</span>
-                  <vue-slider class="slider" :piecewise="true" :min="0" :max="10" :interval='1' :lazy="true" v-model="value2" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle"></vue-slider>
+                  <vue-slider class="slider" :piecewise="true" :min="0" :max="10" :interval='1' :lazy="true" v-model="value2" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle" :tooltipStyle="tooltipStyle"></vue-slider>
               </div>
 
               <div class="cell1">
                   <span class="txt1">最大连错</span>
-                  <vue-slider class="slider" :piecewise="true" :min="0" :max="10" :interval='1' :lazy="true" v-model="value3" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle"></vue-slider>
+                  <vue-slider class="slider" :piecewise="true" :min="0" :max="10" :interval='1' :lazy="true" v-model="value3" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle" :tooltipStyle="tooltipStyle"></vue-slider>
 
               </div>
 
               <div class="cell1">
                   <span class="txt1">当前连对/错</span>
-                  <vue-slider class="slider" :piecewise="true" :min="-10" :max="10" :interval='1' :lazy="true" v-model="value4" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle"></vue-slider>
+                  <vue-slider class="slider" :piecewise="true" :min="-10" :max="10" :interval='1' :lazy="true" v-model="value4" :tooltipDir="tooltipDir" :sliderStyle="sliderStyle" :bgStyle="bgStyle" :processStyle="processStyle" :tooltipStyle="tooltipStyle"></vue-slider>
 
               </div>
 
           </div>
 
-          <div style="dispaly:flex;flex-direction:row;width:100px;margin-top:15px;">
-              <img style="height:12px;width:15px;" src="../../static/images/sjsx.png" ></img>
-              <span style="font-size:15px;font-weight:900;color:#007AFF">数据筛选</span>
+          <div style="dispaly:flex;flex-direction:row;width:250px;margin-top:15px;margin-left:3px;">
+              <!-- <img style="height:12px;width:15px;" src="../../static/images/sjsx.png" ></img> -->
+              <div style="height:12px;display:inline-block;">
+                <div style="width:15px;height:2px;background:red;"></div>
+                <div style="width:15px;height:2px;background:red;margin-top:3px;"></div>
+                <div style="width:15px;height:2px;background:red;margin-top:3px;"></div>
+              </div>
+              <span style="font-size:15px;font-weight:900;color:rgb(219, 60, 62);margin-right:20px;">数据筛选</span>
+              <button class="sbtn" @click="allselect">全选</button>
+              <button class="sbtn" @click="reversalselect">反选</button>
+              <button class="sbtn" @click="allunselect">清除</button>
           </div>
 
           <button >
@@ -65,6 +73,10 @@
 </template>
 
 <style lang="less" scoped>
+.sbtn:active {
+  color: rgb(255, 0, 64);
+}
+
 .maincontainer {
   display: flex;
   flex-direction: column;
@@ -88,19 +100,19 @@
   justify-content: flex-start;
   flex-wrap: nowrap;
   border-bottom: 1.5px solid #f6f6f6;
-  margin:0px 20px;
+  margin: 0px 20px;
   .slider {
     margin: 0px 10px 30px 10px;
   }
 }
 
 .txt {
-  margin: 20px 0px;
+  margin: 20px 0px 20px 10px;
   height: 18px;
   line-height: 18px;
   font-size: 12px;
   align-content: left;
-  width: 18%;
+  // width: 18%;
 }
 .txt1 {
   margin: 10px 0px;
@@ -108,10 +120,12 @@
   line-height: 9px;
   font-size: 12px;
   align-content: left;
-  width: 18%;
+  text-align: left;
+  width: 30%;
 }
 .elinput {
-  margin: 10px 0px;
+  margin: 15px 0px;
+  
 }
 
 .bottom {
@@ -119,11 +133,12 @@
   flex-direction: row; // margin-left: 10px;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  margin-left:8px;
   .bottom-btn {
     outline: none;
     font-size: 13px;
     // line-height: 25px; // margin: 10px 5px;
-    padding: 5px 6px;
+    padding: 2px 6px;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 4px;
@@ -140,15 +155,15 @@
     outline: none;
     font-size: 13px;
     // line-height: 25px; // margin: 10px 5px;
-    padding: 5px 6px;
+    padding: 2px 6px;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 4px;
     // padding: 0px;
     min-width: 32px;
     color: white;
-    border: 1px solid #007aff;
-    background: #007aff;
+    border: 1px solid rgb(219, 60, 62);
+    background: rgb(219, 60, 62);
   }
 }
 </style>
@@ -184,14 +199,17 @@ export default {
       planName: "",
       selectNameArr: [],
       selectIndexArr: [],
+
+      tempname: [],
+      tempindex: [],
       screenWidth: document.body.clientWidth, // 这里是给到了一个默认值 （这个很重要）
       tooltipDir: ["bottom", "bottom"],
       sliderStyle: [
         {
-          backgroundColor: "rgb(68,76,89)"
+          backgroundColor: "rgb(219, 60, 62)"
         },
         {
-          backgroundColor: "rgb(89,196,212)"
+          backgroundColor: "rgb(68,76,89)"
         }
       ],
       bgStyle: {
@@ -200,6 +218,10 @@ export default {
       },
       processStyle: {
         backgroundColor: "#999"
+      },
+      tooltipStyle: {
+        backgroundColor: "gray",
+        borderColor: "gray"
       }
     };
   },
@@ -271,6 +293,25 @@ export default {
   },
 
   methods: {
+    allselect() {
+      console.log(this.selectNameArr);
+      console.log(this.selectIndexArr);
+      this.selectNameArr = this.tempname;
+      this.selectIndexArr = this.tempindex;
+    },
+
+    reversalselect() {
+      for (let i = 0; i < this.tempindex.length; i++) {
+        const index = this.tempindex[i];
+        const item = this.tempname[i];
+        this.addBtn(index, item);
+      }
+    },
+
+    allunselect() {
+      this.selectNameArr = [];
+      this.selectIndexArr = [];
+    },
     getData() {
       console.log(this.planName);
       // 请求数据
@@ -313,6 +354,9 @@ export default {
           localStorage.selectNameArrs = this.selectNameArr;
           this.selectIndexArr = this.dataDuringIndex;
           localStorage.selectIndexArrs = this.selectIndexArr;
+
+          this.tempname = this.dataDuringValue;
+          this.tempindex = this.dataDuringIndex;
           // this.dataDuringValue = dataDuringValue;
           // this.dataDuringIndex = dataDuringIndex;
         })
