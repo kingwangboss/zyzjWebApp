@@ -221,7 +221,7 @@
     height: 18px;
     color: #007aff;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 19px;
   }
 }
 .cell-bottom1 {

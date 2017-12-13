@@ -238,6 +238,10 @@ export default {
     height: 25px;
     margin-bottom: 10px;
     margin-right: 10px;
+    // display: block;
+    // margin-right: 0px;
+    // text-align: right;
+
     .label1 {
       padding-top: 1px;
       color: black;

@@ -44,7 +44,7 @@
 
           </div>
 
-          <div style="dispaly:flex;flex-direction:row;width:250px;margin-top:15px;margin-left:3px;">
+          <div style="dispaly:flex;flex-direction:row;width:280px;margin-top:15px;margin-left:3px;">
               <!-- <img style="height:12px;width:15px;" src="../../static/images/sjsx.png" ></img> -->
               <div style="height:12px;display:inline-block;">
                 <div style="width:15px;height:2px;background:red;"></div>
@@ -57,14 +57,11 @@
               <button class="sbtn" @click="allunselect">清除</button>
           </div>
 
-          <button >
-
-          </button>
 
           <div class="bottom">
             <button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}"  @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
-                    {{item}}
-                </button>
+             {{item}}
+            </button>
           </div>
 
       </div>
@@ -109,7 +106,7 @@
 .txt {
   margin: 20px 0px 20px 10px;
   height: 18px;
-  line-height: 18px;
+  line-height: 23px;
   font-size: 12px;
   align-content: left;
   // width: 18%;
@@ -125,7 +122,7 @@
 }
 .elinput {
   margin: 15px 0px;
-  
+  z-index: 0;
 }
 
 .bottom {
@@ -138,7 +135,7 @@
     outline: none;
     font-size: 13px;
     // line-height: 25px; // margin: 10px 5px;
-    padding: 2px 6px;
+    padding: 3px 6px;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 4px;
@@ -155,7 +152,7 @@
     outline: none;
     font-size: 13px;
     // line-height: 25px; // margin: 10px 5px;
-    padding: 2px 6px;
+    padding: 3px 6px;
     margin-left: 2px;
     margin-right: 2px;
     margin-top: 4px;
