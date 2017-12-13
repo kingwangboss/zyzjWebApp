@@ -54,7 +54,7 @@
           </button>
 
           <div class="bottom">
-            <button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}" :style="{width:ojwidth+'px',height:ojwidth+'px',}" @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
+            <button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}"  @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
                     {{item}}
                 </button>
           </div>
@@ -83,12 +83,12 @@
   border-bottom: 1.5px solid #f6f6f6;
 }
 .cell1 {
-    
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex-wrap: nowrap;
   border-bottom: 1.5px solid #f6f6f6;
+  margin:0px 20px;
   .slider {
     margin: 0px 10px 30px 10px;
   }
@@ -115,38 +115,41 @@
 }
 
 .bottom {
-    display: flex;
-    flex-direction: row; // margin-left: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    .bottom-btn {
-        outline: none;
-        font-size: 13px;
-        line-height: 25px; // margin: 10px 5px;
-        margin-left: 4px;
-        margin-right: 4px;
-        margin-top: 4px;
-        padding: 0px;
-        border: 1px solid gray;
-        color: black;
-        background: white;
-        
-    }
+  display: flex;
+  flex-direction: row; // margin-left: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  .bottom-btn {
+    outline: none;
+    font-size: 13px;
+    // line-height: 25px; // margin: 10px 5px;
+    padding: 5px 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 4px;
+    // padding: 0px;
+    min-width: 32px;
+    border: 1px solid gray;
+    color: black;
+    background: white;
+  }
 
-    .bottom-btn-select {
-        // width: 20px;
-        // height: 20px;
-        outline: none;
-        font-size: 13px;
-        line-height: 25px; // margin: 10px 5px;
-        margin-left: 4px;
-        margin-right: 4px;
-        margin-top: 4px;
-        padding: 0px;
-        color: white;
-        border: 1px solid #007AFF;
-        background: #007AFF;
-    }
+  .bottom-btn-select {
+    // width: 20px;
+    // height: 20px;
+    outline: none;
+    font-size: 13px;
+    // line-height: 25px; // margin: 10px 5px;
+    padding: 5px 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 4px;
+    // padding: 0px;
+    min-width: 32px;
+    color: white;
+    border: 1px solid #007aff;
+    background: #007aff;
+  }
 }
 </style>
 
@@ -180,7 +183,7 @@ export default {
       dataDuringIndex: [],
       planName: "",
       selectNameArr: [],
-      selectIndexArr:[],
+      selectIndexArr: [],
       screenWidth: document.body.clientWidth, // 这里是给到了一个默认值 （这个很重要）
       tooltipDir: ["bottom", "bottom"],
       sliderStyle: [
@@ -197,7 +200,7 @@ export default {
       },
       processStyle: {
         backgroundColor: "#999"
-      },
+      }
     };
   },
   created() {
@@ -333,12 +336,12 @@ export default {
       }
       return result;
     },
-    addBtn(index,item) {
+    addBtn(index, item) {
       // console.log(item);
       console.log(this.selectNameArr.indexOf(item));
       if (this.selectNameArr.indexOf(item) >= 0) {
         this.selectNameArr = this.remove(this.selectNameArr, item);
-        this.selectIndexArr = this.remove(this.selectIndexArr,index);
+        this.selectIndexArr = this.remove(this.selectIndexArr, index);
       } else {
         this.selectNameArr.push(item);
         this.selectIndexArr.push(index);
@@ -430,20 +433,16 @@ export default {
         });
     },
 
-    
     change1(value) {
-      
       console.log(value);
       localStorage.input1 = value;
     },
-    
+
     change2(value) {
-      
       console.log(value);
       localStorage.input2 = value;
-       localStorage.vcname = "setParameter";
-    },
-   
+      localStorage.vcname = "setParameter";
+    }
   }
 };
 </script>
