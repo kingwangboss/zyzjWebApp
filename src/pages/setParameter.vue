@@ -9,7 +9,7 @@
                   <span class="txt">
                       定杀个数：
                   </span>
-                  <el-input-number size="small" class="elinput" v-model="input1" @change="change1" :min="1" :max="dataDuringValue.length - 1" label="描述文字"></el-input-number>
+                  <el-input-number size="small" class="elinput" v-model="input1" @change="change1" :min="MinDMSMCount" :max="MaxDMSMCount" label="描述文字"></el-input-number>
               </div>
 
               <div class="cell">
@@ -192,6 +192,8 @@ export default {
       value2: [0, 10],
       value3: [0, 10],
       value4: [-10, 10],
+      MaxDMSMCount:"",
+      MinDMSMCount:"",
       dataDuringValue: [],
       dataDuringIndex: [],
       planName: "",
@@ -344,6 +346,8 @@ export default {
           this.PlanData = res.data.Data;
           this.input1 = this.PlanData.DefaultDSCount;
           this.input2 = this.PlanData.DefaultCycle;
+          this.MaxDMSMCount = this.PlanData.MaxDMSMCount;
+          this.MinDMSMCount = this.PlanData.MinDMSMCount
           var dataDuringArr = [];
           var NowDataDuringArr = [];
           dataDuringArr = this.PlanData.DataDuring.split(",");
