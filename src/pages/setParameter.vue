@@ -44,7 +44,7 @@
 
           </div>
 
-          <div style="dispaly:flex;flex-direction:row;margin-top:15px;margin-left:3px;text-align: left;">
+          <div v-show="CanScreen" style="dispaly:flex;flex-direction:row;margin-top:15px;margin-left:3px;text-align: left;">
               <!-- <img style="height:12px;width:15px;" src="../../static/images/sjsx.png" ></img> -->
               <div style="height:11px;display:inline-block;margin-left:10px">
                 <div style="width:15px;height:2px;background:red;"></div>
@@ -58,7 +58,7 @@
           </div>
 
 
-          <div class="bottom">
+          <div v-show="CanScreen" class="bottom">
             <button :class="{'bottom-btn-select':selectNameArr.indexOf(item) >  -1}"  @click="addBtn(index,item)" type="text" v-for="(item,index) in dataDuringValue" :key="item" class="bottom-btn">
              {{item}}
             </button>
@@ -197,7 +197,7 @@ export default {
       planName: "",
       selectNameArr: [],
       selectIndexArr: [],
-
+      CanScreen:"",
       tempname: [],
       tempindex: [],
       screenWidth: document.body.clientWidth, // 这里是给到了一个默认值 （这个很重要）
@@ -339,6 +339,8 @@ export default {
       this.$http
         .post(localStorage.SiteUrl, data)
         .then(res => {
+          this.CanScreen = res.data.Data.CanScreen;
+          localStorage.CanScreen = this.CanScreen;
           this.PlanData = res.data.Data;
           this.input1 = this.PlanData.DefaultDSCount;
           this.input2 = this.PlanData.DefaultCycle;
@@ -372,6 +374,7 @@ export default {
           if (this.PlanData.NowDataDuring == null) {
           } else {
             var nameArr = [];
+            var indexi = []
             NowDataDuringArr = this.PlanData.NowDataDuring.split(",");
             for (var i = 0; i < NowDataDuringArr.length; i++) {
               for (
@@ -381,11 +384,14 @@ export default {
               ) {
                 if (NowDataDuringArr[i] == this.dataDuringIndex[index]) {
                   nameArr.push(this.dataDuringValue[index]);
+                  indexi.push(this.dataDuringIndex[index])
                 }
               }
             }
             this.selectNameArr = nameArr;
+            this.selectIndexArr = indexi;
             localStorage.selectNameArrs = this.selectNameArr;
+            localStorage.selectIndexArrs = this.selectIndexArr;
             this.tempname = this.dataDuringValue;
             this.tempindex = this.dataDuringIndex;
           }
@@ -414,18 +420,29 @@ export default {
       // console.log(item);
       console.log(this.selectNameArr);
       console.log(this.selectNameArr.indexOf(item));
+      
+      var index1;
+      for (let i = 0; i < this.tempname.length; i++) {
+        const element = this.tempname[i];
+        if(element == item){
+          index1 = this.tempindex[i];
+        }
+      }
+      // alert(index1);
+
       if (this.selectNameArr.indexOf(item) >= 0) {
         this.selectNameArr = this.remove(this.selectNameArr, item);
-        this.selectIndexArr = this.remove(this.selectIndexArr, index);
+        this.selectIndexArr = this.remove(this.selectIndexArr, index1);
       } else {
         this.selectNameArr.push(item);
-        this.selectIndexArr.push(index);
+        this.selectIndexArr.push(index1);
       }
       
       localStorage.selectNameArrs = this.selectNameArr;
       localStorage.selectIndexArrs = this.selectIndexArr;
       console.log(this.selectNameArr.indexOf(item));
       console.log(this.selectNameArr);
+      console.log(this.selectIndexArr);
     },
 
     change1(value) {

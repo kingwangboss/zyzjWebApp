@@ -287,7 +287,7 @@ export default {
     },
     setok() {
       console.log("提交");
-      
+
       console.log(localStorage.selectNameArr.split(",")[localStorage.detailID]);
       console.log(localStorage.input1);
       console.log(localStorage.input2);
@@ -297,6 +297,13 @@ export default {
       console.log(localStorage.value4);
       console.log(localStorage.selectIndexArrs.split(",").sort());
       console.log(localStorage.selectNameArrs.split(",").sort());
+
+      
+      if(localStorage.CanScreen == "true"){
+
+      }else{
+        localStorage.selectIndexArrs = "";
+      }
 
       let tokenCode = localStorage.tokenCode;
       let signStr =
@@ -328,7 +335,7 @@ export default {
         ":" +
         parseInt(localStorage.value3.split(",")[1]) +
         "&DataDuring=" +
-        localStorage.selectNameArrs
+        localStorage.selectIndexArrs
           .split(",")
           .sort()
           .toString() +
@@ -369,31 +376,45 @@ export default {
       );
       data.append(
         "DataDuring",
-        localStorage.selectNameArrs
+        localStorage.selectIndexArrs
           .split(",")
           .sort()
           .toString()
       );
       data.append("Sign", sha256.sha256(signStr).toUpperCase());
 
-      if (localStorage.selectNameArrs.split(",").toString() != "") {
-        this.$http
-          .post(localStorage.SiteUrl, data)
-          .then(res => {
-            // this.planNameData = res.data.Data;
-            if (res.data.Code == "Suc") {
-              this.$router.go(-1);
-            }
-          })
-          .catch(error => {
-            console.log(error);
+      if (localStorage.CanScreen == "true") {
+        if (localStorage.selectIndexArrs.split(",").toString() != "") {
+          this.$http
+            .post(localStorage.SiteUrl, data)
+            .then(res => {
+              // this.planNameData = res.data.Data;
+              if (res.data.Code == "Suc") {
+                this.$router.go(-1);
+              }
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        } else {
+          Toast({
+            message: "数据筛选不能为空。",
+            position: "bottom",
+            duration: 2000
           });
+        }
       } else {
-        Toast({
-          message: "数据筛选不能为空。",
-          position: "bottom",
-          duration: 2000
-        });
+        this.$http
+            .post(localStorage.SiteUrl, data)
+            .then(res => {
+              this.planNameData = res.data.Data;
+              if (res.data.Code == "Suc") {
+                this.$router.go(-1);
+              }
+            })
+            .catch(error => {
+              console.log(error);
+            });
       }
     }
   }
