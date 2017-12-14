@@ -328,7 +328,7 @@ export default {
         ":" +
         parseInt(localStorage.value3.split(",")[1]) +
         "&DataDuring=" +
-        localStorage.selectIndexArrs
+        localStorage.selectNameArrs
           .split(",")
           .sort()
           .toString() +
@@ -369,7 +369,7 @@ export default {
       );
       data.append(
         "DataDuring",
-        localStorage.selectIndexArrs
+        localStorage.selectNameArrs
           .split(",")
           .sort()
           .toString()

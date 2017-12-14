@@ -130,7 +130,7 @@
   flex-direction: row; // margin-left: 10px;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  margin-left:8px;
+  margin-left: 8px;
   .bottom-btn {
     outline: none;
     font-size: 13px;
@@ -295,6 +295,9 @@ export default {
       console.log(this.selectIndexArr);
       this.selectNameArr = this.tempname;
       this.selectIndexArr = this.tempindex;
+
+      localStorage.selectNameArrs = this.selectNameArr;
+      localStorage.selectIndexArrs = this.selectIndexArr;
     },
 
     reversalselect() {
@@ -303,11 +306,15 @@ export default {
         const item = this.tempname[i];
         this.addBtn(index, item);
       }
+      localStorage.selectNameArrs = this.selectNameArr;
+      localStorage.selectIndexArrs = this.selectIndexArr;
     },
 
     allunselect() {
       this.selectNameArr = [];
       this.selectIndexArr = [];
+      localStorage.selectNameArrs = this.selectNameArr;
+      localStorage.selectIndexArrs = this.selectIndexArr;
     },
     getData() {
       console.log(this.planName);
@@ -335,10 +342,13 @@ export default {
           this.input1 = this.PlanData.DefaultDSCount;
           this.input2 = this.PlanData.DefaultCycle;
           var dataDuringArr = [];
+          var NowDataDuringArr = [];
           dataDuringArr = this.PlanData.DataDuring.split(",");
+
           console.log(dataDuringArr);
           this.dataDuringIndex = [];
           this.dataDuringValue = [];
+
           for (var i = 0; i < dataDuringArr.length; i++) {
             this.dataDuringIndex.push(dataDuringArr[i].split(":")[0]);
             this.dataDuringValue.push(dataDuringArr[i].split(":")[1]);
@@ -356,6 +366,27 @@ export default {
           this.tempindex = this.dataDuringIndex;
           // this.dataDuringValue = dataDuringValue;
           // this.dataDuringIndex = dataDuringIndex;
+
+          if (this.PlanData.NowDataDuring == null) {
+          } else {
+            var nameArr = [];
+            NowDataDuringArr = this.PlanData.NowDataDuring.split(",");
+            for (var i = 0; i < NowDataDuringArr.length; i++) {
+              for (
+                let index = 0;
+                index < this.dataDuringIndex.length;
+                index++
+              ) {
+                if (NowDataDuringArr[i] == this.dataDuringIndex[index]) {
+                  nameArr.push(this.dataDuringValue[index]);
+                }
+              }
+            }
+            this.selectNameArr = nameArr;
+            this.selectIndexArr = this.NowDataDuringArr;
+            this.tempname = this.dataDuringValue;
+            this.tempindex = this.dataDuringIndex;
+          }
         })
         .catch(error => {
           console.log(error);
@@ -391,87 +422,6 @@ export default {
       console.log(this.selectNameArr);
       localStorage.selectNameArrs = this.selectNameArr;
       localStorage.selectIndexArrs = this.selectIndexArr;
-    },
-
-    ok() {
-      console.log(this.input1);
-      console.log(this.input2);
-      console.log(this.input31);
-      console.log(this.input32);
-      console.log(this.input41);
-      console.log(this.input42);
-      console.log(this.input51);
-      console.log(this.input52);
-      console.log(this.input61);
-      console.log(this.input62);
-      console.log(this.selectNameArr);
-
-      let tokenCode = localStorage.tokenCode;
-      let signStr =
-        "Action=OptimizePlan" +
-        "&SID=" +
-        localStorage.sid +
-        "&Token=" +
-        localStorage.Token +
-        "&PlanName=" +
-        this.planName +
-        "&PlanCycle=" +
-        this.input2 +
-        "&DMSMCount=" +
-        this.input1 +
-        "&Accuracy=" +
-        parseFloat(this.input31) +
-        ":" +
-        parseFloat(this.input32) +
-        "&CurrentLianDui=" +
-        parseInt(this.input61) +
-        ":" +
-        parseInt(this.input62) +
-        "&MaxLianDui=" +
-        parseInt(this.input41) +
-        ":" +
-        parseInt(this.input42) +
-        "&MaxLianCuo=" +
-        parseInt(this.input51) +
-        ":" +
-        parseInt(this.input52) +
-        "&DataDuring=" +
-        this.selectNameArr.toString() +
-        tokenCode;
-      let data = new FormData();
-      data.append("Action", "OptimizePlan");
-      data.append("SID", localStorage.sid);
-      data.append("Token", localStorage.Token);
-      data.append("PlanName", this.planName);
-      data.append("PlanCycle", this.input2);
-      data.append("DMSMCount", this.input1);
-      data.append(
-        "Accuracy",
-        parseFloat(this.input31) + ":" + parseFloat(this.input32)
-      );
-      data.append(
-        "CurrentLianDui",
-        parseInt(this.input61) + ":" + parseInt(this.input62)
-      );
-      data.append(
-        "MaxLianDui",
-        parseInt(this.input41) + ":" + parseInt(this.input42)
-      );
-      data.append(
-        "MaxLianCuo",
-        parseInt(this.input51) + ":" + parseInt(this.input52)
-      );
-      data.append("DataDuring", this.selectNameArr.toString());
-      data.append("Sign", sha256.sha256(signStr).toUpperCase());
-      this.$http
-        .post(localStorage.SiteUrl, data)
-        .then(res => {
-          // this.planNameData = res.data.Data;
-          this.$router.go(-1);
-        })
-        .catch(error => {
-          console.log(error);
-        });
     },
 
     change1(value) {
