@@ -44,14 +44,14 @@
 
           </div>
 
-          <div style="dispaly:flex;flex-direction:row;width:280px;margin-top:15px;margin-left:3px;">
+          <div style="dispaly:flex;flex-direction:row;margin-top:15px;margin-left:3px;text-align: left;">
               <!-- <img style="height:12px;width:15px;" src="../../static/images/sjsx.png" ></img> -->
-              <div style="height:12px;display:inline-block;">
+              <div style="height:11px;display:inline-block;margin-left:10px">
                 <div style="width:15px;height:2px;background:red;"></div>
                 <div style="width:15px;height:2px;background:red;margin-top:3px;"></div>
                 <div style="width:15px;height:2px;background:red;margin-top:3px;"></div>
               </div>
-              <span style="font-size:15px;font-weight:900;color:rgb(219, 60, 62);margin-right:20px;">数据筛选</span>
+              <span style="font-size:15px;font-weight:900;color:rgb(219, 60, 62);margin-right:20px">数据筛选</span>
               <button class="sbtn" @click="allselect">全选</button>
               <button class="sbtn" @click="reversalselect">反选</button>
               <button class="sbtn" @click="allunselect">清除</button>
@@ -131,6 +131,7 @@
   flex-wrap: wrap;
   margin-bottom: 40px;
   margin-left: 8px;
+  margin-top: 5px;
   .bottom-btn {
     outline: none;
     font-size: 13px;
@@ -345,6 +346,7 @@ export default {
           var NowDataDuringArr = [];
           dataDuringArr = this.PlanData.DataDuring.split(",");
 
+          console.log(11111)
           console.log(dataDuringArr);
           this.dataDuringIndex = [];
           this.dataDuringValue = [];
@@ -383,7 +385,7 @@ export default {
               }
             }
             this.selectNameArr = nameArr;
-            this.selectIndexArr = this.NowDataDuringArr;
+            localStorage.selectNameArrs = this.selectNameArr;
             this.tempname = this.dataDuringValue;
             this.tempindex = this.dataDuringIndex;
           }
@@ -410,6 +412,7 @@ export default {
     },
     addBtn(index, item) {
       // console.log(item);
+      console.log(this.selectNameArr);
       console.log(this.selectNameArr.indexOf(item));
       if (this.selectNameArr.indexOf(item) >= 0) {
         this.selectNameArr = this.remove(this.selectNameArr, item);
@@ -418,10 +421,11 @@ export default {
         this.selectNameArr.push(item);
         this.selectIndexArr.push(index);
       }
-      console.log(this.selectNameArr.indexOf(item));
-      console.log(this.selectNameArr);
+      
       localStorage.selectNameArrs = this.selectNameArr;
       localStorage.selectIndexArrs = this.selectIndexArr;
+      console.log(this.selectNameArr.indexOf(item));
+      console.log(this.selectNameArr);
     },
 
     change1(value) {

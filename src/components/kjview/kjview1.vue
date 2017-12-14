@@ -235,8 +235,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    height: 25px;
-    // margin-bottom: 10px;
+    height: 23px;
     margin-right: 10px;
     .label1 {
       padding-top: 1px;

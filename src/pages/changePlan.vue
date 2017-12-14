@@ -5,7 +5,7 @@
         <div class="maincontainer">
 
             <div class="head">
-                <span class="lab" style="font-size:12px; margin-top:20px;padding:5px 10px;height:13px;">已选计划</span>
+                <span class="lab" style="font-size:12px; margin-top:20px;padding:0px 10px;">已选计划</span>
                 <img src="../../static/images/bin.png" style="margin:20px 10px 10px 20px;width:16px;height:19px" alt="" @click="cancel">
             </div>
 
@@ -18,7 +18,7 @@
             <div class="middle"></div>
 
             <div class="head">
-                <span class="lab" style="font-size:12px; margin-top:10px;padding:5px 10px;">所有计划</span>
+                <span class="lab" style="font-size:12px; margin-top:10px;padding:0px 10px;">所有计划</span>
             </div>
 
             <div class="planItemCell" v-for="item in planNameData" :key="item.toString()">
@@ -48,6 +48,8 @@
         background: #CD0C16; 
         // padding: 8px;
         color: white;
+        height: 22px;
+        line-height: 24px;
     }
 }
 

@@ -5,7 +5,7 @@
         <div class="maincontainer">
 
             <div class="head">
-                <span class="lab" style="font-size:12px; margin-top:20px;padding:5px 10px;height:13px;">选择指标</span>
+                <span class="lab" style="font-size:12px; margin-top:20px;padding:0px 10px;">选择指标</span>
             </div>
 
 
@@ -34,6 +34,8 @@
         background: #CD0C16; 
         padding: 8px;
         color: white;
+        height: 22px;
+        line-height: 24px;
     }
 }
 
