@@ -228,7 +228,7 @@ export default {
     margin: 0px 5px 20px 5px;
   }
   .top-middle1 {
-    margin: -15px 5px 20px 5px;
+    margin: -15px 5px 30px 5px;
   }
 
   .top-bottom {
@@ -236,12 +236,8 @@ export default {
     flex-direction: row;
     justify-content: flex-end;
     height: 25px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     margin-right: 10px;
-    // display: block;
-    // margin-right: 0px;
-    // text-align: right;
-
     .label1 {
       padding-top: 1px;
       color: black;

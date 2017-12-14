@@ -8,7 +8,7 @@
             <kjview1></kjview1>
             
             <el-tab-pane :label="item.PlanName" :name="index.toString()" :index="index.toString()" v-for="(item,index) in listData" :key="index">
-                <div class="bottom-cell" style="margin-right:110px;margin-top:-65px;">
+                <div class="bottom-cell" style="margin-right:110px;margin-top:-45px;">
                     <div class="cell-top" style="height:20px;">
                         <span style="margin-left:10px;margin-top:5px;font-size:13px;color:#878787">{{item.PlanDetails[0].split('|')[0]}}</span>
                         <span style="margin-left:5px;margin-top:5px;font-size:13px; color:#CD0C16;">预</span>
@@ -203,7 +203,7 @@
   word-wrap: break-word;
   justify-content: flex-start;
   color: #878787;
-  margin-top: 10px;
+  // margin-top: 10px;
 }
 
 .cell-bottom {
@@ -221,7 +221,7 @@
     height: 18px;
     color: #007aff;
     font-size: 12px;
-    line-height: 19px;
+    line-height: 18px;
   }
 }
 .cell-bottom1 {
