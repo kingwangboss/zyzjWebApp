@@ -7,7 +7,7 @@
         <el-tabs v-model="activeName" @tab-click="handleClick" style="color:black;">
             <kjview1></kjview1>
             
-            <el-tab-pane :label="item.PlanName" :name="index.toString()" :index="index.toString()" v-for="(item,index) in listData" :key="index" style="min-width:50%">
+            <el-tab-pane :label="item.PlanName" :name="index.toString()" :index="index.toString()" v-for="(item,index) in listData" :key="index">
                 <div class="bottom-cell" style="margin-right:110px;margin-top:-40px;">
                     <div class="cell-top" style="height:28px;">
                         <span style="margin-left:10px;margin-top:5px;font-size:13px;color:#878787">{{item.PlanDetails[0].split('|')[0]}}</span>
@@ -123,10 +123,10 @@
 }
 
 .line {
-    background: #fafafa;
-    height: 8px;
-    border-bottom: 1px solid #efefef;
-  }
+  background: #fafafa;
+  height: 8px;
+  border-bottom: 1px solid #efefef;
+}
 
 .detail-top-content {
   height: 15px;
@@ -238,6 +238,7 @@ import mHeader from "../components/hearder/Hearder";
 import kjview1 from "../components/kjview/kjview1";
 import sha256 from "../util/sha256";
 import "element-ui/lib/theme-default/index.css";
+import listenHuadong from "../util/listenHuadong";
 export default {
   data() {
     return {
@@ -246,7 +247,8 @@ export default {
         showBack: true,
         right: true
       },
-      activeName: localStorage.detailID,
+      activeName: "0",
+      maxactiveName:"",
       listData: "",
       zjnum: [],
     };
@@ -279,11 +281,13 @@ export default {
         .post(localStorage.SiteUrl, data)
         .then(res => {
           this.listData = res.data.Data;
+          this.maxactiveName = this.listData.length.toString();
           for (var i = 0; i < this.listData.length; i++) {
             this.listData[i].PlanDetails = this.listData[
               i
             ].PlanDetails.reverse();
           }
+          this.activeName =localStorage.detailID;
         })
         .catch(error => {
           console.log(error);
@@ -301,7 +305,10 @@ export default {
   mounted() {
     // 调用请求数据的方法
     this.getData();
-     localStorage.vcname = "planDetail";
+    localStorage.vcname = "planDetail";
+    
+    // this.listenHuadong();
+    listenHuadong.listenHuadong(this);
   },
   computed: {},
   components: {
