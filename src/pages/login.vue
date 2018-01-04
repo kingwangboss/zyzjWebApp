@@ -300,7 +300,7 @@ export default {
             data.append('Sign', sha256.sha256(signStr).toUpperCase());
 
             localStorage.pwd = sha256.sha256(this.user.pwd).toUpperCase();
-            this.$http.post('https://idx.camew.com', data).then(res => {
+            this.$http.post(this.global.url, data).then(res => {
                 // console.log(res);
                 // this.setCookie('UID', res.data.Data.UID, 1000 * 60 * 60 * 24 * 15)
                 if (res) {

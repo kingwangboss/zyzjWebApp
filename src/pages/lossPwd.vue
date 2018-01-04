@@ -176,7 +176,7 @@ export default {
       data.append("SID", this.user.sid);
 
       this.$http
-        .post("https://idx.camew.com", data)
+        .post(this.global.url, data)
         .then(res => {
           if (res) {
             console.log(res.data.Data);
@@ -190,7 +190,7 @@ export default {
             data.append("VCode", res.data.Data);
 
             this.$http
-              .post("https://idx.camew.com", data)
+              .post(this.global.url, data)
               .then(res1 => {
                 if (res1) {
                   console.log(res1);
@@ -222,7 +222,7 @@ export default {
         data.append("Pwd", pwd);
         data.append("AppType", "4");
         this.$http
-          .post("https://idx.camew.com", data)
+          .post(this.global.url, data)
           .then(res => {
             console.log(res);
             if (res.data.Code == "Suc") {

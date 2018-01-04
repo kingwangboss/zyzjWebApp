@@ -104,7 +104,7 @@ export default {
         getData() {
             let data = new FormData();
             data.append('Action', 'GetServiceList');
-            this.$http.post('https://idx.camew.com', data).then(res => {
+            this.$http.post(this.global.url, data).then(res => {
                 console.log('getservicelist');
                 this.dataList = res.data.Data;
             }).catch(error => {

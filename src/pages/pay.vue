@@ -165,7 +165,7 @@ export default {
             data.append('PID', localStorage.pid);
             data.append('Sign', sha256.sha256(signStr).toUpperCase());
 
-            this.$http.post('https://idx.camew.com', data).then(res => {
+            this.$http.post(this.global.url, data).then(res => {
                 console.log("------------"+res.data.Data)
                 this.listData = res.data.Data;
                 var arr =[];
