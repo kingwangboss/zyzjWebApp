@@ -142,7 +142,7 @@ export default {
       let data = new FormData();
       data.append("Action", "GetVCode");
       data.append("SID", localStorage.sid);
-      this.$http.post("https://idx.camew.com", data).then(res => {
+      this.$http.post(this.global.url, data).then(res => {
         console.log(res);
         this.mobile.vcode = res.data.Data;
 
@@ -153,7 +153,7 @@ export default {
         data1.append("AppType", "4");
         data1.append("VCode", that.mobile.vcode);
         that.$http
-          .post("https://idx.camew.com", data1)
+          .post(this.global.url, data1)
           .then(res => {
             console.log(res);
           })
@@ -178,7 +178,7 @@ export default {
       data.append("AppCode", "ZYZJ");
       localStorage.pwd = sha256.sha256(this.mobile.newpwd2).toUpperCase();
       this.$http
-        .post("https://idx.camew.com", data)
+        .post(this.global.url, data)
         .then(res => {
           if (res) {
             localStorage.isLogin = true;

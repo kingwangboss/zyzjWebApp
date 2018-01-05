@@ -153,14 +153,15 @@ export default {
 
   methods: {
     getData() {
+
       let data = new FormData();
       data.append("Action", "GetImgVCode");
       this.$http
-        .post("https://idx.camew.com", data)
+        .post(this.global.url, data)
         .then(res => {
           console.log(res);
           this.user.vcode = res.data.Data.token;
-          this.user.imgurl = "https://idx.camew.com" + res.data.Data.imgpath;
+          this.user.imgurl = this.global.url + res.data.Data.imgpath;
         })
         .catch(error => {
           console.log(error);
@@ -183,7 +184,7 @@ export default {
 
     submit: function(event) {
       this.getData();
-      this.user.yanzhengma = null;
+
       if (this.user.newpwd1 === this.user.newpwd2) {
         var formData = JSON.stringify(this.user); // 这里才是你的表单数据
         console.log(formData);
@@ -202,7 +203,7 @@ export default {
         data1.append("AppCode", "ZYZJ");
         localStorage.pwd = sha256.sha256(that.user.newpwd2).toUpperCase();
         that.$http
-          .post("https://idx.camew.com", data1)
+          .post(this.global.url, data1)
           .then(res => {
             console.log(res);
             if (res) {

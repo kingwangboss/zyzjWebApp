@@ -1,6 +1,6 @@
 <script type="text/javascript">
 
-  const url = "http://idx.camew.com";
+  const url = "https://idx.camew.com";
 
   export default{
       url
