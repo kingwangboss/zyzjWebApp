@@ -131,8 +131,27 @@ axios.interceptors.response.use(
       }).then(action => {
 
       })
-    }else if (response.data.MsgType === 6 && response.data.Msg != null) {
-      window.location.href=response.data.Msg; 
+    } else if (response.data.MsgType === 6 && response.data.Msg != null) {
+      window.location.href = response.data.Msg;
+    } else if (response.data.MsgType === 7 && response.data.Msg != null) {
+      MessageBox({
+        title: '提示',
+        message: response.data.Msg,
+        showCancelButton: true,
+        confirmButtonText: '去分享',
+        cancelButtonText: '知道了',
+        callback: (action, instance, done) => {
+          if (action === 'confirm') {
+            router.push({
+              path: '/planShare'
+            })
+          } else {
+
+          }
+        },
+      }).then(action => {
+
+      })
     } else if (response.data.Msg != null && response.data.Msg != "") {
       Toast({
         message: response.data.Msg,
@@ -146,7 +165,7 @@ axios.interceptors.response.use(
       router.push({
         path: "/login"
       })
-    }else{
+    } else {
       return response
     }
   }, error => {
