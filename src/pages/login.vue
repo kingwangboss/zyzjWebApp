@@ -294,8 +294,8 @@ export default {
             data.append('Action', 'Login');
             data.append('SID', this.user.sid);
             data.append('Account', this.user.name);
-            data.append('AppType', '4');
-            data.append('AppCode', 'ZYZJ');
+            data.append('AppType', this.global.AppType);
+            data.append('AppCode', this.global.AppCode);
             data.append('AppVersion', '1.0');
             data.append('Sign', sha256.sha256(signStr).toUpperCase());
 

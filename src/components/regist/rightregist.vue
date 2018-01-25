@@ -199,8 +199,8 @@ export default {
         data1.append("Pwd", sha256.sha256(that.user.newpwd2).toUpperCase());
         data1.append("ImgCode", that.user.vcode + that.user.yanzhengma);
         data1.append("SafeMobile", that.user.num);
-        data1.append("AppType", "4");
-        data1.append("AppCode", "ZYZJ");
+        data1.append("AppType", this.global.AppType);
+        data1.append("AppCode", this.global.AppCode);
         localStorage.pwd = sha256.sha256(that.user.newpwd2).toUpperCase();
         that.$http
           .post(this.global.url, data1)
