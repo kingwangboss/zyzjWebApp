@@ -5,6 +5,8 @@
   const AppType = '4';
 
   export default{
-      url
+      url,
+      AppType,
+      AppCode
   }
 </script>
