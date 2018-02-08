@@ -9,10 +9,10 @@
             </div>
 
             <div class="KJnum">
-                <div v-show="isLan(index1)" v-for="(item1,index1) in item.Data.split(',')" :key="item1" :style="{width:ojwidth+'px',height:ojwidth+'px'}">
+                <div v-show="isLan(index1)" v-for="(item1,index1) in item.Data.split(',')" :key="index1" :style="{width:ojwidth+'px',height:ojwidth+'px'}">
                     <div class="num">{{item1}}</div>
                 </div>
-                <div v-show="!isLan(index1)" v-for="(item1,index1) in item.Data.split(',')" :key="item1" :style="{width:ojwidth+'px',height:ojwidth+'px'}">
+                <div v-show="!isLan(index1)" v-for="(item1,index1) in item.Data.split(',')" :key="index1" :style="{width:ojwidth+'px',height:ojwidth+'px'}">
                     <div class="num1">{{item1}}</div>
                 </div>
             </div>
@@ -25,11 +25,7 @@
 
 <script>
 export default {
-    props: {
-        data: {
-            type: Array,
-        }
-    },
+    props: ["data"],
 
     data() {
         return {

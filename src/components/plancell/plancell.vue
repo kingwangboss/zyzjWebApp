@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bottomcontainer" v-for="(cell,index) in data.Data" :key="cell.PlanArr" @click="pushDetail($event,index)" >
+        <div class="bottomcontainer" v-for="(cell,index) in PlanData" :key="index" @click="pushDetail($event,index)" >
 
         
             <div v-if="index%2 === 0" style="background:#fff;">
@@ -191,14 +191,17 @@
 export default {
   props: {
     data: {
-      type: Object
+      type: Array
     }
   },
 
   created() {
     this.PlanData = this.data;
-    console.log("1231231231");
-    console.log(this.PlanData);
+  },
+  watch: {
+    data: function(now, old) {
+      this.PlanData = this.data;
+    }
   },
   data() {
     return {
@@ -214,8 +217,7 @@ export default {
         if (this.PlanData.Data[0].GuessResultList.split(",").length >= 10) {
           for (var i = 0; i < this.PlanData.Data.length; i++) {
             temp.push(
-              this.PlanData.Data[i].GuessResultList
-                .split(",")
+              this.PlanData.Data[i].GuessResultList.split(",")
                 .reverse()
                 .slice(0, 10)
             );
@@ -259,7 +261,7 @@ export default {
       var temp = [];
       temp = str.split(",").reverse();
       return temp;
-    },
+    }
   }
 };
 </script>

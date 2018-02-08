@@ -1,12 +1,12 @@
 <template>
     <div class="content" v-if="count">
-        <div v-show="isLan(index)" class="kjnum" :style="{width:ojwidth+'px',height:ojwidth+'px',borderRadius:ojwidth+'px',lineHeight:ojwidth + 2 +'px'}" :key="item" v-for="(item,index) in numArr">{{item}}</div>
-        <div v-show="!isLan(index)" class="kjnum1" :style="{width:ojwidth+'px',height:ojwidth+'px',borderRadius:ojwidth+'px',lineHeight:ojwidth + 2 +'px'}" :key="item" v-for="(item,index) in numArr">{{item}}</div>
+        <div v-show="isLan(index)" class="kjnum" :style="{width:ojwidth+'px',height:ojwidth+'px',borderRadius:ojwidth+'px',lineHeight:ojwidth + 2 +'px'}" :key="index" v-for="(item,index) in numArr">{{item}}</div>
+        <div v-show="!isLan(index)" class="kjnum1" :style="{width:ojwidth+'px',height:ojwidth+'px',borderRadius:ojwidth+'px',lineHeight:ojwidth + 2 +'px'}" :key="index" v-for="(item,index) in numArr">{{item}}</div>
     </div>
 
     <div class="content" v-else>
-        <div v-show="isLan(index)" class="kjnum" :style="{width:ojwidth1+'px',height:ojwidth1+'px',borderRadius:ojwidth1+'px',lineHeight:ojwidth1 + 2 +'px'}" :key="item" v-for="(item,index) in numArr">{{item}}</div>
-        <div v-show="!isLan(index)" class="kjnum1" :style="{width:ojwidth1+'px',height:ojwidth1+'px',borderRadius:ojwidth1+'px',lineHeight:ojwidth1 + 2 +'px'}" :key="item" v-for="(item,index) in numArr">{{item}}</div>
+        <div v-show="isLan(index)" class="kjnum" :style="{width:ojwidth1+'px',height:ojwidth1+'px',borderRadius:ojwidth1+'px',lineHeight:ojwidth1 + 2 +'px'}" :key="index" v-for="(item,index) in numArr">{{item}}</div>
+        <div v-show="!isLan(index)" class="kjnum1" :style="{width:ojwidth1+'px',height:ojwidth1+'px',borderRadius:ojwidth1+'px',lineHeight:ojwidth1 + 2 +'px'}" :key="index" v-for="(item,index) in numArr">{{item}}</div>
     </div>
 </template>
 
@@ -82,6 +82,9 @@ export default {
     };
   },
   watch: {
+    data: function(now, old) {
+      this.numArr = this.data;
+    },
     screenWidth(val) {
       if (!this.timer) {
         this.screenWidth = val;

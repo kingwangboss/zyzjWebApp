@@ -45,91 +45,31 @@ export default {
   },
 
   created() {
-
+    this.KJData = this.kjdata;
+    this.nextTime = this.Time;
   },
+  watch: {
+    Time: function(now, old) {
+      this.nextTime = this.Time;
+    },
+    kjdata: function(now, old) {
+      this.KJData = this.kjdata;
+    }
+  },
+  props: ["kjdata", "Time"],
   data() {
     return {
-      KJData: "",
-      nextTime: "",
+      KJData: Object,
+      nextTime: Number
     }
   },
 
   methods: {
-    getData1() {
-      let tokenCode = localStorage.tokenCode;
-      let signStr = 'Action=Clock' + '&SID=' + localStorage.sid + '&Token=' + localStorage.Token + '&CurrentLottery=0' + tokenCode;
-      let data = new FormData();
-      data.append('Action', 'Clock');
-      data.append('SID', localStorage.sid);
-      data.append('Token', localStorage.Token);
-      data.append('CurrentLottery', '0');
-      data.append('Sign', sha256.sha256(signStr).toUpperCase());
-      this.$http.post(localStorage.SiteUrl, data).then(res => {
-        if (res.data.Data.NewLottery.NextPeriodTime > 0) {
-          clearInterval(run);
-          this.$router.push({
-            path: '/routerPush'
-          });
-        } else {
-
-        }
-      }).catch(error => {
-        console.log(error);
-      })
-    },
-    getData() {
-      clearInterval(run);
-      let tokenCode = localStorage.tokenCode;
-      let signStr = 'Action=Clock' + '&SID=' + localStorage.sid + '&Token=' + localStorage.Token + '&CurrentLottery=0' + tokenCode;
-      let data = new FormData();
-      data.append('Action', 'Clock');
-      data.append('SID', localStorage.sid);
-      data.append('Token', localStorage.Token);
-      data.append('CurrentLottery', '0');
-      data.append('Sign', sha256.sha256(signStr).toUpperCase());
-
-      //getClock握手
-      this.$http.post(localStorage.SiteUrl, data).then(res => {
-        this.KJData = res.data.Data
-        this.nextTime = res.data.Data.NewLottery.NextPeriodTime;
-        // this.nextTime = 5;
-        // console.log("mounted" + this.time);
-
-        //设置定时器，每1秒刷新一次
-        var self = this;
-        tiemInterval = setInterval(getTotelNumber, 1000)
-        function getTotelNumber() {
-
-          if (self.nextTime > 0) {
-            self.nextTime--;
-
-          } else {
-            clearInterval(tiemInterval)
-            var i = 0;
-            run = setInterval(function() {
-              // self.$router.push({
-              //     path: '/routerPush'
-              // });
-              if (localStorage.isLogin == 'true') {
-                self.getData1();
-              } else {
-                clearInterval(tiemInterval)
-              }
-            }, 5000);
-          }
-          // console.log(self.nextTime);
-        }
-
-      }).catch(error => {
-        console.log(error);
-      })
-    }
+    
   },
-  beforeDestroy() {
-    clearInterval(tiemInterval)
-  },
+  
   mounted() {
-    this.getData();
+    // this.getData();
 
   },
   computed: {

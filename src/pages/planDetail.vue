@@ -5,7 +5,7 @@
 
 
         <el-tabs id="content" v-model="activeName" @tab-click="handleClick" style="color:black;">
-            <kjview1></kjview1>
+            <kjview1 :kjdata="kjData" :Time="nextTime" v-if="flag"></kjview1>
             
             <el-tab-pane :label="item.PlanName" :name="index.toString()" :index="index.toString()" v-for="(item,index) in listData" :key="index">
                 <div class="bottom-cell" style="margin-right:110px;margin-top:-40px;">
@@ -45,7 +45,7 @@
 
                     <!-- id控制 计划切换 -->
                     <div class="detail-top" style="width:100%;border-top:0px;padding:0;">
-                      <div  v-show="item.RightTimes" class="detail-top-content" v-for="(item1,index1) in item.RightTimes ? item.RightTimes.split(',') : 0" :key="item1" >
+                      <div  v-show="item.RightTimes" class="detail-top-content" v-for="(item1,index1) in item.RightTimes ? item.RightTimes.split(',') : 0" :key="index1" >
                         <div class="psview">第{{index1+1}}期中:</div>
                         <div class="psvalue">{{item1}}</div>
                         <div class="psview">次</div>
@@ -239,6 +239,8 @@ import kjview1 from "../components/kjview/kjview1";
 import sha256 from "../util/sha256";
 import "element-ui/lib/theme-default/index.css";
 import listenHuadong from "../util/listenHuadong";
+var tiemInterval;
+var run;
 export default {
   data() {
     return {
@@ -247,10 +249,13 @@ export default {
         showBack: true,
         right: true
       },
+      kjData: "",
+      nextTime: "",
+      flag: false,
       activeName: "0",
-      maxactiveName:"",
+      maxactiveName: "",
       listData: "",
-      zjnum: [],
+      zjnum: []
     };
   },
   created() {},
@@ -260,7 +265,88 @@ export default {
       console.log(tab.index);
       localStorage.detailID = tab.index;
     },
+    getData1() {
+      let tokenCode = localStorage.tokenCode;
+      let signStr =
+        "Action=Clock" +
+        "&SID=" +
+        localStorage.sid +
+        "&Token=" +
+        localStorage.Token +
+        "&CurrentLottery=0" +
+        tokenCode;
+      let data = new FormData();
+      data.append("Action", "Clock");
+      data.append("SID", localStorage.sid);
+      data.append("Token", localStorage.Token);
+      data.append("CurrentLottery", "0");
+      data.append("Sign", sha256.sha256(signStr).toUpperCase());
+      this.$http
+        .post(localStorage.SiteUrl, data)
+        .then(res => {
+          if (res.data.Data.NewLottery.NextPeriodTime > 0) {
+            clearInterval(run);
+            this.getkjData();
+            this.getData();
+            // this.getcelldata();
+            console.log("yes111");
+          } else {
+            console.log("no111");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    getkjData() {
+      let tokenCode = localStorage.tokenCode;
+      let signStr =
+        "Action=Clock" +
+        "&SID=" +
+        localStorage.sid +
+        "&Token=" +
+        localStorage.Token +
+        "&CurrentLottery=0" +
+        tokenCode;
+      let data = new FormData();
+      data.append("Action", "Clock");
+      data.append("SID", localStorage.sid);
+      data.append("Token", localStorage.Token);
+      data.append("CurrentLottery", "0");
+      data.append("Sign", sha256.sha256(signStr).toUpperCase());
+      //getClock握手
+      this.$http
+        .post(localStorage.SiteUrl, data)
+        .then(res => {
+          this.kjData = res.data.Data;
+          this.nextTime = res.data.Data.NewLottery.NextPeriodTime;
+          this.flag = true;
 
+          //设置定时器，每1秒刷新一次
+          var self = this;
+          tiemInterval = setInterval(getTotelNumber, 1000);
+
+          function getTotelNumber() {
+            if (self.nextTime > 0) {
+              self.nextTime--;
+              // console.log(self.nextTime);
+            } else {
+              clearInterval(tiemInterval);
+              var i = 0;
+              run = setInterval(function() {
+                if (localStorage.isLogin == "true") {
+                  self.getData1();
+                } else {
+                  clearInterval(tiemInterval);
+                }
+              }, 5000);
+            }
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
     getData() {
       // 请求数据
       let tokenCode = localStorage.tokenCode;
@@ -287,7 +373,7 @@ export default {
               i
             ].PlanDetails.reverse();
           }
-          this.activeName =localStorage.detailID;
+          this.activeName = localStorage.detailID;
         })
         .catch(error => {
           console.log(error);
@@ -303,12 +389,18 @@ export default {
     }
   },
   mounted() {
+    this.getkjData();
     // 调用请求数据的方法
     this.getData();
     localStorage.vcname = "planDetail";
-    
+
     // this.listenHuadong();
     listenHuadong.listenHuadong(this);
+  },
+
+  beforeDestroy() {
+    console.log("beforeDestroy");
+    clearInterval(tiemInterval);
   },
   computed: {},
   components: {
