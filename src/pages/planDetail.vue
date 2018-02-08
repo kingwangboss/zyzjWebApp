@@ -4,7 +4,7 @@
         <m-header :title="title"></m-header>
 
 
-        <el-tabs v-model="activeName" @tab-click="handleClick" style="color:black;">
+        <el-tabs id="content" v-model="activeName" @tab-click="handleClick" style="color:black;">
             <kjview1></kjview1>
             
             <el-tab-pane :label="item.PlanName" :name="index.toString()" :index="index.toString()" v-for="(item,index) in listData" :key="index">
