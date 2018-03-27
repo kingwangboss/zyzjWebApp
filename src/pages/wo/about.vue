@@ -94,7 +94,7 @@ export default {
     },
     methods: {
         urlClick() {
-            window.location.href = 'http://ycw.cpnet.com';
+            window.location.href = 'http://www.camew.com/';
         }
     }
 }
